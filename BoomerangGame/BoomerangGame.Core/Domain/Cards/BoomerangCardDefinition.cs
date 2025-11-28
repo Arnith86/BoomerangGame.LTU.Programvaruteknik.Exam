@@ -1,0 +1,34 @@
+﻿
+using System;
+
+namespace BoomerangGame.Core.Domain.Cards;
+
+/// <summary>
+/// Represents a single card in the game with a letter, region, number, and a set of symbols.
+/// </summary>
+public sealed class BoomerangCardDefinition
+{
+	public string Name { get; }
+	public string Region { get; }
+	public string Letter { get; }
+	public int Number { get; }
+	public SymbolSet Symbols { get; } 
+
+	public BoomerangCardDefinition(string name, string region, string letter, int number, SymbolSet symbols)
+	{
+		if (string.IsNullOrWhiteSpace(name))
+			throw new ArgumentException("Name cannot be null or empty.", nameof(name));
+		
+		if (string.IsNullOrWhiteSpace(region))
+			throw new ArgumentException("Region cannot be null or empty.", nameof(region));
+
+		if (number < 0)
+			throw new ArgumentOutOfRangeException(nameof(number), "Number cannot be negative.");
+
+		Name = name.Trim();
+		Region = region.Trim();
+		Letter = letter ?? throw new ArgumentNullException("Letter cannot be null or empty.", nameof(letter)); 
+		Number = number;
+		Symbols = symbols ?? throw new ArgumentNullException("Region cannot be null or empty.", nameof(region));
+	}
+}
