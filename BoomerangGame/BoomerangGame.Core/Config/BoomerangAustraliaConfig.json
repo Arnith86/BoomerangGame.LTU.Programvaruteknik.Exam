@@ -3,7 +3,7 @@
         "name": "Boomerang Australia",
         "version": "1.0"
     },
-    "tiebreaker": "HighestThrowCatchTotal",
+    "tieBreakerIdentifier": "HighestThrowCatchTotal",
     "deck": [
         {
             "name": "The Bungle Bungles",
@@ -258,7 +258,7 @@
             "activity": "Swimming"
         }
     ],
-    "touristSites": [
+    "regions": [
         "Western Australia",
         "Northern Territory",
         "Queensland",
@@ -269,6 +269,7 @@
     ],
     "scoringStrategies": [
         "ThrowCatchAbsolute",
+        "RegionBonus3points",
         "Collection",
         "Animal",
         "Activity"
