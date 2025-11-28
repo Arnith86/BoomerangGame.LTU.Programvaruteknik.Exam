@@ -1,4 +1,4 @@
-﻿
+﻿using BoomerangGame.Core.Domain.Cards.Symbols;
 using System;
 
 namespace BoomerangGame.Core.Domain.Cards;
@@ -12,8 +12,16 @@ public sealed class BoomerangCardDefinition
 	public string Region { get; }
 	public string Letter { get; }
 	public int Number { get; }
-	public SymbolSet Symbols { get; } 
+	public SymbolSet Symbols { get; }
 
+	/// <summary>
+	/// Constructs a new CardDefinition instance.
+	/// </summary>
+	/// <param name="name">The name of tourist site (non-null, trimmed).</param>
+	/// <param name="letter">The letter identifier of the card (e.g., "A", "B").</param>
+	/// <param name="region">The region code (non-null, trimmed).</param>
+	/// <param name="num">The numeric value of the card (non-negative).</param>
+	/// <param name="symbols">The set of symbols associated with the card (non-null).</param>
 	public BoomerangCardDefinition(string name, string region, string letter, int number, SymbolSet symbols)
 	{
 		if (string.IsNullOrWhiteSpace(name))

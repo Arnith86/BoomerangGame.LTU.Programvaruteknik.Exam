@@ -1,4 +1,4 @@
-﻿namespace BoomerangGame.Core.Domain.Cards;
+﻿namespace BoomerangGame.Core.Domain.Cards.Symbols;
 
 /// <summary>
 /// Represents up to three symbols printed on a Boomerang card.

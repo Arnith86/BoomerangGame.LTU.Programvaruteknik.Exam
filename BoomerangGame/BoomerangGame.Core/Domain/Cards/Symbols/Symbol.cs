@@ -1,6 +1,4 @@
-using System;
-
-namespace BoomerangGame.Core.Domain.Cards;
+namespace BoomerangGame.Core.Domain.Cards.Symbols;
 
 /// <summary>
 /// Represents a single symbol printed on a card together with its category.

@@ -1,8 +1,7 @@
 ﻿using BoomerangGame.Core.Domain.Cards;
+using BoomerangGame.Core.Domain.Cards.Symbols;
 
 namespace BoomerangGame.Core.Tests.Domain.CardTests;
-
-
 
 
 public class BoomerangCardDefinitionTests
@@ -12,7 +11,11 @@ public class BoomerangCardDefinitionTests
 	private const string _c_ValidLetter = "A";
 	private const int _c_ValidCardNumberValue = 1;
 
-	private SymbolSet CreateValidSymbolSet() => SymbolSetFactory.FromSymbols(new Symbol("Leaves", "Indigenous Culture"));
+	private SymbolSet CreateValidSymbolSet() => SymbolSetFactory.FromSymbols(
+		new Symbol("Collection", "Leaves"),
+		new Symbol("Animal", ""),
+		new Symbol("Activity", "Indigenous Culture")
+	);
 
 	[Fact]
 	public void Constructor_ShouldCreateValidCardDefinition()
