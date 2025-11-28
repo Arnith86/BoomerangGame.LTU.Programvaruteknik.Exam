@@ -3,6 +3,7 @@
         "name": "Boomerang Australia",
         "version": "1.0"
     },
+    "turnOrderIdentifier": "Left",
     "tieBreakerIdentifier": "HighestThrowCatchTotal",
     "deck": [
         {

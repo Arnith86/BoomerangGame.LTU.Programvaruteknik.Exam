@@ -13,7 +13,7 @@
 		/// <summary>
 		/// The letter identifier of the card.
 		/// </summary>
-		string Letter { get; }
+		string Site { get; }
 
 		/// <summary>
 		/// The region associated with the card.

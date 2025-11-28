@@ -6,22 +6,22 @@ public class BoomerangCard : IBoomerangCard
 {
 	private readonly string _name;
 	private readonly string _region;
-	private readonly string _letter;
+	private readonly string _site;
 	private readonly int _number;
 	private readonly SymbolSet _symbolSet;
 
-	public BoomerangCard(string name, string region, string letter, int number, SymbolSet symbolSet)
+	public BoomerangCard(string name, string region, string site, int number, SymbolSet symbolSet)
 	{
 		_name = name;
 		_region = region;
-		_letter = letter;
+		_site = site;
 		_number = number;
 		_symbolSet = symbolSet;
 	}
 
 	public string Name => _name;
 
-	public string Letter => _letter;
+	public string Site => _site;
 
 	public string Region => _region;
 

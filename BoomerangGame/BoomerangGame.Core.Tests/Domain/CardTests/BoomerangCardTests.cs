@@ -7,7 +7,7 @@ public class BoomerangCardTests
 {
 	private const string _c_ValidName = "The Bungle Bungles";
 	private const string _c_ValidRegion = "Western Australia";
-	private const string _c_ValidLetter = "A";
+	private const string _c_ValidSite = "A";
 	private const int _c_ValidCardNumberValue = 1;
 
 	private SymbolSet CreateValidSymbolSet() => SymbolSetFactory.FromSymbols(
@@ -20,7 +20,7 @@ public class BoomerangCardTests
 		return new BoomerangCard(
 			name: _c_ValidName,
 			region: _c_ValidRegion,
-			letter: _c_ValidLetter,
+			site: _c_ValidSite,
 			number:  _c_ValidCardNumberValue,
 			symbolSet: CreateValidSymbolSet()
 		);
@@ -34,7 +34,7 @@ public class BoomerangCardTests
 
 		// Assert
 		card.Name.Should().Be(_c_ValidName);
-		card.Letter.Should().Be(_c_ValidLetter);
+		card.Site.Should().Be(_c_ValidSite);
 		card.Region.Should().Be(_c_ValidRegion);
 		card.Number.Should().Be(_c_ValidCardNumberValue);
 		card.Symbols.Should().NotBeNull();
