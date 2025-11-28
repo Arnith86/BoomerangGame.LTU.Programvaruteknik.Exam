@@ -258,6 +258,15 @@
             "activity": "Swimming"
         }
     ],
+    "touristSites": [
+        "Western Australia",
+        "Northern Territory",
+        "Queensland",
+        "South Australia",
+        "New South Whales",
+        "Victoria",
+        "Tasmania"
+    ],
     "scoringStrategies": [
         "ThrowCatchAbsolute",
         "Collection",
