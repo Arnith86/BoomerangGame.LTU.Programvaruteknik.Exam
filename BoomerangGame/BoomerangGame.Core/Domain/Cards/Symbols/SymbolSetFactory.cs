@@ -37,7 +37,7 @@ public static class SymbolSetFactory
 		var symbolArray = symbols
 			.Where(symbol => symbol is not null)
 			.Cast<Symbol>()
-			.Take(3)
+			.Take(2)
 			.ToArray();
 
 		return new SymbolSet(

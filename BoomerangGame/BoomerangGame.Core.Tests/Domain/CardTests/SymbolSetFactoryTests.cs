@@ -32,7 +32,6 @@ public class SymbolSetFactoryTests
 		{
 			new Symbol("collection", "Shells"),
 			new Symbol("animal", "Kangaroo"),
-			new Symbol("activity", "Swimming"),
 			new Symbol("bonus", "Extra") // should be ignored
 		};
 
@@ -40,8 +39,8 @@ public class SymbolSetFactoryTests
 		var symbolSet = SymbolSetFactory.FromSymbols(symbols);
 
 		// Assert
-		symbolSet.Symbols.Should().HaveCount(3);
-		symbolSet.Symbols.Should().NotContain(symbols[3]);
+		symbolSet.Symbols.Should().HaveCount(2);
+		symbolSet.Symbols.Should().NotContain(symbols[2]);
 	}
 }
 
