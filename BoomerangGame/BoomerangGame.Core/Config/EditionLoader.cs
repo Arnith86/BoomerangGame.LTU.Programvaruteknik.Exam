@@ -1,4 +1,5 @@
-﻿using BoomerangGame.Core.Domain.RuleSets;
+﻿using BoomerangGame.Core.Config.ConfigurationDTOs;
+using BoomerangGame.Core.Domain.RuleSets;
 using System.Text.Json;
 
 namespace BoomerangGame.Core.Config;
@@ -19,12 +20,14 @@ public sealed class EditionLoader : IEditionLoader
 	// Private constructor for singleton
 	private EditionLoader() { }
 
+
+
 	/// <summary>
 	/// Loads an edition configuration from a JSON file.
 	/// </summary>
 	/// <param name="path">Path to the edition JSON file</param>
 	/// <returns>EditionConfig object with the data</returns>
-	public EditionConfig LoadEdition(string path)
+	public EditionConfigDto LoadEdition(string path)
 	{
 		if (!File.Exists(path))
 			throw new FileNotFoundException($"Edition file not found: {path}");
@@ -34,30 +37,28 @@ public sealed class EditionLoader : IEditionLoader
 	}
 
 	/// <summary>
-	/// Creates a runtime RuleSet from an EditionConfig.
+	/// Creates a runtime RuleSet from an EditionConfigDto.
 	/// </summary>
 	/// <param name="config">Edition configuration</param>
 	/// <returns>IRuleSet ready for game engine</returns>
-	public IRuleSet CreateRuleSet(EditionConfig config)
+	public IRuleSet CreateRuleSet(EditionConfigDto configDto)
 	{
 		/*return new RuleSet(config);*/ throw new NotImplementedException();
 	}
 
+
 	/// <summary>
-	/// Parses the JSON string into an EditionConfig.
+	/// Parses the JSON string into an EditionConfigDto.
 	/// </summary>
 	/// <param name="json">JSON string</param>
-	/// <returns>EditionConfig instance</returns>
-	private EditionConfig ParseJson(string json)
+	/// <returns>EditionConfigDto instance</returns>
+	private EditionConfigDto ParseJson(string json)
 	{
-		var options = new JsonSerializerOptions
-		{
-			PropertyNameCaseInsensitive = true
-		};
+		var options = new JsonSerializerOptions{ PropertyNameCaseInsensitive = true };
 
 		try
 		{
-			return JsonSerializer.Deserialize<EditionConfig>(json, options)
+			return JsonSerializer.Deserialize<EditionConfigDto>(json, options)
 				?? throw new InvalidOperationException("Failed to deserialize EditionConfig.");
 		}
 		catch (JsonException ex)

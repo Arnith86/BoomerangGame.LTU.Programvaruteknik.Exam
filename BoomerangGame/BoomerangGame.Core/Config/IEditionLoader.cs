@@ -1,10 +1,11 @@
-﻿using BoomerangGame.Core.Domain.RuleSets;
+﻿using BoomerangGame.Core.Config.ConfigurationDTOs;
+using BoomerangGame.Core.Domain.RuleSets;
 
 namespace BoomerangGame.Core.Config;
 
 public interface IEditionLoader
 {
-	EditionConfig LoadEdition(string Path);
+	EditionConfigDto LoadEdition(string Path);
 
-	IRuleSet CreateRuleSet(EditionConfig config);
+	IRuleSet CreateRuleSet(EditionConfigDto config);
 }
