@@ -17,19 +17,25 @@ public class EditionLoaderTests
 					""name"": ""The Bungle Bungles"",
 					""site"": ""A"",
 					""region"": ""Western Australia"",
-					""collectionNumber"": 1,
-					""collection"": ""Leaves"",
-					""animal"": null,
-					""activity"": ""Indigenous Culture""
+					""number"": 1,
+					""symbols"": 
+					{
+						""collection"": ""Leaves"",
+						""animal"": null,
+						""activity"": ""Indigenous Culture""
+					},
 				},   
 				{
 					""name"": ""Daintree Rainforest"",
 					""site"": ""K"",
 					""region"": ""Queensland"",
-					""collectionNumber"": 6,
-					""collection"": ""Souvenirs"",
-					""animal"": null,
-					""activity"": ""Bushwalking""
+					""number"": 6,
+					""symbols"":
+					{
+						""collection"": ""Souvenirs"",
+						""animal"": null,
+						""activity"": ""Bushwalking""
+					},
 				}
 			],
 			""regions"": [
