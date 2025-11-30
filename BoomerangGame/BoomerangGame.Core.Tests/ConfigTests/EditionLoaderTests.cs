@@ -66,7 +66,7 @@ public class EditionLoaderTests
 		var invalidPath = Path.Combine(Path.GetTempPath(), "none_existant_file.");
 
 		// Act & Assert 
-		Assert.Throws<FileNotFoundException>(() => _editionLoader.LoadEdition(invalidPath));
+		Assert.Throws<FileNotFoundException>(() => _editionLoader.LoadEditionDto(invalidPath));
 	}
 
 	[Fact]
@@ -77,7 +77,7 @@ public class EditionLoaderTests
 		File.WriteAllText(tempFile, GetValidEditionJson());
 
 		// Act 
-		var editionConfigDto = _editionLoader.LoadEdition(tempFile);
+		var editionConfigDto = _editionLoader.LoadEditionDto(tempFile);
 
 		// Assert
 		Assert.NotNull(editionConfigDto);

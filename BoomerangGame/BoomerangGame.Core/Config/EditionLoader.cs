@@ -11,13 +11,11 @@ namespace BoomerangGame.Core.Config;
 public sealed class EditionLoader : IEditionLoader
 {
 	
-	// Singleton instance
 	private static readonly Lazy<EditionLoader> _instance =
 		new Lazy<EditionLoader>(() => new EditionLoader());
 
 	public static EditionLoader Instance => _instance.Value;
 
-	// Private constructor for singleton
 	private EditionLoader() { }
 
 
@@ -27,7 +25,7 @@ public sealed class EditionLoader : IEditionLoader
 	/// </summary>
 	/// <param name="path">Path to the edition JSON file</param>
 	/// <returns>EditionConfig object with the data</returns>
-	public EditionConfigDto LoadEdition(string path)
+	public EditionConfigDto LoadEditionDto(string path)
 	{
 		if (!File.Exists(path))
 			throw new FileNotFoundException($"Edition file not found: {path}");
@@ -36,22 +34,7 @@ public sealed class EditionLoader : IEditionLoader
 		return ParseJson(json);
 	}
 
-	/// <summary>
-	/// Creates a runtime RuleSet from an EditionConfigDto.
-	/// </summary>
-	/// <param name="config">Edition configuration</param>
-	/// <returns>IRuleSet ready for game engine</returns>
-	public IRuleSet CreateRuleSet(EditionConfigDto configDto)
-	{
-		/*return new RuleSet(config);*/ throw new NotImplementedException();
-	}
 
-
-	/// <summary>
-	/// Parses the JSON string into an EditionConfigDto.
-	/// </summary>
-	/// <param name="json">JSON string</param>
-	/// <returns>EditionConfigDto instance</returns>
 	private EditionConfigDto ParseJson(string json)
 	{
 		var options = new JsonSerializerOptions{ PropertyNameCaseInsensitive = true };
@@ -65,6 +48,19 @@ public sealed class EditionLoader : IEditionLoader
 		{
 			throw new InvalidOperationException("Invalid JSON format for EditionConfig.", ex);
 		}
+	}
+
+	/// <inheritdoc/>
+	public IRuleSet CreateEditionConfig(EditionConfigDto configDto)
+	{
+		/*return new RuleSet(config);*/
+		throw new NotImplementedException();
+	}
+
+
+	public EditionConfig CreateDomain(EditionConfigDto config)
+	{
+		throw new NotImplementedException();
 	}
 }
 
