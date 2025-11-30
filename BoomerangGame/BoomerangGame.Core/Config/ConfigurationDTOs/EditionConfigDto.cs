@@ -4,6 +4,7 @@ namespace BoomerangGame.Core.Config.ConfigurationDTOs;
 
 public class EditionConfigDto
 {
+	public string Name { get; set; } = default!;
 	public List<BoomerangCardDefinitionDto> Deck { get; set; } = new();
 	public List<string> Regions { get; set; } = new();
 	public List<string> ScoringStrategies { get; set; } = new();

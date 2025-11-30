@@ -6,6 +6,7 @@ namespace BoomerangGame.Core.Config;
 /// Represents an immutable configuration for a Boomerang card game edition.
 /// </summary>
 public sealed record EditionConfig(
+	string Name,
 	IReadOnlyList<BoomerangCardDefinition> Deck,
 	IReadOnlyList<string> Regions,
 	IReadOnlyList<string> ScoringStrategies,

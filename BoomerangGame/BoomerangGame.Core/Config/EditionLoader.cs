@@ -50,13 +50,6 @@ public sealed class EditionLoader : IEditionLoader
 		}
 	}
 
-	/// <inheritdoc/>
-	public IRuleSet CreateEditionConfig(EditionConfigDto configDto)
-	{
-		/*return new RuleSet(config);*/
-		throw new NotImplementedException();
-	}
-
 
 	public EditionConfig CreateDomain(EditionConfigDto config)
 	{
