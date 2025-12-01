@@ -9,6 +9,7 @@ public sealed record EditionConfig(
 	string Name,
 	IReadOnlyList<BoomerangCardDefinition> Deck,
 	IReadOnlyList<string> Regions,
+	string RegionTrackingIdentifier,
 	IReadOnlyList<string> ScoringStrategies,
 	string TieBreakerIdentifier, 
 	string TurnOrderIdentifier

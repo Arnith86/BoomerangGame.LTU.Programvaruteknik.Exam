@@ -83,6 +83,7 @@ public class EditionLoaderTests
 		Assert.NotNull(editionConfigDto);
 		Assert.Equal(2, editionConfigDto.Deck.Count);
 		Assert.Equal("Western Australia", editionConfigDto.Regions[0]);
+		Assert.Equal("Australia", editionConfigDto.RegionTrackingIdentifier);
 		Assert.Equal("Tasmania", editionConfigDto.Regions[6]);
 		Assert.Equal("HighestThrowCatchTotal", editionConfigDto.TieBreakerIdentifier);
 		Assert.Equal("Left", editionConfigDto.TurnOrderIdentifier);

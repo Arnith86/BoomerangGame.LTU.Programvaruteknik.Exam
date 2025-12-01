@@ -1,5 +1,4 @@
 ﻿using BoomerangGame.Core.Config.ConfigurationDTOs;
-using BoomerangGame.Core.Domain.RuleSets;
 using System.Text.Json;
 
 namespace BoomerangGame.Core.Config;
