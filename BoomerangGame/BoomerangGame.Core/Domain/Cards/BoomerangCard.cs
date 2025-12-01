@@ -9,6 +9,7 @@ public class BoomerangCard : IBoomerangCard
 	private readonly string _site;
 	private readonly int _number;
 	private readonly SymbolSet _symbolSet;
+	private bool _isHidden;
 
 	public BoomerangCard(string name, string region, string site, int number, SymbolSet symbolSet)
 	{
@@ -17,6 +18,7 @@ public class BoomerangCard : IBoomerangCard
 		_site = site;
 		_number = number;
 		_symbolSet = symbolSet;
+		_isHidden = false;
 	}
 
 	public string Name => _name;
@@ -28,4 +30,8 @@ public class BoomerangCard : IBoomerangCard
 	public int Number => _number;
 
 	public SymbolSet Symbols => _symbolSet;
+
+	public bool IsHidden => _isHidden;
+
+	public void ToggleIsHidden() => _isHidden = !_isHidden;
 }

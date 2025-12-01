@@ -1,4 +1,5 @@
 ﻿using BoomerangGame.Core.Domain.Cards;
+using BoomerangGame.Core.Scoring;
 
 namespace BoomerangGame.Core.Config;
 
@@ -8,8 +9,9 @@ namespace BoomerangGame.Core.Config;
 public sealed record EditionConfig(
 	string Name,
 	IReadOnlyList<BoomerangCardDefinition> Deck,
-	IReadOnlyList<string> Regions,
-	string RegionTrackingIdentifier,
+	IReadOnlyDictionary<string, List<string>> RegionMap,
+	//IReadOnlyList<string> Regions,
+	IRegionProgressTracker RegionProgressTracker,
 	IReadOnlyList<string> ScoringStrategies,
 	string TieBreakerIdentifier, 
 	string TurnOrderIdentifier

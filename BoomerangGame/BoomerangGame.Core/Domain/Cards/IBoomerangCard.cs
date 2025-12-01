@@ -19,5 +19,10 @@
 		/// The region associated with the card.
 		/// </summary>
 		string Region { get; }
+
+		/// <summary>
+		/// Toggles the hidden state of the card.
+		/// </summary>
+		void ToggleIsHidden(); 
 	}
 }

@@ -318,15 +318,15 @@
         }
     ],
 
-    "regions": [
-        "Western Australia",
-        "Northern Territory",
-        "Queensland",
-        "South Australia",
-        "New South Whales",
-        "Victoria",
-        "Tasmania"
-    ],
+    "regionMap": {
+        "Western Australia": [ "A", "B", "C", "D" ],
+        "Northern Territory": [ "E", "F", "G", "H" ],
+        "Queensland": [ "I", "J", "K", "L" ],
+        "South Australia": [ "M", "N", "O", "P" ],
+        "New South Whales": [ "Q", "R", "S", "T" ],
+        "Victoria": [ "U", "V", "X", "Y" ],
+        "Tasmania": [ "Z", "Å", "Ä", "Ö" ]
+    },
 
     "scoringStrategies": [
         "ThrowCatchAbsolute",
