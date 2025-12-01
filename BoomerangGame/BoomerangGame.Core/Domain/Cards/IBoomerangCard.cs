@@ -1,4 +1,6 @@
-﻿namespace BoomerangGame.Core.Domain.Cards
+﻿using BoomerangGame.Core.Domain.Cards.Symbols;
+
+namespace BoomerangGame.Core.Domain.Cards
 {
 	/// <summary>
 	/// Represents a Boomerang game card with specific properties like name, letter, and region.
@@ -21,13 +23,8 @@
 		string Region { get; }
 
 		/// <summary>
-		/// Indicates whether the card is currently hidden for other players.
+		/// The symbols of the card.
 		/// </summary>
-		bool IsHidden { get; }
-
-		/// <summary>
-		/// Toggles the hidden state of the card.
-		/// </summary>
-		void ToggleIsHidden(); 
+		ISymbolSet Symbols { get; }
 	}
 }

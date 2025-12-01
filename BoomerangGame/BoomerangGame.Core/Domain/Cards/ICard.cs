@@ -12,9 +12,15 @@ namespace BoomerangGame.Core.Domain.Cards
 		/// </summary>
 		int Number { get; }
 
+	
 		/// <summary>
-		/// The symbols of the card.
+		/// Indicates whether the card is currently hidden for other players.
 		/// </summary>
-		ISymbolSet Symbols { get; }
+		bool IsHidden { get; }
+
+		/// <summary>
+		/// Toggles the hidden state of the card.
+		/// </summary>
+		void ToggleIsHidden();
 	}
 }
