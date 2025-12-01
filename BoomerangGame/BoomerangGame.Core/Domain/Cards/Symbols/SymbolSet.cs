@@ -6,7 +6,7 @@
 /// <param name="First">The first symbol, if any.</param>
 /// <param name="Second">The second symbol, if any.</param>
 /// <param name="Third">The third symbol, if any.</param>
-public record SymbolSet(Symbol? First, Symbol? Second, Symbol? Third)
+public record SymbolSet(Symbol? First, Symbol? Second, Symbol? Third) : ISymbolSet
 {
 	private static readonly Symbol[] Empty = [];
 
