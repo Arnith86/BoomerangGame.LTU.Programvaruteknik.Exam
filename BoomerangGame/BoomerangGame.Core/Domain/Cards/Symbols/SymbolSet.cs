@@ -22,18 +22,4 @@ public record SymbolSet(Symbol? First, Symbol? Second, Symbol? Third) : ISymbolS
 	public bool ContainsCategory(string category) =>
 		!string.IsNullOrWhiteSpace(category) &&
 		Symbols.Any(symbol => symbol.Category.Equals(category, StringComparison.OrdinalIgnoreCase));
-
-	/// <summary>
-	/// Returns the first symbol that belongs to the supplied category, if any.
-	/// </summary>
-	public Symbol? GetSymbolByCategory(string category) =>
-		string.IsNullOrWhiteSpace(category)
-			? null
-			: Symbols.FirstOrDefault(symbol =>
-				symbol.Category.Equals(category, StringComparison.OrdinalIgnoreCase));
-
-	/// <summary>
-	/// True when no symbols are stored.
-	/// </summary>
-	public bool IsEmpty => Symbols.Count == 0;
 }

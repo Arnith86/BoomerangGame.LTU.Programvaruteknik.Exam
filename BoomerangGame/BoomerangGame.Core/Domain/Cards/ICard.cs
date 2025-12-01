@@ -15,6 +15,6 @@ namespace BoomerangGame.Core.Domain.Cards
 		/// <summary>
 		/// The symbols of the card.
 		/// </summary>
-		SymbolSet Symbols { get; }
+		ISymbolSet Symbols { get; }
 	}
 }
