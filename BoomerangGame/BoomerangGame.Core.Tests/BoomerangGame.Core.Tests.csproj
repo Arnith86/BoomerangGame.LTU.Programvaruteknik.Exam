@@ -24,4 +24,10 @@
     <ProjectReference Include="..\BoomerangGame.Core\BoomerangGame.Core.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="ValidTestConfigurationFile.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 </Project>
