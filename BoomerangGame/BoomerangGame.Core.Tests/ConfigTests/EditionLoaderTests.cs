@@ -25,15 +25,23 @@ public class EditionLoaderTests
 	public void LoadEdition_ValidJson_ShouldReturnEditionConfigDto()
 	{
 		// Arrange & Act 
-		var editionConfigDto = _editionLoader.LoadEditionDto(GetEditionJSON.GetValidEditionConfigJSON()/*tempFile*/);
+		var editionConfigDto = _editionLoader.LoadEditionDto(GetEditionJSON.GetValidEditionConfigJSON());
 
 		// Assert
 		Assert.NotNull(editionConfigDto);
-		Assert.Equal(28, editionConfigDto.Deck.Count);
 		Assert.Equal("Western Australia", editionConfigDto.RegionMap.Keys.First());
 		Assert.Equal("Tasmania", editionConfigDto.RegionMap.Keys.Last());
 		Assert.Equal("HighestThrowCatchTotal", editionConfigDto.TieBreakerIdentifier);
 		Assert.Equal("Left", editionConfigDto.TurnOrderIdentifier);
+	}
 
+	[Fact]
+	public void LoadEdition_ValidJson_ShouldCreate28CardForDeck_RQ2()
+	{
+		// Arrange & Act 
+		var editionConfigDto = _editionLoader.LoadEditionDto(GetEditionJSON.GetValidEditionConfigJSON());
+
+		// Assert
+		Assert.Equal(28, editionConfigDto.Deck.Count);
 	}
 }
