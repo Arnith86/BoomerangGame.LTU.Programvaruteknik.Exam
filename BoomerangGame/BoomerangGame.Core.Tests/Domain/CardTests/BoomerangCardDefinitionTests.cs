@@ -14,7 +14,7 @@ public class BoomerangCardDefinitionTests
 	private SymbolSet CreateValidSymbolSet() => SymbolSetFactory.FromSymbols(
 		new Symbol("Collection", "Leaves"),
 		new Symbol("Animal", ""),
-		new Symbol("Activity", "Indigenous Culture")
+		new Symbol("blueIcon", "Indigenous Culture")
 	);
 
 	[Fact]

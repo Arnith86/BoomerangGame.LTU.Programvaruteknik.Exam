@@ -21,6 +21,11 @@
 		string Region { get; }
 
 		/// <summary>
+		/// Indicates whether the card is currently hidden for other players.
+		/// </summary>
+		bool IsHidden { get; }
+
+		/// <summary>
 		/// Toggles the hidden state of the card.
 		/// </summary>
 		void ToggleIsHidden(); 

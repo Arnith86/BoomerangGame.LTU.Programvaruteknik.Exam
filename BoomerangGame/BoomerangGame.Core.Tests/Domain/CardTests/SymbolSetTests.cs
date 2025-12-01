@@ -10,7 +10,7 @@ public class SymbolSetTests
 		// Arrange
 		var expectedFirst = new Symbol("collection", "Shells");
 		var expectedSecond = new Symbol("animal", "Kangaroo");
-		var expectedThird = new Symbol("activity", "Swimming");
+		var expectedThird = new Symbol("blueIcon", "Swimming");
 
 		// Act
 		var symbolSet = new SymbolSet(expectedFirst, expectedSecond, expectedThird);
@@ -45,6 +45,6 @@ public class SymbolSetTests
 			null);
 
 		// Act & Assert
-		symbolSet.ContainsCategory("activity").Should().BeFalse();
+		symbolSet.ContainsCategory("blueIcon").Should().BeFalse();
 	}
 }

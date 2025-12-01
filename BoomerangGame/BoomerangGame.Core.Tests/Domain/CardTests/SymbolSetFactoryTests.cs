@@ -12,7 +12,7 @@ public class SymbolSetFactoryTests
 		{
 			{ "collection", "Shells" },
 			{ "animal", null },
-			{ "activity", "Swimming" }
+			{ "blueIcon", "Swimming" }
 		};
 
 		// Act
@@ -21,7 +21,7 @@ public class SymbolSetFactoryTests
 		// Assert
 		symbolSet.Symbols.Should().ContainInOrder(
 			new Symbol("collection", "Shells"),
-			new Symbol("activity", "Swimming"));
+			new Symbol("blueIcon", "Swimming"));
 	}
 
 	[Fact]

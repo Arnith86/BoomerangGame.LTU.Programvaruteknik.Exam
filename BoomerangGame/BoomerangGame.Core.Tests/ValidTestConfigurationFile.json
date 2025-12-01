@@ -16,7 +16,7 @@
             "symbols": {
                 "collection": "Leaves",
                 "animal": null,
-                "activity": "Indigenous Culture"
+                "blueIcon": "Indigenous Culture"
             }
         },
         {
@@ -27,7 +27,7 @@
             "symbols": {
                 "collection": null,
                 "animal": "Kangaroos",
-                "activity": "Sightseeing"
+                "blueIcon": "Sightseeing"
             }
         },
         {
@@ -38,7 +38,7 @@
             "symbols": {
                 "collection": "Shells",
                 "animal": "Kangaroos",
-                "activity": null
+                "blueIcon": null
             }
         },
         {
@@ -49,7 +49,7 @@
             "symbols": {
                 "collection": "Wildflowers",
                 "animal": null,
-                "activity": "Bushwalking"
+                "blueIcon": "Bushwalking"
             }
         },
         {
@@ -60,7 +60,7 @@
             "symbols": {
                 "collection": null,
                 "animal": "Emus",
-                "activity": "Indigenous Culture"
+                "blueIcon": "Indigenous Culture"
             }
         },
         {
@@ -71,7 +71,7 @@
             "symbols": {
                 "collection": null,
                 "animal": "Wombats",
-                "activity": "Sightseeing"
+                "blueIcon": "Sightseeing"
             }
         },
         {
@@ -82,7 +82,7 @@
             "symbols": {
                 "collection": "Shells",
                 "animal": "Platypuses",
-                "activity": null
+                "blueIcon": null
             }
         },
         {
@@ -93,7 +93,7 @@
             "symbols": {
                 "collection": null,
                 "animal": "Koalas",
-                "activity": "Swimming"
+                "blueIcon": "Swimming"
             }
         },
         {
@@ -104,7 +104,7 @@
             "symbols": {
                 "collection": "Wildflowers",
                 "animal": null,
-                "activity": "Sightseeing"
+                "blueIcon": "Sightseeing"
             }
         },
         {
@@ -115,7 +115,7 @@
             "symbols": {
                 "collection": null,
                 "animal": "Kangaroos",
-                "activity": "Indigenous Culture"
+                "blueIcon": "Indigenous Culture"
             }
         },
         {
@@ -126,7 +126,7 @@
             "symbols": {
                 "collection": "Souvenirs",
                 "animal": null,
-                "activity": "Bushwalking"
+                "blueIcon": "Bushwalking"
             }
         },
         {
@@ -137,7 +137,7 @@
             "symbols": {
                 "collection": "Wildflowers",
                 "animal": null,
-                "activity": "Swimming"
+                "blueIcon": "Swimming"
             }
         },
         {
@@ -148,7 +148,7 @@
             "symbols": {
                 "collection": null,
                 "animal": "Koalas",
-                "activity": "Bushwalking"
+                "blueIcon": "Bushwalking"
             }
         },
         {
@@ -159,7 +159,7 @@
             "symbols": {
                 "collection": null,
                 "animal": "Emus",
-                "activity": "Swimming"
+                "blueIcon": "Swimming"
             }
         },
         {
@@ -170,7 +170,7 @@
             "symbols": {
                 "collection": null,
                 "animal": "Kangaroos",
-                "activity": "Bushwalking"
+                "blueIcon": "Bushwalking"
             }
         },
         {
@@ -181,7 +181,7 @@
             "symbols": {
                 "collection": "Wildflowers",
                 "animal": null,
-                "activity": "Sightseeing"
+                "blueIcon": "Sightseeing"
             }
         },
         {
@@ -192,7 +192,7 @@
             "symbols": {
                 "collection": null,
                 "animal": "Wombats",
-                "activity": "Indigenous Culture"
+                "blueIcon": "Indigenous Culture"
             }
         },
         {
@@ -203,7 +203,7 @@
             "symbols": {
                 "collection": null,
                 "animal": "Emus",
-                "activity": "Sightseeing"
+                "blueIcon": "Sightseeing"
             }
         },
         {
@@ -214,7 +214,7 @@
             "symbols": {
                 "collection": null,
                 "animal": "Wombats",
-                "activity": "Swimming"
+                "blueIcon": "Swimming"
             }
         },
         {
@@ -225,7 +225,7 @@
             "symbols": {
                 "collection": null,
                 "animal": "Emus",
-                "activity": "Bushwalking"
+                "blueIcon": "Bushwalking"
             }
         },
         {
@@ -236,7 +236,7 @@
             "symbols": {
                 "collection": null,
                 "animal": "Wombats",
-                "activity": "Bushwalking"
+                "blueIcon": "Bushwalking"
             }
         },
         {
@@ -247,7 +247,7 @@
             "symbols": {
                 "collection": "Leaves",
                 "animal": null,
-                "activity": "Indigenous Culture"
+                "blueIcon": "Indigenous Culture"
             }
         },
         {
@@ -258,7 +258,7 @@
             "symbols": {
                 "collection": "Shells",
                 "animal": null,
-                "activity": "Swimming"
+                "blueIcon": "Swimming"
             }
         },
         {
@@ -269,7 +269,7 @@
             "symbols": {
                 "collection": "Leaves",
                 "animal": "Platypuses",
-                "activity": null
+                "blueIcon": null
             }
         },
         {
@@ -280,7 +280,7 @@
             "symbols": {
                 "collection": "Leaves",
                 "animal": "Emus",
-                "activity": null
+                "blueIcon": null
             }
         },
         {
@@ -291,7 +291,7 @@
             "symbols": {
                 "collection": null,
                 "animal": "Koalas",
-                "activity": "Sightseeing"
+                "blueIcon": "Sightseeing"
             }
         },
         {
@@ -302,7 +302,7 @@
             "symbols": {
                 "collection": "Leaves",
                 "animal": null,
-                "activity": "Indigenous Culture"
+                "blueIcon": "Indigenous Culture"
             }
         },
         {
@@ -313,7 +313,7 @@
             "symbols": {
                 "collection": null,
                 "animal": "Kangaroos",
-                "activity": "Swimming"
+                "blueIcon": "Swimming"
             }
         }
     ],
