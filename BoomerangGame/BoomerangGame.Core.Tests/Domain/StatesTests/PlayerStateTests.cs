@@ -1,6 +1,6 @@
 ﻿using BoomerangGame.Core.Domain.Cards;
 using BoomerangGame.Core.Domain.Cards.Symbols;
-using BoomerangGame.Core.Domain.States;
+using BoomerangGame.Core.Domain.States.MapStates;
 using BoomerangGame.Core.Domain.States.PlayerState;
 using Moq;
 
