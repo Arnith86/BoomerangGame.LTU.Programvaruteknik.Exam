@@ -31,6 +31,6 @@ public interface IRoundScoringCategory : IScoringCategory
 	/// Thrown when the scoring rule requires round data that is missing
 	/// (for example, if necessary cards have not been recorded).
 	/// </exception>
-	int CalculateScore(IPlayerState playerState, IRoundState roundState);
+	int CalculateScore(IBoomerangPlayerState playerState, IRoundState roundState);
 }
 

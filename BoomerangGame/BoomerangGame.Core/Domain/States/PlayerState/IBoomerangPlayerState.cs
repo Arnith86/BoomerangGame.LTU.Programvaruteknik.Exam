@@ -5,7 +5,7 @@ namespace BoomerangGame.Core.Domain.States.PlayerState;
 
 /// <summary>
 /// Represents the complete state of a player in a Boomerang-style game. <br/>
-/// Extends <see cref="IPlayerState"/> with card-drafting, map-tracking, <br/>
+/// Extends <see cref="IBoomerangPlayerState"/> with card-drafting, map-tracking, <br/>
 /// blueIcon history, and visited-site tracking functionality.
 /// </summary>
 public interface IBoomerangPlayerState : IPlayerState

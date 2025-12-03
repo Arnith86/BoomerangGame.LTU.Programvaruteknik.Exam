@@ -24,7 +24,7 @@ public class ThrowCatchAbsoluteScore : IRoundScoringCategory
 	/// <exception cref="InvalidOperationException">
 	/// Thrown if the player does not have both a throw card and a catch card recorded.
 	/// </exception>
-	public int CalculateScore(IPlayerState playerState, IRoundState roundState)
+	public int CalculateScore(IBoomerangPlayerState playerState, IRoundState roundState)
 	{
 		ScoringStrategyPreConditionNullCheck.Check(playerState, roundState);
 		EnsuresPlayerHasCards(playerState.Name, roundState);
@@ -42,6 +42,6 @@ public class ThrowCatchAbsoluteScore : IRoundScoringCategory
 			throw new InvalidOperationException("Player does not have both throw and catch cards recorded.");
 	}
 
-	public int CalculateScore(IPlayerState playerState)
+	public int CalculateScore(IBoomerangPlayerState playerState)
 		=> throw new NotSupportedException($"{nameof(IRoundState)} required.");
 }

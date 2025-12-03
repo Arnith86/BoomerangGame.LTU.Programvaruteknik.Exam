@@ -5,6 +5,6 @@ namespace BoomerangGame.Core.Application;
 
 public interface IPlayer
 {
-	IPlayerState PlayerState { get; }
+	IBoomerangPlayerState PlayerState { get; }
 	IPlayerChannel PlayerChannel { get; }
 }

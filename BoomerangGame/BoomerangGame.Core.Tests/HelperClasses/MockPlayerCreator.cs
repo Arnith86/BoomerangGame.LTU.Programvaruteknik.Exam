@@ -13,7 +13,7 @@ public class MockPlayerCreator
 {
 	public Mock<IPlayer> CreateSimpleMockPlayer()
 	{
-		var mockState = new Mock<IPlayerState>();
+		var mockState = new Mock<IBoomerangPlayerState>();
 		var mockChannel = new Mock<IPlayerChannel>();
 
 		var mockPlayer = new Mock<IPlayer>();
