@@ -1,4 +1,6 @@
 ﻿using BoomerangGame.Core.Application;
+using BoomerangGame.Core.Domain.States.PlayerState;
+using BoomerangGame.Core.Port;
 using Moq;
 
 namespace BoomerangGame.Core.Tests.HelperClasses;
@@ -11,6 +13,13 @@ public class MockPlayerCreator
 {
 	public Mock<IPlayer> CreateSimpleMockPlayer()
 	{
-		return new Mock<IPlayer>();
+		var mockState = new Mock<IPlayerState>();
+		var mockChannel = new Mock<IPlayerChannel>();
+
+		var mockPlayer = new Mock<IPlayer>();
+		mockPlayer.Setup(p => p.PlayerState).Returns(mockState.Object);
+		mockPlayer.Setup(p => p.PlayerChannel).Returns(mockChannel.Object);
+
+		return mockPlayer;
 	}
 }
