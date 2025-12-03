@@ -7,7 +7,7 @@
 /// </summary>
 public static class ScoringStrategyPreConditionNullCheck
 {
-	public static void CheckScoreStrategyPreconditions<T>(T state)
+	public static void Check<T>(T state)
 	{
 		if (state is null)
 			ThrowStateArgumentNullException(nameof(state));

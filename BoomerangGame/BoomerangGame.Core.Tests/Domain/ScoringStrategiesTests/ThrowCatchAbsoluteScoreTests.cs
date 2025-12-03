@@ -12,14 +12,20 @@ using BoomerangGame.Core.Tests.HelperClasses;
 
 public class ThrowCatchAbsoluteScoreTests
 {
+	private IRoundScoringCategory _sut;
+	
 	private MockPlayerCreator mockPlayerCreator = new MockPlayerCreator();
 	private MockCardCreator mockCardCreator = new MockCardCreator();
-	private IScoringCategory _sut;
+	private Mock<IPlayer> _mockPlayer;
+	private const string _c_PLAYER_NAME = "Player1";
 
 	public ThrowCatchAbsoluteScoreTests()
 	{
 		_sut = new ThrowCatchAbsoluteScore();
+		_mockPlayer = mockPlayerCreator.CreateSimpleMockPlayer();
+		_mockPlayer.SetupGet(p => p.PlayerState.Name).Returns(_c_PLAYER_NAME);
 	}
+
 
 	private Mock<IRoundState> CreateMockRoundState(
 		IPlayer player,
@@ -28,14 +34,14 @@ public class ThrowCatchAbsoluteScoreTests
 	{
 		var mock = new Mock<IRoundState>();
 
-		var throwDict = new Dictionary<IPlayer, IBoomerangCard>();
-		var catchDict = new Dictionary<IPlayer, IBoomerangCard>();
+		var throwDict = new Dictionary<string, IBoomerangCard>();
+		var catchDict = new Dictionary<string, IBoomerangCard>();
 
 		if (throwCard != null)
-			throwDict[player] = throwCard;
+			throwDict[player.PlayerState.Name] = throwCard;
 
 		if (catchCard != null)
-			catchDict[player] = catchCard;
+			catchDict[player.PlayerState.Name] = catchCard;
 
 		mock.Setup(r => r.ThrowCards).Returns(throwDict);
 		mock.Setup(r => r.CatchCards).Returns(catchDict);
@@ -43,9 +49,6 @@ public class ThrowCatchAbsoluteScoreTests
 		return mock;
 	}
 
-	// ------------------------------------------------------------
-	// NUll TESTS
-	// ------------------------------------------------------------
 
 	[Fact]
 	public void CalculateScore_PlayerNull_ThrowsArgumentNullException()
@@ -62,57 +65,44 @@ public class ThrowCatchAbsoluteScoreTests
 	[Fact]
 	public void CalculateScore_RoundStateNull_ThrowsArgumentNullException()
 	{
-		// Arrange
-		var player = mockPlayerCreator.CreateSimpleMockPlayer().Object;
-
 		// Act & Assert
 		Assert.Throws<ArgumentNullException>(() =>
-			_sut.CalculateScore(player, null!)
+			_sut.CalculateScore(_mockPlayer.Object.PlayerState, null!)
 		);
 	}
-
-	// ------------------------------------------------------------
-	// MISSING CARD TESTS
-	// ------------------------------------------------------------
 
 	[Fact]
 	public void CalculateScore_PlayerMissingThrowCard_ThrowsInvalidOperationException()
 	{
 		// Arrange
-		var player = mockPlayerCreator.CreateSimpleMockPlayer().Object;
 		var catchCard = mockCardCreator.CreateMockCardWithSetNumber(5).Object;
 
 		var roundState = CreateMockRoundState(
-			player,
+			_mockPlayer.Object,
 			throwCard: null,
 			catchCard: catchCard
 		).Object;
 
 		// Act & Assert
 		Assert.Throws<InvalidOperationException>(() =>
-			_sut.CalculateScore(player, roundState));
+			_sut.CalculateScore(_mockPlayer.Object.PlayerState, roundState));
 	}
 
 	[Fact]
 	public void CalculateScore_PlayerMissingCatchCard_ThrowsInvalidOperationException()
 	{
 		// Arrange
-		var player = mockPlayerCreator.CreateSimpleMockPlayer().Object;
 		var throwCard = mockCardCreator.CreateMockCardWithSetNumber(3).Object;
 
 		var roundState = CreateMockRoundState(
-			player,
+			_mockPlayer.Object,
 			throwCard: throwCard,
 			catchCard: null).Object;
 
 		// Act & Assert
 		Assert.Throws<InvalidOperationException>(() =>
-			_sut.CalculateScore(player, roundState));
+			_sut.CalculateScore(_mockPlayer.Object.PlayerState, roundState));
 	}
-
-	// ------------------------------------------------------------
-	// VALID SCORE TEST
-	// ------------------------------------------------------------
 
 	[Theory]
 	[InlineData(1, 7, 6)]
@@ -120,24 +110,23 @@ public class ThrowCatchAbsoluteScoreTests
 	[InlineData(7, 7, 0)]
 	[InlineData(0, 0, 0)]
 	public void CalculateScore_ValidCards_ReturnsAbsoluteDifference(
-		int throwNr, 
-		int catchNr, 
+		int throwNr,
+		int catchNr,
 		int absoluteExpected)
 	{
 		// Arrange
-		var player = mockPlayerCreator.CreateSimpleMockPlayer().Object;
 		var throwCard = mockCardCreator.CreateMockCardWithSetNumber(throwNr).Object;
 		var catchCard = mockCardCreator.CreateMockCardWithSetNumber(catchNr).Object;
 
 		var roundState = CreateMockRoundState(
-			player,
+			_mockPlayer.Object,
 			throwCard: throwCard,
 			catchCard: catchCard).Object;
 
 		// Act
-		int result = _sut.CalculateScore(player, roundState);
+		int result = _sut.CalculateScore(_mockPlayer.Object.PlayerState, roundState);
 
 		// Assert
-		Assert.Equal(absoluteExpected, result); 
+		Assert.Equal(absoluteExpected, result);
 	}
 }

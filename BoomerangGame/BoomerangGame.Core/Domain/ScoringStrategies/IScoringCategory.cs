@@ -1,11 +1,9 @@
-﻿using BoomerangGame.Core.Application;
-using BoomerangGame.Core.Domain.States.RoundStates;
+﻿using BoomerangGame.Core.Domain.States.PlayerState;
 
 namespace BoomerangGame.Core.Domain.ScoringStrategies;
 
 /// <summary>
-/// Defines a scoring rule used to calculate points for a player based on <br/>
-/// the round state or player state.
+/// Defines a scoring rule used to calculate points for a player based on <see cref="IPlayerState"/>.
 /// </summary>
 /// <remarks>
 /// Implementations of this interface represent individual scoring categories in the Boomerang game. <br/>
@@ -15,16 +13,16 @@ namespace BoomerangGame.Core.Domain.ScoringStrategies;
 public interface IScoringCategory
 {
 	/// <summary>
-	/// Calculates the score for the specified player, using values from the provided round or player state.
+	/// Calculates the score for the specified player, using values from <see cref="IPlayerState"/>.
 	/// </summary>
-	/// <param name="player">The player whose score is being calculated.</param>
-	/// <param name="roundState">The state of the round containing relevant card and turn data.</param>
+	/// <param name="playerState">The player whose score is being calculated.</param>
 	/// <returns>The score computed for the player.</returns>
 	/// <exception cref="ArgumentNullException">
-	/// Thrown if <paramref name="player"/> or <paramref name="roundState"/> is null.
+	/// Thrown if <paramref name="playerState"/> is null.
 	/// </exception>
 	/// <exception cref="InvalidOperationException">
-	/// Thrown if the scoring category requires data that is missing from the round state.
+	/// Thrown when data required for the scoring rule is missing
+	/// (for example, if necessary cards have not been recorded).
 	/// </exception>
-	int CalculateScore(IPlayer player, IRoundState roundState);
+	int CalculateScore(IPlayerState playerState);
 }

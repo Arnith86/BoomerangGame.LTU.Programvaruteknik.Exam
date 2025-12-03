@@ -1,5 +1,4 @@
-﻿using BoomerangGame.Core.Application;
-using BoomerangGame.Core.Domain.Cards;
+﻿using BoomerangGame.Core.Domain.Cards;
 using BoomerangGame.Core.Domain.TurnOrders;
 
 namespace BoomerangGame.Core.Domain.States.RoundStates;
@@ -10,27 +9,27 @@ namespace BoomerangGame.Core.Domain.States.RoundStates;
 /// </summary>
 public interface IRoundState
 {
-	Dictionary<IPlayer, IBoomerangCard> CatchCards { get; }
-	List<IDraftPick<IPlayer, IBoomerangCard>> DraftSequence { get; }
-	Dictionary<IPlayer, List<IBoomerangCard>> Hands { get; }
+	Dictionary<string, IBoomerangCard> CatchCards { get; }
+	List<IDraftPick<string, IBoomerangCard>> DraftSequence { get; }
+	Dictionary<string, List<IBoomerangCard>> Hands { get; }
 	PassDirection PassDirection { get; }
-	Dictionary<IPlayer, IBoomerangCard> ThrowCards { get; }
+	Dictionary<string, IBoomerangCard> ThrowCards { get; }
 
 	/// <summary>
 	/// Adds a draft pick to the round sequence for a given player.
 	/// </summary>
-	/// <param name="player">The player making the draft pick.</param>
+	/// <param name="playerName">The player making the draft pick.</param>
 	/// <param name="card">The card being picked.</param>
-	void AddDraftPick(IPlayer player, IBoomerangCard card);
+	void AddDraftPick(string playerName, IBoomerangCard card);
 
 	/// <summary>
 	/// Records a card that a player has either thrown or caught during the round.
 	/// </summary>
-	/// <param name="player">The player performing the action.</param>
+	/// <param name="playerName">The player performing the action.</param>
 	/// <param name="card">The card being thrown or caught.</param>
 	/// <param name="cardIndex">
 	/// The index indicating the type of action:
 	/// i=0 for throw, i>0 for catch.
 	/// </param>
-	void RecordThrowOrCatchCard(IPlayer player, IBoomerangCard card, int cardIndex);
+	void RecordThrowOrCatchCard(string playerName, IBoomerangCard card, int cardIndex);
 }
