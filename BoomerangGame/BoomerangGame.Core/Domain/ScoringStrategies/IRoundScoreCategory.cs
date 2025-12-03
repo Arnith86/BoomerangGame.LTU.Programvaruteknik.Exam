@@ -9,14 +9,14 @@ namespace BoomerangGame.Core.Domain.ScoringStrategies;
 /// on information from a specific round.
 /// </summary>
 /// <remarks>
-/// This interface extends <see cref="IScoringCategory"/> by specializing the scoring behavior <br/>
+/// This interface extends <see cref="IScoreCategory"/> by specializing the scoring behavior <br/>
 /// for scenarios where round-based data is required. <br/>
 ///
 /// Implementations define scoring rules that depend on card selections, turn order outcomes, or <br/>
 /// other round-level state. Categories that rely only on player-level state should instead <br/>
-/// implement <see cref="IScoringCategory"/> directly.
+/// implement <see cref="IScoreCategory"/> directly.
 /// </remarks>
-public interface IRoundScoringCategory : IScoringCategory
+public interface IRoundScoreCategory : IScoreCategory
 {
 	/// <summary>
 	/// Calculates the score for the specified player using data from the provided round state.

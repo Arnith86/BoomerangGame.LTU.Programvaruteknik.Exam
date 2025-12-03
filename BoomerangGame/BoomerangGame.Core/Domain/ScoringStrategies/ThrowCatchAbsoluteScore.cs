@@ -7,7 +7,7 @@ namespace BoomerangGame.Core.Domain.ScoringStrategies;
 /// Represents a scoring category where a player's score is determined by the absolute <br/>
 /// difference between their thrown boomerang card and the card they catch.
 /// </summary>
-public class ThrowCatchAbsoluteScore : IRoundScoringCategory
+public class ThrowCatchAbsoluteScore : IRoundScoreCategory
 {
 	/// <summary>
 	/// Calculates the player's score using the absolute difference between the value of their <br/>

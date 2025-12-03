@@ -12,7 +12,7 @@ using BoomerangGame.Core.Tests.HelperClasses;
 
 public class ThrowCatchAbsoluteScoreTests
 {
-	private IRoundScoringCategory _sut;
+	private IRoundScoreCategory _sut;
 	
 	private MockPlayerCreator mockPlayerCreator = new MockPlayerCreator();
 	private MockCardCreator mockCardCreator = new MockCardCreator();

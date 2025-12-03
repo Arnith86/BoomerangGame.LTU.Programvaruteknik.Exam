@@ -10,7 +10,7 @@ namespace BoomerangGame.Core.Domain.ScoringStrategies;
 /// Each scoring category applies its own logic to evaluate player performance for the given round or <br/>
 /// across the whole game.
 /// </remarks>
-public interface IScoringCategory
+public interface IScoreCategory
 {
 	/// <summary>
 	/// Calculates the score for the specified player, using values from <see cref="IBoomerangPlayerState"/>.
