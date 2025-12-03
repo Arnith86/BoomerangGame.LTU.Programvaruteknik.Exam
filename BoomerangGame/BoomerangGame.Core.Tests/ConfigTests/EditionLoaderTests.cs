@@ -1,6 +1,7 @@
 ﻿// Ignore Spelling: Json Dto
 
 using BoomerangGame.Core.Config;
+using BoomerangGame.Core.Tests.HelperClasses;
 
 namespace BoomerangGame.Core.Tests.ConfigTests;
 

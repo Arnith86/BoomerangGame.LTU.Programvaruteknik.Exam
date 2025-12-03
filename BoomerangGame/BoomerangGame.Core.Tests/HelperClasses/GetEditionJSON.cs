@@ -1,4 +1,4 @@
-﻿namespace BoomerangGame.Core.Tests;
+﻿namespace BoomerangGame.Core.Tests.HelperClasses;
 
 public static class GetEditionJSON
 {
