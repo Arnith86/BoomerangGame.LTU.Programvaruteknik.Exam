@@ -78,11 +78,12 @@ public class TurnOrderTests
 		Assert.Equal(players[2], result);
 	}
 
-	[Fact]
-	public void GetPassDirection_ReturnsGivenDirection()
+	[Theory]
+	[InlineData(PassDirection.CLOCKWISE)]
+	[InlineData(PassDirection.COUNTERCLOCKWISE)]
+	public void GetPassDirection_ReturnsGivenDirection(PassDirection direction)
 	{
 		// Arrange
-		var direction = PassDirection.CLOCKWISE;
 		var turnOrder = new TurnOrder(direction);
 
 		// Act
