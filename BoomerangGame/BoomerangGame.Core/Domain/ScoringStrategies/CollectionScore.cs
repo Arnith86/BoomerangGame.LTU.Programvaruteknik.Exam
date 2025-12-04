@@ -3,6 +3,13 @@ using BoomerangGame.Core.Domain.States.PlayerState;
 
 namespace BoomerangGame.Core.Domain.ScoringStrategies;
 
+/// <summary>
+/// Represents the scoring strategy for the "collection" category in the Boomerang game.
+/// </summary>
+/// <remarks>
+/// Scores drafted cards by counting collection symbols and applying <br/>
+/// fixed point values. Totals below eight are doubled.
+/// </remarks>
 public class CollectionScore : IScoreCategory
 {
 	public int CalculateScore(IBoomerangPlayerState playerState)
@@ -10,7 +17,7 @@ public class CollectionScore : IScoreCategory
 		ScoringStrategyPreConditionNullCheck.Check(playerState);
 
 		if (playerState.DraftedCards is null)
-			throw new InvalidOperationException("Player does not have a drafted cards cards");
+			throw new InvalidOperationException("Player does not have a drafted cards");
 
 
 		Dictionary<string, int> countedDictionerty = 
