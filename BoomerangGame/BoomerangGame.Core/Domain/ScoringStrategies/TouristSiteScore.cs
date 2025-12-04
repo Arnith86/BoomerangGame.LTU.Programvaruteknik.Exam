@@ -1,14 +1,16 @@
-﻿//using BoomerangGame.Core.Application;
+﻿using BoomerangGame.Core.Domain.States.PlayerState;
 
-//namespace BoomerangGame.Core.Domain.ScoringStrategies;
+namespace BoomerangGame.Core.Domain.ScoringStrategies;
 
-//public class TouristSiteScore : IScoringCategory
-//{
-//	public int CalculateScore(IPlayer player)
-//	{
-//		ScoringStrategyPreConditionNullCheck.Check(player);
+public class TouristSiteScore : IScoreCategory
+{
+	public int CalculateScore(IBoomerangPlayerState playerState)
+	{
+		ScoringStrategyPreConditionNullCheck.Check(playerState);
 
-//		if (player.PlayerState.)
-//		throw new NotImplementedException();
-//	}
-//}
+		if (playerState.VisitedSites is null)
+			throw new InvalidOperationException("Player does not have a visited sites collection.");
+
+		return playerState.VisitedSites.Count;
+	}
+}
