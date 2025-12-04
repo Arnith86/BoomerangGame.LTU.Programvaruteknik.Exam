@@ -1,4 +1,4 @@
-﻿using BoomerangGame.Core.Domain.Cards;
+﻿using BoomerangGame.Core.Domain.ScoringStrategies.Utilities;
 using BoomerangGame.Core.Domain.States.PlayerState;
 
 namespace BoomerangGame.Core.Domain.ScoringStrategies;
@@ -13,7 +13,8 @@ public class CollectionScore : IScoreCategory
 			throw new InvalidOperationException("Player does not have a drafted cards cards");
 
 
-		Dictionary<string, int> countedDictionerty = InstanceCounter(playerState.DraftedCards, "collection");
+		Dictionary<string, int> countedDictionerty = 
+			SymbolInstanceCounter.CountInstances(playerState.DraftedCards, "collection");
 
 		int tempPoints = CalculateTempPoints(countedDictionerty);
 
@@ -47,29 +48,5 @@ public class CollectionScore : IScoreCategory
 		}
 
 		return points;
-	}
-
-	public Dictionary<string, int> InstanceCounter(	List<IBoomerangCard<string>> cards, string type) 
-	{
-		if (cards is null)
-			throw new ArgumentNullException(nameof(cards));
-
-		var result = new Dictionary<string, int>();
-		
-		foreach (var card in cards)
-		{
-			if (card.Symbols is null) continue;
-
-			var symbol = card.Symbols.GetByCategory(type);
-
-			string key = symbol!.Value;
-
-			if (result.ContainsKey(key))
-				result[key]++;
-			else
-				result[key] = 1;
-		}
-
-		return result;
 	}
 }
