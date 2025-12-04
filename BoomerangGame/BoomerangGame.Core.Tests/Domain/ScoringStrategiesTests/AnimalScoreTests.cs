@@ -14,10 +14,20 @@ public class AnimalScoreTests
 	private MockCardCreator _mockCardCreator;
 	private Mock<IBoomerangPlayerState> _mockBPState;
 	private const string _c_PLAYER_NAME = "TestPlayer";
+	private Dictionary<string, int> _animals = new Dictionary<string, int>
+	{
+		{ "Kangaroos", 3 },
+		{ "Emus", 4 },
+		{ "Wombats", 5 },
+		{ "Koalas", 7 },
+		{ "Platypuses", 9 },
+		{ "Mouse", 1 },
+		{ "Fish", 2 }
+	};
 
 	public AnimalScoreTests()
 	{
-		_sut = new AnimalScore();
+		_sut = new AnimalScore(_animals);
 
 		_mockBoomerangPlayerStateCreator = new MockBoomerangPlayerStateCreator();
 		_mockBPState = _mockBoomerangPlayerStateCreator.CreateMockBoomerangPlayerState(_c_PLAYER_NAME);

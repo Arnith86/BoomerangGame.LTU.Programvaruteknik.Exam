@@ -7,8 +7,17 @@ namespace BoomerangGame.Core.Domain.ScoringStrategies;
 /// Represents a scoring strategy that calculates points based on drafted animal cards. Points are <br/>
 /// awarded for pairs of the same animal type, with different animal types having different point values.
 /// </summary>
+/// <remarks>Can be used with bort the Australian and American editions.</remarks>
 public class AnimalScore : IScoreCategory
 {
+	private Dictionary<string, int> _pointsPerPair;
+
+	public AnimalScore(Dictionary<string, int> pointsPerPair)
+	{
+		_pointsPerPair = pointsPerPair;	
+	}
+
+
 	public int CalculateScore(IBoomerangPlayerState playerState)
 	{
 		ScoringStrategyPreConditionNullCheck.Check(playerState);
@@ -29,25 +38,9 @@ public class AnimalScore : IScoreCategory
 
 		foreach (KeyValuePair<string, int> collectionType in countedDictionerty)
 		{
-			switch (collectionType.Key)
+			if(_pointsPerPair.TryGetValue(collectionType.Key, out int pointPerPair))
 			{
-				case "Kangaroos":
-					points += 3 * GetNrOfPairs(collectionType.Value);
-					break;
-				case "Emus":
-					points += 4 * GetNrOfPairs(collectionType.Value);
-					break;
-				case "Wombats":
-					points += 5 * GetNrOfPairs(collectionType.Value);
-					break;
-				case "Koalas":
-					points += 7 * GetNrOfPairs(collectionType.Value);
-					break;
-				case "Platypuses":
-					points += 9 * GetNrOfPairs(collectionType.Value);
-					break;
-				default:
-					break;
+				points += pointPerPair * GetNrOfPairs(collectionType.Value);
 			}
 		}
 

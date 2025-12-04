@@ -13,5 +13,10 @@ public sealed record EditionConfig(
 	IRegionProgressTracker RegionProgressTracker,
 	IReadOnlyList<string> ScoringStrategies,
 	string TieBreakerIdentifier, 
-	string TurnOrderIdentifier
+	string TurnOrderIdentifier,
+	
+	/// <summary>
+	/// Optional mapping of animal names to points per pair for editions that include animals.
+	/// </summary>
+	IReadOnlyDictionary<string, int>? AnimalPointsPerPair = null
 );

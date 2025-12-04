@@ -334,5 +334,13 @@
         "Collection",
         "Animal",
         "Activity"
-    ]
+    ],
+
+    "animalPointsPerPair": {
+        "Kangaroos": 3,
+        "Emus": 4,
+        "Wombats": 5,
+        "Koalas": 7,
+        "Platypuses": 9
+    }
 }
