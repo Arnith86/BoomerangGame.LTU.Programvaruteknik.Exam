@@ -35,18 +35,21 @@ public class MockCardCreator
 		return mock;
 	}
 
-	public Mock<IBoomerangCard<string>> CreateSingleMockCardWithSetCollection(string type, string value)
+	public IBoomerangCard<string> CreateSingleMockCardWithSetCollection(string type, string value)
 	{
-		Mock<ISymbolSet<string>> mockSymbolSet = 
-			_mockSymbolSetCreator.CreateMockSymbolSetWithFirst(type, value);
+		ISymbolSet<string> mockSymbolSet = new SymbolSet<string>(
+			new Symbol<string>(type, value),
+			null,
+			null
+		); 
 		
 		Mock<IBoomerangCard<string>> mockCard = new Mock<IBoomerangCard<string>>();
-		mockCard.SetupGet(c => c.Symbols).Returns(mockSymbolSet.Object);
+		mockCard.SetupGet(c => c.Symbols).Returns(mockSymbolSet);
 
-		return mockCard;
+		return mockCard.Object;
 	}
 
-	public List<Mock<IBoomerangCard<string>>> CreateSetOfMockCardWithSingleSetOfSymbols(
+	public List<IBoomerangCard<string>> CreateFullSetOfMockCardWithCollectionSymbol(
 		string type1, string value1,
 		string type2, string value2,
 		string type3, string value3,
@@ -55,7 +58,7 @@ public class MockCardCreator
 		string type6, string value6,
 		string type7, string value7)
 	{
-		List<Mock<IBoomerangCard<string>>> cards = new List<Mock<IBoomerangCard<string>>>
+		List<IBoomerangCard<string>> cards = new List<IBoomerangCard<string>>
 		{
 			CreateSingleMockCardWithSetCollection(type1, value1),
 			CreateSingleMockCardWithSetCollection(type2, value2),
