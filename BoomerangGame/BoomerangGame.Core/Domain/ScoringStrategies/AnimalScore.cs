@@ -14,7 +14,7 @@ public class AnimalScore : IScoreCategory
 
 	public AnimalScore(Dictionary<string, int> pointsPerPair)
 	{
-		_pointsPerPair = pointsPerPair;	
+		_pointsPerPair = pointsPerPair ?? throw new ArgumentNullException(nameof(pointsPerPair));
 	}
 
 
