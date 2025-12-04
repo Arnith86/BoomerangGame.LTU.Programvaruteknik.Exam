@@ -4,12 +4,14 @@ namespace BoomerangGame.Core.Domain.Cards.Symbols;
 /// Constructs <see cref="SymbolSet"/> instances from a variety of source shapes.
 /// Keeps the public API small and centralizes validation rules.
 /// </summary>
-public static class SymbolSetFactory
+public static class SymbolSetFactory<TValue>
 {
 	/// <summary>
 	/// Creates a symbol set from category/value pairs (ignoring null or whitespace values).
 	/// </summary>
-	public static SymbolSet FromDictionary(IEnumerable<KeyValuePair<string, string?>> categoryValues)
+	public static SymbolSet<TValue>FromDictionary(
+		IEnumerable<KeyValuePair<string, TValue?>> categoryValues
+	)
 	{
 		if (categoryValues is null)
 		{
@@ -17,8 +19,11 @@ public static class SymbolSetFactory
 		}
 
 		var symbols = categoryValues
-			.Where(entry => !string.IsNullOrWhiteSpace(entry.Key) && !string.IsNullOrWhiteSpace(entry.Value))
-			.Select(entry => new Symbol(entry.Key.Trim(), entry.Value!.Trim()))
+			.Where(entry =>
+				!string.IsNullOrWhiteSpace(entry.Key) &&
+				entry.Value is not null)
+			.Select(entry =>
+				new Symbol<TValue>(entry.Key.Trim(), entry.Value!))
 			.ToList();
 
 		return FromSymbols(symbols);
@@ -27,7 +32,7 @@ public static class SymbolSetFactory
 	/// <summary>
 	/// Creates a symbol set from an enumerable of <see cref="Symbol" /> instances.
 	/// </summary>
-	public static SymbolSet FromSymbols(IEnumerable<Symbol?> symbols)
+	public static SymbolSet<TValue> FromSymbols(IEnumerable<Symbol<TValue>> symbols)
 	{
 		if (symbols is null)
 		{
@@ -36,11 +41,11 @@ public static class SymbolSetFactory
 
 		var symbolArray = symbols
 			.Where(symbol => symbol is not null)
-			.Cast<Symbol>()
+			.Cast<Symbol<TValue>>()
 			.Take(2)
 			.ToArray();
 
-		return new SymbolSet(
+		return new SymbolSet<TValue>(
 			symbolArray.ElementAtOrDefault(0),
 			symbolArray.ElementAtOrDefault(1),
 			symbolArray.ElementAtOrDefault(2));
@@ -49,6 +54,7 @@ public static class SymbolSetFactory
 	/// <summary>
 	/// Convenience factory for callers that have between zero and three symbols already constructed.
 	/// </summary>
-	public static SymbolSet FromSymbols(params Symbol?[] symbols) => FromSymbols((IEnumerable<Symbol?>)symbols);
+	public static SymbolSet<TValue> FromSymbols(params Symbol<TValue>[] symbols) 
+		=> FromSymbols((IEnumerable<Symbol<TValue>>)symbols);
 }
 

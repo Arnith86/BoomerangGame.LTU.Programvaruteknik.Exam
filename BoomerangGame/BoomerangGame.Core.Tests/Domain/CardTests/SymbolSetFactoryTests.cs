@@ -16,12 +16,12 @@ public class SymbolSetFactoryTests
 		};
 
 		// Act
-		var symbolSet = SymbolSetFactory.FromDictionary(source);
+		var symbolSet = SymbolSetFactory<string>.FromDictionary(source);
 
 		// Assert
 		symbolSet.Symbols.Should().ContainInOrder(
-			new Symbol("collection", "Shells"),
-			new Symbol("blueIcon", "Swimming"));
+			new Symbol<string>("collection", "Shells"),
+			new Symbol<string>("blueIcon", "Swimming"));
 	}
 
 	[Fact]
@@ -30,13 +30,13 @@ public class SymbolSetFactoryTests
 		// Arrange
 		var symbols = new[]
 		{
-			new Symbol("collection", "Shells"),
-			new Symbol("animal", "Kangaroo"),
-			new Symbol("bonus", "Extra") // should be ignored
+			new Symbol<string>("collection", "Shells"),
+			new Symbol<string>("animal", "Kangaroo"),
+			new Symbol<string>("bonus", "Extra") // should be ignored
 		};
 
 		// Act
-		var symbolSet = SymbolSetFactory.FromSymbols(symbols);
+		var symbolSet = SymbolSetFactory<string>.FromSymbols(symbols);
 
 		// Assert
 		symbolSet.Symbols.Should().HaveCount(2);

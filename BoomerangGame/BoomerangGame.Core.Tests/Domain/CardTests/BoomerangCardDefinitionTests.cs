@@ -11,10 +11,10 @@ public class BoomerangCardDefinitionTests
 	private const string _c_ValidSite = "A";
 	private const int _c_ValidCardNumberValue = 1;
 
-	private SymbolSet CreateValidSymbolSet() => SymbolSetFactory.FromSymbols(
-		new Symbol("Collection", "Leaves"),
-		new Symbol("Animal", ""),
-		new Symbol("blueIcon", "Indigenous Culture")
+	private SymbolSet<string> CreateValidSymbolSet() => SymbolSetFactory<string>.FromSymbols(
+		new Symbol<string>("Collection", "Leaves"),
+		new Symbol<string>("Animal", ""),
+		new Symbol<string>("blueIcon", "Indigenous Culture")
 	);
 
 	[Fact]
@@ -22,7 +22,8 @@ public class BoomerangCardDefinitionTests
 	{
 		var symbols = CreateValidSymbolSet();
 
-		var card = new BoomerangCardDefinition(_c_ValidName, _c_ValidRegion, _c_ValidSite, _c_ValidCardNumberValue, symbols);
+		var card = new BoomerangCardDefinition<string>(
+			_c_ValidName, _c_ValidRegion, _c_ValidSite, _c_ValidCardNumberValue, symbols);
 
 		Assert.Equal(_c_ValidName, card.Name);
 		Assert.Equal(_c_ValidSite, card.Site);
@@ -40,7 +41,7 @@ public class BoomerangCardDefinitionTests
 		var symbols = CreateValidSymbolSet();
 
 		Assert.Throws<ArgumentException>(() =>
-			new BoomerangCardDefinition(_c_ValidName, region!, _c_ValidSite, _c_ValidCardNumberValue, symbols));
+			new BoomerangCardDefinition<string>(_c_ValidName, region!, _c_ValidSite, _c_ValidCardNumberValue, symbols));
 	}
 
 	[Fact]
@@ -48,8 +49,13 @@ public class BoomerangCardDefinitionTests
 	{
 		var symbols = CreateValidSymbolSet();
 
-		var card = new BoomerangCardDefinition(_c_ValidName, "  Western Australia   ", _c_ValidSite, _c_ValidCardNumberValue, symbols);
-
+		var card = new BoomerangCardDefinition<string>(
+			_c_ValidName, 
+			"  Western Australia   ", 
+			_c_ValidSite, 
+			_c_ValidCardNumberValue, 
+			symbols
+		);
 
 		Assert.Equal(_c_ValidRegion, card.Region);
 	}
@@ -59,8 +65,13 @@ public class BoomerangCardDefinitionTests
 	{
 		var symbols = CreateValidSymbolSet();
 
-		var card = new BoomerangCardDefinition("  The Bungle Bungles   ", _c_ValidRegion, _c_ValidSite, _c_ValidCardNumberValue, symbols);
-
+		var card = new BoomerangCardDefinition<string>(
+			"  The Bungle Bungles   ", 
+			_c_ValidRegion, 
+			_c_ValidSite, 
+			_c_ValidCardNumberValue, 
+			symbols
+		);
 
 		Assert.Equal(_c_ValidName, card.Name);
 	}
@@ -71,14 +82,28 @@ public class BoomerangCardDefinitionTests
 		var symbols = CreateValidSymbolSet();
 
 		Assert.Throws<ArgumentOutOfRangeException>(() =>
-			new BoomerangCardDefinition(_c_ValidName, _c_ValidRegion, _c_ValidSite, -1, symbols));
+			new BoomerangCardDefinition<string>(
+				_c_ValidName, 
+				_c_ValidRegion, 
+				_c_ValidSite, 
+				-1, 
+				symbols
+			)
+		);
 	}
 
 	[Fact]
 	public void Constructor_ShouldThrow_WhenSymbolsNull()
 	{
 		Assert.Throws<ArgumentNullException>(() =>
-			new BoomerangCardDefinition(_c_ValidName, _c_ValidRegion, _c_ValidSite, _c_ValidCardNumberValue, null!));
+			new BoomerangCardDefinition<string>(
+				_c_ValidName, 
+				_c_ValidRegion, 
+				_c_ValidSite, 
+				_c_ValidCardNumberValue, 
+				null!
+			)
+		);
 	}
 }
 

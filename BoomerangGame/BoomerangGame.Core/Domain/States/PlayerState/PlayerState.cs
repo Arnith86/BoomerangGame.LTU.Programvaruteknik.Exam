@@ -8,10 +8,10 @@ public class PlayerState : IBoomerangPlayerState
 	private string _name; // Will this be used? 
 	private int _score = 0;
 
-	private IBoomerangCard _throwCard;  // Remove if not used 
-	private IBoomerangCard _catchCard;  // Remove if not used
+	private IBoomerangCard<int> _throwCard;  // Remove if not used 
+	private IBoomerangCard<int> _catchCard;  // Remove if not used
 
-	private List<IBoomerangCard> _draftedCards = new List<IBoomerangCard>();
+	private List<IBoomerangCard<string>> _draftedCards = new List<IBoomerangCard<string>>();
 	private HashSet<string> _visitedSites = new HashSet<string>();
 	private IMapState _mapState;
 	private HashSet<string> _blueIconHistory = new HashSet<string>();
@@ -39,7 +39,7 @@ public class PlayerState : IBoomerangPlayerState
 	public int Score => _score;
 
 	/// <inheritdoc/>
-	public List<IBoomerangCard> DraftedCards => _draftedCards;
+	public List<IBoomerangCard<string>> DraftedCards => _draftedCards;
 	
 	/// <inheritdoc/>
 	public HashSet<string> VisitedSites => _visitedSites;
@@ -52,7 +52,7 @@ public class PlayerState : IBoomerangPlayerState
 
 
 	/// <inheritdoc/>
-	public void AddToDraftedCards(IBoomerangCard card)
+	public void AddToDraftedCards(IBoomerangCard<string> card)
 	{
 		if (card is null)
 			throw new ArgumentNullException(nameof(card), "Card cannot be null.");

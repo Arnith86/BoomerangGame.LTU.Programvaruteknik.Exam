@@ -1,5 +1,4 @@
-﻿using BoomerangGame.Core.Application;
-using BoomerangGame.Core.Domain.States.PlayerState;
+﻿using BoomerangGame.Core.Domain.States.PlayerState;
 using BoomerangGame.Core.Domain.States.RoundStates;
 
 namespace BoomerangGame.Core.Domain.ScoringStrategies;

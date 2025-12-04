@@ -23,11 +23,6 @@ public class TouristSiteScoreTests
 		_mockBPState = _mockBoomerangPlayerStateCreator.CreateMockBoomerangPlayerState(_c_PLAYER_NAME);	
 	}
 
-	//public Mock<IBoomerangPlayerState> CreateMockBoomerangPlayerState()
-	//{
-	//	return new Mock<IBoomerangPlayerState>();
-	//}
-
 	[Fact]
 	public void CalculateScore_PlayerStateNull_ThrowsArgumentNullException()
 	{

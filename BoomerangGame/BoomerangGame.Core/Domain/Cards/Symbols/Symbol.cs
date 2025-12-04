@@ -5,9 +5,9 @@ namespace BoomerangGame.Core.Domain.Cards.Symbols;
 /// </summary>
 /// <param name="Category">The category identifier (e.g. collection, animal, activity).</param>
 /// <param name="Value">The concrete value within that category (e.g. shells, kangaroo).</param>
-public record Symbol(string Category, string Value)
+public record Symbol<TValue>(string Category, TValue Value)
 {
 	public string Category { get; init; } = Category ?? throw new ArgumentNullException(nameof(Category));
-	public string Value { get; init; } = Value ?? throw new ArgumentNullException(nameof(Value));
+	public TValue Value { get; init; } = Value ?? throw new ArgumentNullException(nameof(Value));
 }
 

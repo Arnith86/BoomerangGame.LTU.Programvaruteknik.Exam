@@ -9,18 +9,18 @@ namespace BoomerangGame.Core.Domain.States.RoundStates;
 /// </summary>
 public interface IRoundState
 {
-	Dictionary<string, IBoomerangCard> CatchCards { get; }
-	List<IDraftPick<string, IBoomerangCard>> DraftSequence { get; }
-	Dictionary<string, List<IBoomerangCard>> Hands { get; }
+	Dictionary<string, IBoomerangCard<string>> CatchCards { get; }
+	List<IDraftPick<string, IBoomerangCard<string>>> DraftSequence { get; }
+	Dictionary<string, List<IBoomerangCard<string>>> Hands { get; }
 	PassDirection PassDirection { get; }
-	Dictionary<string, IBoomerangCard> ThrowCards { get; }
+	Dictionary<string, IBoomerangCard<string>> ThrowCards { get; }
 
 	/// <summary>
 	/// Adds a draft pick to the round sequence for a given player.
 	/// </summary>
 	/// <param name="playerName">The player making the draft pick.</param>
 	/// <param name="card">The card being picked.</param>
-	void AddDraftPick(string playerName, IBoomerangCard card);
+	void AddDraftPick(string playerName, IBoomerangCard<string> card);
 
 	/// <summary>
 	/// Records a card that a player has either thrown or caught during the round.
@@ -31,5 +31,5 @@ public interface IRoundState
 	/// The index indicating the type of action:
 	/// i=0 for throw, i>0 for catch.
 	/// </param>
-	void RecordThrowOrCatchCard(string playerName, IBoomerangCard card, int cardIndex);
+	void RecordThrowOrCatchCard(string playerName, IBoomerangCard<string> card, int cardIndex);
 }

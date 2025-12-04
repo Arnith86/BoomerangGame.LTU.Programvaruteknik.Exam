@@ -1,5 +1,4 @@
-﻿using BoomerangGame.Core.Domain.States;
-using BoomerangGame.Core.Domain.States.MapStates;
+﻿using BoomerangGame.Core.Domain.States.MapStates;
 
 namespace BoomerangGame.Core.Tests.Domain.StatesTests;
 

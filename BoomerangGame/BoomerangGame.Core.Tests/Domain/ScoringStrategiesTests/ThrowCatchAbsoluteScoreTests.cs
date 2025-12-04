@@ -101,13 +101,15 @@ public class ThrowCatchAbsoluteScoreTests
 		var throwCard = _mockCardCreator.CreateMockCardWithSetNumber(throwNr).Object;
 		var catchCard = _mockCardCreator.CreateMockCardWithSetNumber(catchNr).Object;
 
-		_mockRoundState.SetupGet(rs => rs.ThrowCards).Returns(new Dictionary<string, IBoomerangCard>
+		_mockRoundState.SetupGet(rs => rs.ThrowCards)
+			.Returns(new Dictionary<string, IBoomerangCard<string>>
 			{
 				{ _c_PLAYER_NAME, throwCard }
 			}
 		);
 
-		_mockRoundState.SetupGet(rs => rs.CatchCards).Returns(new Dictionary<string, IBoomerangCard>
+		_mockRoundState.SetupGet(rs => rs.CatchCards)
+			.Returns(new Dictionary<string, IBoomerangCard<string>>
 			{
 				{ _c_PLAYER_NAME, catchCard }
 			}

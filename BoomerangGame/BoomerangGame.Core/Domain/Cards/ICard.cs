@@ -1,6 +1,4 @@
-﻿using BoomerangGame.Core.Domain.Cards.Symbols;
-
-namespace BoomerangGame.Core.Domain.Cards
+﻿namespace BoomerangGame.Core.Domain.Cards
 {
 	/// <summary>
 	/// Represents the basic structure of a Card.

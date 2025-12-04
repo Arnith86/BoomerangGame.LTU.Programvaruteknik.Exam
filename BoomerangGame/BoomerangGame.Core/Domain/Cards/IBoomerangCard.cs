@@ -5,7 +5,7 @@ namespace BoomerangGame.Core.Domain.Cards
 	/// <summary>
 	/// Represents a Boomerang game card with specific properties like name, letter, and region.
 	/// </summary>
-	public interface IBoomerangCard : ICard
+	public interface IBoomerangCard<TValue> : ICard
 	{
 		/// <summary>
 		/// The name of the card.
@@ -25,6 +25,6 @@ namespace BoomerangGame.Core.Domain.Cards
 		/// <summary>
 		/// The symbols of the card.
 		/// </summary>
-		ISymbolSet Symbols { get; }
+		ISymbolSet<TValue> Symbols { get; }
 	}
 }

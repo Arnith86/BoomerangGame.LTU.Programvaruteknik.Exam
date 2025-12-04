@@ -2,16 +2,21 @@
 
 namespace BoomerangGame.Core.Domain.Cards;
 
-public class BoomerangCard : IBoomerangCard
+public class BoomerangCard<TValue> : IBoomerangCard<TValue>
 {
 	private readonly string _name;
 	private readonly string _region;
 	private readonly string _site;
 	private readonly int _number;
-	private readonly ISymbolSet _symbolSet;
+	private readonly ISymbolSet<TValue> _symbolSet;
 	private bool _isHidden;
 
-	public BoomerangCard(string name, string region, string site, int number, ISymbolSet symbolSet)
+	public BoomerangCard(
+		string name, 
+		string region, 
+		string site, 
+		int number, 
+		ISymbolSet<TValue> symbolSet)
 	{
 		_name = name;
 		_region = region;
@@ -29,7 +34,7 @@ public class BoomerangCard : IBoomerangCard
 
 	public int Number => _number;
 
-	public ISymbolSet Symbols => _symbolSet;
+	public ISymbolSet<TValue> Symbols => _symbolSet;
 
 	public bool IsHidden => _isHidden;
 

@@ -8,12 +8,12 @@ public class SymbolSetTests
 	public void Constructor_ShouldStoreAllSymbols()
 	{
 		// Arrange
-		var expectedFirst = new Symbol("collection", "Shells");
-		var expectedSecond = new Symbol("animal", "Kangaroo");
-		var expectedThird = new Symbol("blueIcon", "Swimming");
+		var expectedFirst = new Symbol<string>("collection", "Shells");
+		var expectedSecond = new Symbol<string>("animal", "Kangaroo");
+		var expectedThird = new Symbol<string>("blueIcon", "Swimming");
 
 		// Act
-		var symbolSet = new SymbolSet(expectedFirst, expectedSecond, expectedThird);
+		var symbolSet = new SymbolSet<string>(expectedFirst, expectedSecond, expectedThird);
 
 		// Assert
 		symbolSet.First.Should().Be(expectedFirst);
@@ -26,9 +26,9 @@ public class SymbolSetTests
 	public void ContainsCategory_WhenSymbolExists_ShouldReturnTrue()
 	{
 		// Arrange
-		var symbolSet = new SymbolSet(
-			new Symbol("collection", "Shells"),
-			new Symbol("animal", "Kangaroo"),
+		var symbolSet = new SymbolSet<string>(
+			new Symbol<string>("collection", "Shells"),
+			new Symbol<string>("animal", "Kangaroo"),
 			null);
 
 		// Act & Assert
@@ -39,9 +39,9 @@ public class SymbolSetTests
 	public void ContainsCategory_WhenSymbolIsMissing_ShouldReturnFalse()
 	{
 		// Arrange
-		var symbolSet = new SymbolSet(
-			new Symbol("collection", "Shells"),
-			new Symbol("animal", "Kangaroo"),
+		var symbolSet = new SymbolSet<string>(
+			new Symbol<string>("collection", "Shells"),
+			new Symbol<string>("animal", "Kangaroo"),
 			null);
 
 		// Act & Assert

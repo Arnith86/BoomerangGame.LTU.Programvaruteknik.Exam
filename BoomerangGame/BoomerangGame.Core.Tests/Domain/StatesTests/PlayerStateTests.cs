@@ -10,8 +10,8 @@ public class PlayerStateTests
 {
 	private readonly PlayerState _sut;
 	private readonly Mock<IMapState> _mockMapState;
-	private readonly Mock<IBoomerangCard> _cardA;
-	private readonly Mock<IBoomerangCard> _cardB;
+	private readonly Mock<IBoomerangCard<string>> _cardA;
+	private readonly Mock<IBoomerangCard<string>> _cardB;
 
 	public PlayerStateTests()
 	{
@@ -19,11 +19,11 @@ public class PlayerStateTests
 		_sut = new PlayerState(_mockMapState!.Object);
 
 
-		_cardA = new Mock<IBoomerangCard>();
+		_cardA = new Mock<IBoomerangCard<string>>();
 		_cardA.SetupGet(c => c.Site).Returns("A");
 		_cardA.SetupGet(c => c.Region).Returns("Western Australia");
 
-		_cardB = new Mock<IBoomerangCard>();
+		_cardB = new Mock<IBoomerangCard<string>>();
 		_cardB.SetupGet(c => c.Site).Returns("B");
 		_cardB.SetupGet(c => c.Region).Returns("Western Australia");
 	}
@@ -44,10 +44,10 @@ public class PlayerStateTests
 	public void AddToDraftedCards_FirstCard_ThrowCard_ShouldHaveState_Hidden_RQ5()
 	{
 		// Arrange
-		Mock<ISymbolSet> symbolSet = new Mock<ISymbolSet>();
+		Mock<ISymbolSet<string>> symbolSet = new Mock<ISymbolSet<string>>();
 
 		// Act
-		_sut.AddToDraftedCards(new BoomerangCard(
+		_sut.AddToDraftedCards(new BoomerangCard<string>(
 			name: "The Bungle Bungles",
 			region: "Western Australia",
 			site: "A",

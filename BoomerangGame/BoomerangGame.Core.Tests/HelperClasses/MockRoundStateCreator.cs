@@ -9,13 +9,13 @@ public class MockRoundStateCreator
 {
 	public Mock<IRoundState> CreateMockRoundState(
 	IPlayer player,
-	IBoomerangCard? throwCard = null,
-	IBoomerangCard? catchCard = null)
+	IBoomerangCard<string>? throwCard = null,
+	IBoomerangCard<string>? catchCard = null)
 	{
 		var mock = new Mock<IRoundState>();
 
-		var throwDict = new Dictionary<string, IBoomerangCard>();
-		var catchDict = new Dictionary<string, IBoomerangCard>();
+		var throwDict = new Dictionary<string, IBoomerangCard<string>>();
+		var catchDict = new Dictionary<string, IBoomerangCard<string>>();
 
 		if (throwCard != null)
 			throwDict[player.PlayerState.Name] = throwCard;

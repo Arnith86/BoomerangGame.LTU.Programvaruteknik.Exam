@@ -1,12 +1,12 @@
 ﻿
 namespace BoomerangGame.Core.Domain.Cards.Symbols
 {
-	public interface ISymbolSet
+	public interface ISymbolSet<TValue>
 	{
-		Symbol? First { get; init; }
-		Symbol? Second { get; init; }
-		IReadOnlyList<Symbol> Symbols { get; }
-		Symbol? Third { get; init; }
+		Symbol<TValue>? First { get; init; }
+		Symbol<TValue>? Second { get; init; }
+		IReadOnlyList<Symbol<TValue>> Symbols { get; }
+		Symbol<TValue>? Third { get; init; }
 
 		bool ContainsCategory(string category);
 		//void Deconstruct(out Symbol? First, out Symbol? Second, out Symbol? Third);

@@ -2,6 +2,10 @@
 
 namespace BoomerangGame.Core.Domain.ScoringStrategies;
 
+/// <summary>
+/// Calculates the score for a player based on the number of tourist sites
+/// they have visited during the round.
+/// </summary>
 public class TouristSiteScore : IScoreCategory
 {
 	public int CalculateScore(IBoomerangPlayerState playerState)

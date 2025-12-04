@@ -1,5 +1,4 @@
-﻿using BoomerangGame.Core.Application;
-using BoomerangGame.Core.Domain.Cards;
+﻿using BoomerangGame.Core.Domain.Cards;
 using BoomerangGame.Core.Domain.TurnOrders;
 
 namespace BoomerangGame.Core.Domain.States.RoundStates;
@@ -14,10 +13,10 @@ public class RoundState : IRoundState
 
 	private PassDirection _passDirection;
 
-	private readonly Dictionary<string, IBoomerangCard> _throwCards = new();
-	private readonly Dictionary<string, IBoomerangCard> _catchCards = new();
-	private readonly Dictionary<string, List<IBoomerangCard>> _hands;
-	private readonly List<IDraftPick<string, IBoomerangCard>> _draftSequence = new();
+	private readonly Dictionary<string, IBoomerangCard<string>> _throwCards = new();
+	private readonly Dictionary<string, IBoomerangCard<string>> _catchCards = new();
+	private readonly Dictionary<string, List<IBoomerangCard<string>>> _hands;
+	private readonly List<IDraftPick<string, IBoomerangCard<string>>> _draftSequence = new();
 
 	/// <summary>
 	/// Initializes a new instance of <see cref="RoundState"/>.
@@ -28,7 +27,7 @@ public class RoundState : IRoundState
 	/// <exception cref="ArgumentNullException">Thrown when <paramref name="hands"/> is <c>null<c>.</exception>
 	public RoundState(
 		int roundNumber,
-		Dictionary<string, List<IBoomerangCard>> hands,
+		Dictionary<string, List<IBoomerangCard<string>>> hands,
 		PassDirection direction = PassDirection.CLOCKWISE)
 	{
 		_roundNumber = roundNumber;
@@ -36,14 +35,14 @@ public class RoundState : IRoundState
 		_passDirection = direction;
 	}
 
-	public Dictionary<string, IBoomerangCard> ThrowCards => _throwCards;
-	public Dictionary<string, IBoomerangCard> CatchCards => _catchCards;
-	public Dictionary<string, List<IBoomerangCard>> Hands => _hands;
-	public List<IDraftPick<string, IBoomerangCard>> DraftSequence => _draftSequence;
+	public Dictionary<string, IBoomerangCard<string>> ThrowCards => _throwCards;
+	public Dictionary<string, IBoomerangCard<string>> CatchCards => _catchCards;
+	public Dictionary<string, List<IBoomerangCard<string>>> Hands => _hands;
+	public List<IDraftPick<string, IBoomerangCard<string>>> DraftSequence => _draftSequence;
 	public PassDirection PassDirection => _passDirection;
 
 
-	public void RecordThrowOrCatchCard(string playerName, IBoomerangCard card, int cardIndex)
+	public void RecordThrowOrCatchCard(string playerName, IBoomerangCard<string> card, int cardIndex)
 	{
 		if (!_hands.ContainsKey(playerName))
 			throw new ArgumentException("Player not found in hands.");
@@ -55,7 +54,7 @@ public class RoundState : IRoundState
 	}
 
 
-	public void AddDraftPick(string playerName, IBoomerangCard card)
+	public void AddDraftPick(string playerName, IBoomerangCard<string> card)
 	{
 		_draftSequence.Add(DraftPickCreator.Create(playerName, card));
 	}

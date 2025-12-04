@@ -8,9 +8,8 @@ namespace BoomerangGame.Core.Config;
 /// </summary>
 public sealed record EditionConfig(
 	string Name,
-	IReadOnlyList<BoomerangCardDefinition> Deck,
+	IReadOnlyList<BoomerangCardDefinition<string>> Deck,
 	IReadOnlyDictionary<string, List<string>> RegionMap,
-	//IReadOnlyList<string> Regions,
 	IRegionProgressTracker RegionProgressTracker,
 	IReadOnlyList<string> ScoringStrategies,
 	string TieBreakerIdentifier, 

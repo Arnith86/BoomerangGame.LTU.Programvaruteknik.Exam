@@ -13,7 +13,7 @@ public class RoundStateTests
 	private MockCardCreator _mockCardCreator;
 
 	private readonly Mock<IPlayer> _mockPlayer;
-	private readonly Mock<IBoomerangCard> _mockCard;
+	private readonly Mock<IBoomerangCard<string>> _mockCard;
 	private const string _c_PLAYER_NAME = "Player1";
 
 	public RoundStateTests()
@@ -27,11 +27,11 @@ public class RoundStateTests
 		_mockCard = _mockCardCreator.CreateMockCardWithSetNumber(1);
 	}
 
-	private Dictionary<string, List<IBoomerangCard>> CreateHand()
+	private Dictionary<string, List<IBoomerangCard<string>>> CreateHand()
 	{
-		return new Dictionary<string, List<IBoomerangCard>> {{
+		return new Dictionary<string, List<IBoomerangCard<string>>> {{
 				_mockPlayer.Name,
-				new List<IBoomerangCard>()
+				new List<IBoomerangCard<string>>()
 			}
 		};
 	}
@@ -115,7 +115,7 @@ public class RoundStateTests
 	public void AddDraftPick_AddsDraftPickToSequence_SingleTuple()
 	{
 		// Arrange
-		var hands = new Dictionary<string, List<IBoomerangCard>>();
+		var hands = new Dictionary<string, List<IBoomerangCard<string>>>();
 		var sut = new RoundState(1, hands, PassDirection.CLOCKWISE);
 
 		// Act
@@ -132,7 +132,7 @@ public class RoundStateTests
 	public void AddDraftPick_AddsDraftPickToSequence_TwoTuples()
 	{
 		// Arrange
-		var hands = new Dictionary<string, List<IBoomerangCard>>();
+		var hands = new Dictionary<string, List<IBoomerangCard<string>>>();
 		var sut = new RoundState(1, hands, PassDirection.CLOCKWISE);
 
 		Mock<IPlayer> player2 = _mockPlayerCreator.CreateSimpleMockPlayer();
@@ -158,7 +158,7 @@ public class RoundStateTests
 	{
 		// Arrange
 		var card = _mockCardCreator.CreateMockCardWithSetNumber(4);
-		var hands = new Dictionary<string, List<IBoomerangCard>>(); // Empty
+		var hands = new Dictionary<string, List<IBoomerangCard<string>>>(); // Empty
 		var sut = new RoundState(1, hands, PassDirection.CLOCKWISE);
 
 		// Act & Assert

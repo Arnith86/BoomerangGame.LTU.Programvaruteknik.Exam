@@ -25,7 +25,7 @@ public interface IBoomerangPlayerState : IPlayerState
 	/// Gets the list of drafted cards that the player has accumulated. <<br/>
 	/// The first drafted card is typically hidden based on game rules.
 	/// </summary>
-	List<IBoomerangCard> DraftedCards { get; }
+	List<IBoomerangCard<string>> DraftedCards { get; }
 
 	/// <summary>
 	/// Gets the set of unique sites the player has visited through drafted cards.
@@ -40,7 +40,7 @@ public interface IBoomerangPlayerState : IPlayerState
 	/// <exception cref="ArgumentNullException">
 	/// Thrown if <paramref name="card"/> is <c>null</c>.
 	/// </exception>
-	void AddToDraftedCards(IBoomerangCard card);
+	void AddToDraftedCards(IBoomerangCard<string> card);
 
 	/// <summary>
 	/// Records a blue icon collected by the player and stores it in the history set.

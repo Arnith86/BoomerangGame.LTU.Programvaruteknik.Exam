@@ -10,17 +10,17 @@ public class BoomerangCardTests
 	private const string ValidSite = "A";
 	private const int ValidCardNumber = 1;
 
-	private readonly SymbolSet _validSymbolSet;
-	private readonly BoomerangCard _sampleCard;
+	private readonly SymbolSet<string> _validSymbolSet;
+	private readonly BoomerangCard<string> _sampleCard;
 
 	public BoomerangCardTests()
 	{
-		_validSymbolSet = SymbolSetFactory.FromSymbols(
-			new Symbol("Collection", "Leaves"),
-			new Symbol("blueIcon", "Indigenous Culture")
+		_validSymbolSet = SymbolSetFactory<string>.FromSymbols(
+			new Symbol<string>("Collection", "Leaves"),
+			new Symbol<string>("blueIcon", "Indigenous Culture")
 		);
 
-		_sampleCard = new BoomerangCard(
+		_sampleCard = new BoomerangCard<string>(
 			name: ValidName,
 			region: ValidRegion,
 			site: ValidSite,
