@@ -50,4 +50,14 @@ public interface IBoomerangPlayerState : IPlayerState
 	/// Thrown if <paramref name="blueIcon"/> is null, empty, or whitespace.
 	/// </exception>
 	void UpdateBlueIconHistory(string blueIcon);
+
+
+	/// <summary>
+	/// Resets the draft hand state for the player in preparation for the next round of the game.
+	/// <para>
+	/// Fields representing <em>game-long</em> progress—such as total score, visited sites, <br/>
+	/// completed regions, and activity/blue-icon history—are intentionally left untouched.
+	/// </para>
+	/// </summary>
+	void ResetDraftHand();
 }

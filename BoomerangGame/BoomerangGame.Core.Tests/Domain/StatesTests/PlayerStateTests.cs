@@ -128,4 +128,25 @@ public class PlayerStateTests
 			var sut = new PlayerState(nullMapState!);
 		});
 	}
+
+	[Fact]
+	public void ResetDraftHand_DraftedCards_ShouldBeEmptyAfterReset_RQ11()
+	{
+		// Arrange
+		Mock<ISymbolSet<string>> symbolSet = new Mock<ISymbolSet<string>>();
+		
+		_sut.AddToDraftedCards(new BoomerangCard<string>(
+			name: "The Bungle Bungles",
+			region: "Western Australia",
+			site: "A",
+			number: 1,
+			symbolSet: symbolSet.Object
+		));
+
+		// Act
+		_sut.ResetDraftHand();
+
+		// Assert 
+		Assert.True(_sut.DraftedCards.Count == 0);
+	}
 }

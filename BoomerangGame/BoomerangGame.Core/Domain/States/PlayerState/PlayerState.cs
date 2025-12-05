@@ -5,11 +5,8 @@ namespace BoomerangGame.Core.Domain.States.PlayerState;
 
 public class PlayerState : IBoomerangPlayerState
 {
-	private string _name; // Will this be used? 
+	private string _name; 
 	private int _score = 0;
-
-	private IBoomerangCard<int> _throwCard;  // Remove if not used 
-	private IBoomerangCard<int> _catchCard;  // Remove if not used
 
 	private List<IBoomerangCard<string>> _draftedCards = new List<IBoomerangCard<string>>();
 	private HashSet<string> _visitedSites = new HashSet<string>();
@@ -73,6 +70,7 @@ public class PlayerState : IBoomerangPlayerState
 		_score += points;
 	}
 
+
 	/// <inheritdoc />
 	public void UpdateBlueIconHistory(string blueIcon)
 	{
@@ -82,8 +80,10 @@ public class PlayerState : IBoomerangPlayerState
 		_blueIconHistory.Add(blueIcon);
 	}
 
-	private void MarkSiteVisited(string site)
-	{
-		_visitedSites.Add(site);
-	}
+	
+	/// <inheritdoc>/>
+	public void ResetDraftHand() => _draftedCards.Clear();
+	
+	private void MarkSiteVisited(string site) 
+		=> _visitedSites.Add(site);
 }
