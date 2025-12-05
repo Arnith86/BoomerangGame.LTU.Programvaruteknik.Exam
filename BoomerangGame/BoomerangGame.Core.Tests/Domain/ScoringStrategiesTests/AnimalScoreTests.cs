@@ -36,7 +36,7 @@ public class AnimalScoreTests
 	}
 
 	[Fact]
-	public void CalculateScore_PlayerStateNull_ThrowsArgumentNullException()
+	public void CalculateScore_PlayerStateNull_ThrowsArgumentNullException_RQ10d()
 	{
 		// Act & Assert
 		Assert.Throws<ArgumentNullException>(() =>
@@ -45,7 +45,7 @@ public class AnimalScoreTests
 	}
 
 	[Fact]
-	public void CalculateScore_DraftedCardsNull_ThrowsInvalidOperationException()
+	public void CalculateScore_DraftedCardsNull_ThrowsInvalidOperationException_RQ10d()
 	{
 		// Arrange
 		_mockBPState.SetupGet(bPS => bPS.DraftedCards).Returns((List<IBoomerangCard<string>>?)null!);
@@ -57,7 +57,7 @@ public class AnimalScoreTests
 	}
 
 	[Fact]
-	public void CalculateScore_ValidDraftedCards_OnlyKangaroos_ReturnsCorrectScore()
+	public void CalculateScore_ValidDraftedCards_OnlyKangaroos_ReturnsCorrectScore_RQ10d()
 	{
 		// Arrange
 		List<IBoomerangCard<string>> mockDraftedCards =
@@ -81,7 +81,7 @@ public class AnimalScoreTests
 	}
 
 	[Fact]
-	public void CalculateScore_ValidDraftedCards_OnlyEmus_ReturnsCorrectScore()
+	public void CalculateScore_ValidDraftedCards_OnlyEmus_ReturnsCorrectScore_RQ10d()
 	{
 		// Arrange
 		List<IBoomerangCard<string>> mockDraftedCards =
@@ -105,7 +105,7 @@ public class AnimalScoreTests
 	}
 
 	[Fact]
-	public void CalculateScore_ValidDraftedCards_OnlyWombats_ReturnsCorrectScore()
+	public void CalculateScore_ValidDraftedCards_OnlyWombats_ReturnsCorrectScore_RQ10d()
 	{
 		// Arrange
 		List<IBoomerangCard<string>> mockDraftedCards =
@@ -129,7 +129,7 @@ public class AnimalScoreTests
 	}
 
 	[Fact]
-	public void CalculateScore_ValidDraftedCards_OnlyKoalas_ReturnsCorrectScore()
+	public void CalculateScore_ValidDraftedCards_OnlyKoalas_ReturnsCorrectScore_RQ10d()
 	{
 		// Arrange
 		List<IBoomerangCard<string>> mockDraftedCards =
@@ -153,7 +153,7 @@ public class AnimalScoreTests
 	}
 
 	[Fact]
-	public void CalculateScore_ValidDraftedCards_OnlyPlatypuses_ReturnsCorrectScore()
+	public void CalculateScore_ValidDraftedCards_OnlyPlatypuses_ReturnsCorrectScore_RQ10d()
 	{
 		// Arrange
 		List<IBoomerangCard<string>> mockDraftedCards =
@@ -177,7 +177,7 @@ public class AnimalScoreTests
 	}
 
 	[Fact]
-	public void CalculateScore_ValidDraftedCards_MixedPairs_ReturnsCorrectScore()
+	public void CalculateScore_ValidDraftedCards_MixedPairs_ReturnsCorrectScore_RQ10d()
 	{
 		// Arrange
 		List<IBoomerangCard<string>> mockDraftedCards =
@@ -201,7 +201,7 @@ public class AnimalScoreTests
 	}
 
 	[Fact]
-	public void CalculateScore_ValidDraftedCards_TwoPairs_ReturnsCorrectScore()
+	public void CalculateScore_ValidDraftedCards_TwoPairs_ReturnsCorrectScore_RQ10d()
 	{
 		// Arrange
 		List<IBoomerangCard<string>> mockDraftedCards =
@@ -225,7 +225,7 @@ public class AnimalScoreTests
 	}
 
 	[Fact]
-	public void CalculateScore_ValidDraftedCards_OnePairs_ReturnsCorrectScore()
+	public void CalculateScore_ValidDraftedCards_OnePairs_ReturnsCorrectScore_RQ10d()
 	{
 		// Arrange
 		List<IBoomerangCard<string>> mockDraftedCards =
@@ -249,7 +249,7 @@ public class AnimalScoreTests
 	}
 
 	[Fact]
-	public void CalculateScore_ValidDraftedCards_NoPairs_ReturnsCorrectScore()
+	public void CalculateScore_ValidDraftedCards_NoPairs_ReturnsCorrectScore_RQ10d()
 	{
 		// Arrange
 		List<IBoomerangCard<string>> mockDraftedCards =

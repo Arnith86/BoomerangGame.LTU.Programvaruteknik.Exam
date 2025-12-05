@@ -9,7 +9,7 @@ namespace BoomerangGame.Core.Domain.States.RoundStates;
 /// </summary>
 public class RoundState : IRoundState
 {
-	private int _roundNumber = 0;
+	public int RoundNumber { get; private set; }
 
 	private PassDirection _passDirection;
 
@@ -30,15 +30,19 @@ public class RoundState : IRoundState
 		Dictionary<string, List<IBoomerangCard<string>>> hands,
 		PassDirection direction = PassDirection.CLOCKWISE)
 	{
-		_roundNumber = roundNumber;
+		if (roundNumber < 1 || roundNumber > 7)
+			throw new ArgumentOutOfRangeException(nameof(roundNumber));
+
+		RoundNumber = roundNumber;
 		_hands = hands ?? throw new ArgumentNullException(nameof(hands), "Must have a value.");
 		_passDirection = direction;
 	}
 
-	public Dictionary<string, IBoomerangCard<string>> ThrowCards => _throwCards;
-	public Dictionary<string, IBoomerangCard<string>> CatchCards => _catchCards;
-	public Dictionary<string, List<IBoomerangCard<string>>> Hands => _hands;
-	public List<IDraftPick<string, IBoomerangCard<string>>> DraftSequence => _draftSequence;
+
+	public IReadOnlyDictionary<string, IBoomerangCard<string>> ThrowCards => _throwCards;
+	public IReadOnlyDictionary<string, IBoomerangCard<string>> CatchCards => _catchCards;
+	public IReadOnlyDictionary<string, List<IBoomerangCard<string>>> Hands => _hands;
+	public IReadOnlyList<IDraftPick<string, IBoomerangCard<string>>> DraftSequence => _draftSequence;
 	public PassDirection PassDirection => _passDirection;
 
 

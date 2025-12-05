@@ -24,7 +24,7 @@ public class TouristSiteScoreTests
 	}
 
 	[Fact]
-	public void CalculateScore_PlayerStateNull_ThrowsArgumentNullException()
+	public void CalculateScore_PlayerStateNull_ThrowsArgumentNullException_RQ10b()
 	{
 		// Act & Assert
 		Assert.Throws<ArgumentNullException>(() =>
@@ -33,7 +33,7 @@ public class TouristSiteScoreTests
 	}
 
 	[Fact]
-	public void CalculateScore_VisitedSitesNull_ThrowsInvalidOperationException()
+	public void CalculateScore_VisitedSitesNull_ThrowsInvalidOperationException_RQ10b()
 	{
 		// Arrange
 		_mockBPState.SetupGet(bPS => bPS.VisitedSites).Returns((HashSet<string>)null!);
@@ -49,7 +49,7 @@ public class TouristSiteScoreTests
 	[InlineData(4)]
 	[InlineData(7)]
 	[InlineData(100)]
-	public void CalculateScore_ValidVisitedSites_ReturnsCorrectScore(int nrVisitedSites)
+	public void CalculateScore_ValidVisitedSites_ReturnsCorrectScore_RQ10b(int nrVisitedSites)
 	{
 		// Arrange
 		_mockBPState.SetupGet(bPS => bPS.VisitedSites).Returns(

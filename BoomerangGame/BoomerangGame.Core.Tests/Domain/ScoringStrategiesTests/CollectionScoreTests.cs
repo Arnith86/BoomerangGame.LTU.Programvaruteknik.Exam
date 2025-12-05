@@ -26,7 +26,7 @@ public class CollectionScoreTests
 	}
 
 	[Fact]
-	public void CalculateScore_PlayerStateNull_ThrowsArgumentNullException()
+	public void CalculateScore_PlayerStateNull_ThrowsArgumentNullException_RQ10c()
 	{
 		// Act & Assert
 		Assert.Throws<ArgumentNullException>(() =>
@@ -35,7 +35,7 @@ public class CollectionScoreTests
 	}
 
 	[Fact]
-	public void CalculateScore_DraftedCardsNull_ThrowsInvalidOperationException()
+	public void CalculateScore_DraftedCardsNull_ThrowsInvalidOperationException_RQ10c()
 	{
 		// Arrange
 		_mockBPState.SetupGet(bPS => bPS.DraftedCards).Returns((List<IBoomerangCard<string>>?)null!);
@@ -47,7 +47,7 @@ public class CollectionScoreTests
 	}
 
 	[Fact]
-	public void CalculateScore_ValidDraftedCards_OnlyLeaves_ReturnsCorrectScore()
+	public void CalculateScore_ValidDraftedCards_OnlyLeaves_ReturnsCorrectScore_RQ10c()
 	{
 		// Arrange
 		List<IBoomerangCard<string>> mockDraftedCards = 
@@ -71,7 +71,7 @@ public class CollectionScoreTests
 	}
 	
 	[Fact]
-	public void CalculateScore_ValidDraftedCards_OnlyShells_ReturnsCorrectScore()
+	public void CalculateScore_ValidDraftedCards_OnlyShells_ReturnsCorrectScore_RQ10c()
 	{
 		// Arrange
 		List<IBoomerangCard<string>> mockDraftedCards = 
@@ -95,7 +95,7 @@ public class CollectionScoreTests
 	}
 
 	[Fact]
-	public void CalculateScore_ValidDraftedCards_OnlyWildflowers_ReturnsCorrectScore()
+	public void CalculateScore_ValidDraftedCards_OnlyWildflowers_ReturnsCorrectScore_RQ10c()
 	{
 		// Arrange
 		List<IBoomerangCard<string>> mockDraftedCards = 
@@ -119,7 +119,7 @@ public class CollectionScoreTests
 	}
 	
 	[Fact]
-	public void CalculateScore_ValidDraftedCards_OnlySouvenirs_ReturnsCorrectScore()
+	public void CalculateScore_ValidDraftedCards_OnlySouvenirs_ReturnsCorrectScore_RQ10c()
 	{
 		// Arrange
 		List<IBoomerangCard<string>> mockDraftedCards = 
@@ -143,7 +143,7 @@ public class CollectionScoreTests
 	}
 
 	[Fact]
-	public void CalculateScore_ValidDraftedCards_8Mix_ReturnsCorrectScore()
+	public void CalculateScore_ValidDraftedCards_8Mix_ReturnsCorrectScore_RQ10c()
 	{
 		// Arrange
 		List<IBoomerangCard<string>> mockDraftedCards =
@@ -167,7 +167,7 @@ public class CollectionScoreTests
 	}
 
 	[Fact]
-	public void CalculateScore_ValidDraftedCards_Over8Mix_ReturnsCorrectScore()
+	public void CalculateScore_ValidDraftedCards_Over8Mix_ReturnsCorrectScore_RQ10c()
 	{
 		// Arrange
 		List<IBoomerangCard<string>> mockDraftedCards =

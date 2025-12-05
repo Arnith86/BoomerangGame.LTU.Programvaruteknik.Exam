@@ -1,6 +1,6 @@
 ﻿using BoomerangGame.Core.Domain.ScoringStrategies;
 
-namespace BoomerangGame.Core.Tests.Domain.ScoringStrategiesTests;
+namespace BoomerangGame.Core.Tests.ScoringTests;
 
 public class RegionProgressTrackerTests
 {

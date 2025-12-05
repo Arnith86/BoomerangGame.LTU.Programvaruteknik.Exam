@@ -9,11 +9,12 @@ namespace BoomerangGame.Core.Domain.States.RoundStates;
 /// </summary>
 public interface IRoundState
 {
-	Dictionary<string, IBoomerangCard<string>> CatchCards { get; }
-	List<IDraftPick<string, IBoomerangCard<string>>> DraftSequence { get; }
-	Dictionary<string, List<IBoomerangCard<string>>> Hands { get; }
+	int RoundNumber { get; }
+	IReadOnlyDictionary<string, IBoomerangCard<string>> ThrowCards { get; }
+	IReadOnlyDictionary<string, IBoomerangCard<string>> CatchCards { get; }
+	IReadOnlyDictionary<string, List<IBoomerangCard<string>>> Hands { get; }
+	IReadOnlyList<IDraftPick<string, IBoomerangCard<string>>> DraftSequence { get; }
 	PassDirection PassDirection { get; }
-	Dictionary<string, IBoomerangCard<string>> ThrowCards { get; }
 
 	/// <summary>
 	/// Adds a draft pick to the round sequence for a given player.

@@ -25,7 +25,7 @@ public class ActivityScoreTests
 	}
 
 	[Fact]
-	public void CalculateScore_PlayerStateNull_ThrowsArgumentNullException()
+	public void CalculateScore_PlayerStateNull_ThrowsArgumentNullException_RQ10e()
 	{
 		// Arrange 
 		string category = "SomeCategory";
@@ -38,7 +38,7 @@ public class ActivityScoreTests
 	}
 
 	[Fact]
-	public void CalculateScore_DraftedCardsNull_ThrowsInvalidOperationException()
+	public void CalculateScore_DraftedCardsNull_ThrowsInvalidOperationException_RQ10e()
 	{
 		// Arrange
 		string category = "SomeCategory";
@@ -54,7 +54,7 @@ public class ActivityScoreTests
 	}
 
 	[Fact]
-	public void CalculateScore_ValidDraftedCards_OneInstance_ReturnsCorrectScore()
+	public void CalculateScore_ValidDraftedCards_OneInstance_ReturnsCorrectScore_RQ10e()
 	{
 		// Arrange
 		string category = "SomeCategory";
@@ -82,7 +82,7 @@ public class ActivityScoreTests
 	}
 
 	[Fact]
-	public void CalculateScore_ValidDraftedCards_TwoInstance_ReturnsCorrectScore()
+	public void CalculateScore_ValidDraftedCards_TwoInstance_ReturnsCorrectScore_RQ10e()
 	{
 		// Arrange
 		string category = "SomeCategory";
@@ -110,7 +110,7 @@ public class ActivityScoreTests
 	}
 
 	[Fact]
-	public void CalculateScore_ValidDraftedCards_ThreeInstance_ReturnsCorrectScore()
+	public void CalculateScore_ValidDraftedCards_ThreeInstance_ReturnsCorrectScore_RQ10e()
 	{
 		// Arrange
 		string category = "SomeCategory";
@@ -138,7 +138,7 @@ public class ActivityScoreTests
 	}
 
 	[Fact]
-	public void CalculateScore_ValidDraftedCards_FourInstance_ReturnsCorrectScore()
+	public void CalculateScore_ValidDraftedCards_FourInstance_ReturnsCorrectScore_RQ10e()
 	{
 		// Arrange
 		string category = "SomeCategory";
@@ -166,7 +166,7 @@ public class ActivityScoreTests
 	}
 
 	[Fact]
-	public void CalculateScore_ValidDraftedCards_FiveInstance_ReturnsCorrectScore()
+	public void CalculateScore_ValidDraftedCards_FiveInstance_ReturnsCorrectScore_RQ10e()
 	{
 		// Arrange
 		string category = "SomeCategory";
@@ -194,7 +194,7 @@ public class ActivityScoreTests
 	}
 
 	[Fact]
-	public void CalculateScore_ValidDraftedCards_SixInstance_ReturnsCorrectScore()
+	public void CalculateScore_ValidDraftedCards_SixInstance_ReturnsCorrectScore_RQ10e()
 	{
 		// Arrange
 		string category = "SomeCategory";
@@ -222,7 +222,7 @@ public class ActivityScoreTests
 	}
 
 	[Fact]
-	public void CalculateScore_ValidDraftedCards_SevenInstance_ReturnsCorrectScore()
+	public void CalculateScore_ValidDraftedCards_SevenInstance_ReturnsCorrectScore_RQ10e()
 	{
 		// Arrange
 		string category = "SomeCategory";

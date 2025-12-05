@@ -34,7 +34,7 @@ public class ThrowCatchAbsoluteScoreTests
 
 
 	[Fact]
-	public void CalculateScore_PlayerStateNull_ThrowsArgumentNullException()
+	public void CalculateScore_PlayerStateNull_ThrowsArgumentNullException_RQ10a()
 	{
 		// Arrange
 		var roundState = new Mock<IRoundState>().Object;
@@ -46,7 +46,7 @@ public class ThrowCatchAbsoluteScoreTests
 	}
 
 	[Fact]
-	public void CalculateScore_RoundStateNull_ThrowsArgumentNullException()
+	public void CalculateScore_RoundStateNull_ThrowsArgumentNullException_RQ10a()
 	{
 		// Act & Assert
 		Assert.Throws<ArgumentNullException>(() =>
@@ -55,7 +55,7 @@ public class ThrowCatchAbsoluteScoreTests
 	}
 
 	[Fact]
-	public void CalculateScore_PlayerMissingThrowCard_ThrowsInvalidOperationException()
+	public void CalculateScore_PlayerMissingThrowCard_ThrowsInvalidOperationException_RQ10a()
 	{
 		// Arrange
 		var catchCard = _mockCardCreator.CreateMockCardWithSetNumber(5).Object;
@@ -72,7 +72,7 @@ public class ThrowCatchAbsoluteScoreTests
 	}
 
 	[Fact]
-	public void CalculateScore_PlayerMissingCatchCard_ThrowsInvalidOperationException()
+	public void CalculateScore_PlayerMissingCatchCard_ThrowsInvalidOperationException_RQ10a()
 	{
 		// Arrange
 		var throwCard = _mockCardCreator.CreateMockCardWithSetNumber(3).Object;
@@ -92,7 +92,7 @@ public class ThrowCatchAbsoluteScoreTests
 	[InlineData(7, 1, 6)]
 	[InlineData(7, 7, 0)]
 	[InlineData(0, 0, 0)]
-	public void CalculateScore_ValidCards_ReturnsAbsoluteDifference(
+	public void CalculateScore_ValidCards_ReturnsAbsoluteDifference_RQ10a(
 		int throwNr,
 		int catchNr,
 		int absoluteExpected)
