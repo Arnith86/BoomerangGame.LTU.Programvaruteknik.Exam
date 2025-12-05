@@ -50,7 +50,7 @@ public class EditionLoaderTests
 	public void LoadEdition_ValidJson_ShouldCreateCorrectRegionPointMapping()
 	{
 		// Arrange
-		var regionPointsPerPair = new Dictionary<string, int>
+		var regionCompletionPoints = new Dictionary<string, int>
 		{
 			{ "Western Australia", 3 },
 			{ "Northern Territory", 3 },
@@ -65,7 +65,7 @@ public class EditionLoaderTests
 		var editionConfigDto = _editionLoader.LoadEditionDto(GetEditionJSON.GetValidEditionConfigJSON());
 
 		// Assert
-		Assert.Equal(regionPointsPerPair, editionConfigDto.RegionPointsPerPair);
+		Assert.Equal(regionCompletionPoints, editionConfigDto.RegionCompletionPoints);
 	}
 
 	[Fact]

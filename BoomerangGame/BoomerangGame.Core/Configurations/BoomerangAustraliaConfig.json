@@ -328,6 +328,16 @@
         "Tasmania": [ "Z", "Å", "Ä", "Ö" ]
     },
 
+    "regionCompletionPoints": {
+        "Western Australia": 3,
+        "Northern Territory": 3,
+        "Queensland": 3,
+        "South Australia": 3,
+        "New South Whales": 3,
+        "Victoria": 3,
+        "Tasmania": 3
+    },
+
     "scoringStrategies": [
         "ThrowCatchAbsolute",
         "RegionBonus3points",

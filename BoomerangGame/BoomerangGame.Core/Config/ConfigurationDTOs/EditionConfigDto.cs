@@ -11,7 +11,7 @@ public class EditionConfigDto
 	public List<string> ScoringStrategies { get; set; } = new();
 	public string TieBreakerIdentifier { get; set; } = default!;
 	public string TurnOrderIdentifier { get; set; } = default!;
-	public Dictionary<string, int> RegionPointsPerPair { get; set; } = new();
+	public Dictionary<string, int> RegionCompletionPoints { get; set; } = new();
 
 	/// <summary>
 	/// Optional mapping of animal names to points per pair for editions that include animals.

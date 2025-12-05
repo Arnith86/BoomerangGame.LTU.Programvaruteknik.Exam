@@ -328,7 +328,7 @@
         "Tasmania": [ "Z", "Å", "Ä", "Ö" ]
     },
 
-    "regionPointsPerPair": {
+    "regionCompletionPoints": {
         "Western Australia": 3,
         "Northern Territory": 3,
         "Queensland": 3,
