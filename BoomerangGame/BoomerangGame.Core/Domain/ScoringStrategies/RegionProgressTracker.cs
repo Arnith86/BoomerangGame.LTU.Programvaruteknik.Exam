@@ -1,8 +1,8 @@
 ﻿namespace BoomerangGame.Core.Domain.ScoringStrategies;
 
 /// <summary>
-/// Tracks region completion progress during the game and determines whether a player is <br/>
-/// eligible for a region bonus.
+/// A singleton class that tracks region completion progress during the game and determines <br/>
+/// whether a player is eligible for a region bonus.
 /// </summary>
 /// <remarks>Implemented as a simple in-memory tracker. Not thread-safe.</remarks>
 public class RegionProgressTracker : IRegionProgressTracker

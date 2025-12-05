@@ -19,7 +19,7 @@ public interface IBoomerangPlayerState : IPlayerState
 	/// <summary>
 	/// Gets the map state used to track region and site progression for this player during the game.
 	/// </summary>
-	IMapState CurrentMapState { get; }
+	IMapState MapState { get; }
 
 	/// <summary>
 	/// Gets the list of drafted cards that the player has accumulated. <<br/>

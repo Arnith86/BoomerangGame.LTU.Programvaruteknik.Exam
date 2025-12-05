@@ -48,7 +48,7 @@ public class PlayerState : IBoomerangPlayerState
 	public HashSet<string> BlueIconHistory => _blueIconHistory;
 	
 	/// <inheritdoc/>
-	public IMapState CurrentMapState => _mapState;
+	public IMapState MapState => _mapState;
 
 
 	/// <inheritdoc/>
