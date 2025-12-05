@@ -14,6 +14,7 @@ public sealed record EditionConfig(
 	IReadOnlyList<string> ScoringStrategies,
 	string TieBreakerIdentifier, 
 	string TurnOrderIdentifier,
+	IReadOnlyDictionary<string, int> RegionPointsPerPair,
 	
 	/// <summary>
 	/// Optional mapping of animal names to points per pair for editions that include animals.

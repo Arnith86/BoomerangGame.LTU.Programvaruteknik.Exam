@@ -328,11 +328,29 @@
         "Tasmania": [ "Z", "Å", "Ä", "Ö" ]
     },
 
+    "regionPointsPerPair": {
+        "Western Australia": 3,
+        "Northern Territory": 3,
+        "Queensland": 3,
+        "South Australia": 3,
+        "New South Whales": 3,
+        "Victoria": 3,
+        "Tasmania": 3
+    },
+
     "scoringStrategies": [
         "ThrowCatchAbsolute",
         "RegionBonus3points",
         "Collection",
         "Animal",
         "Activity"
-    ]
+    ],
+
+    "animalPointsPerPair": {
+        "Kangaroos": 3,
+        "Emus": 4,
+        "Wombats": 5,
+        "Koalas": 7,
+        "Platypuses": 9
+    }
 }

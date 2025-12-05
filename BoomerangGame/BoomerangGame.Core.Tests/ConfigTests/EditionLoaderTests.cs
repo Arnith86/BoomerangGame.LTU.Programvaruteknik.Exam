@@ -45,4 +45,46 @@ public class EditionLoaderTests
 		// Assert
 		Assert.Equal(28, editionConfigDto.Deck.Count);
 	}
+
+	[Fact]
+	public void LoadEdition_ValidJson_ShouldCreateCorrectRegionPointMapping()
+	{
+		// Arrange
+		var regionPointsPerPair = new Dictionary<string, int>
+		{
+			{ "Western Australia", 3 },
+			{ "Northern Territory", 3 },
+			{ "Queensland", 3 },
+			{ "South Australia", 3 },
+			{ "New South Whales", 3 },
+			{ "Victoria", 3 },
+			{ "Tasmania", 3 }
+		};
+
+		// Act 
+		var editionConfigDto = _editionLoader.LoadEditionDto(GetEditionJSON.GetValidEditionConfigJSON());
+
+		// Assert
+		Assert.Equal(regionPointsPerPair, editionConfigDto.RegionPointsPerPair);
+	}
+
+	[Fact]
+	public void LoadEdition_ValidJson_ShouldCreateCorrectAnimalPointMapping()
+	{
+		// Arrange
+		var animalPointsPerPair = new Dictionary<string, int>
+		{
+			{ "Kangaroos", 3 },
+			{ "Emus", 4 },
+			{ "Wombats", 5 },
+			{ "Koalas", 7 },
+			{ "Platypuses", 9 }
+		};
+
+		// Act 
+		var editionConfigDto = _editionLoader.LoadEditionDto(GetEditionJSON.GetValidEditionConfigJSON());
+
+		// Assert
+		Assert.Equal(animalPointsPerPair, editionConfigDto.AnimalPointsPerPair);
+	}
 }
