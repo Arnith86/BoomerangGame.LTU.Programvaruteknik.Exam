@@ -1,4 +1,4 @@
-﻿namespace BoomerangGame.Core.Domain.ScoringStrategies;
+﻿namespace BoomerangGame.Core.Domain.ScoringStrategies.Utilities;
 
 /// <summary>
 /// Provides static helper methods to validate that objects used in <br/r>

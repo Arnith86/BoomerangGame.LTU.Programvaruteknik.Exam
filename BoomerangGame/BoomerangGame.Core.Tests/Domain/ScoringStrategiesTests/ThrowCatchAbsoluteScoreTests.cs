@@ -4,6 +4,7 @@ using BoomerangGame.Core.Domain.States.RoundStates;
 using Moq;
 using BoomerangGame.Core.Tests.HelperClasses;
 using BoomerangGame.Core.Domain.Cards;
+using BoomerangGame.Core.Domain.ScoringStrategies.Strategies;
 
 namespace BoomerangGame.Core.Tests.Domain.ScoringStrategiesTests;
 

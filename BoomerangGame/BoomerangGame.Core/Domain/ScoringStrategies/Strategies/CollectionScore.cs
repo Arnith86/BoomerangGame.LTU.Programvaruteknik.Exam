@@ -1,7 +1,7 @@
 ﻿using BoomerangGame.Core.Domain.ScoringStrategies.Utilities;
 using BoomerangGame.Core.Domain.States.PlayerState;
 
-namespace BoomerangGame.Core.Domain.ScoringStrategies;
+namespace BoomerangGame.Core.Domain.ScoringStrategies.Strategies;
 
 /// <summary>
 /// Represents the scoring strategy for the "collection" category in the Boomerang game. Scores drafted <br/>

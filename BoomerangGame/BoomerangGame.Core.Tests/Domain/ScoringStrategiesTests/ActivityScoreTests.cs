@@ -1,5 +1,6 @@
 ﻿using BoomerangGame.Core.Domain.Cards;
 using BoomerangGame.Core.Domain.ScoringStrategies;
+using BoomerangGame.Core.Domain.ScoringStrategies.Strategies;
 using BoomerangGame.Core.Domain.States.PlayerState;
 using BoomerangGame.Core.Tests.HelperClasses;
 using Moq;

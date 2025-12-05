@@ -1,8 +1,9 @@
-﻿using BoomerangGame.Core.Domain.States.MapStates;
+﻿using BoomerangGame.Core.Domain.ScoringStrategies.Utilities;
+using BoomerangGame.Core.Domain.States.MapStates;
 using BoomerangGame.Core.Domain.States.PlayerState;
 using BoomerangGame.Core.Domain.States.RoundStates;
 
-namespace BoomerangGame.Core.Domain.ScoringStrategies;
+namespace BoomerangGame.Core.Domain.ScoringStrategies.Strategies;
 
 
 /// <summary>

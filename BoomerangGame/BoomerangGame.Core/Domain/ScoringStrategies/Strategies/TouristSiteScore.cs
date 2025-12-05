@@ -1,6 +1,7 @@
-﻿using BoomerangGame.Core.Domain.States.PlayerState;
+﻿using BoomerangGame.Core.Domain.ScoringStrategies.Utilities;
+using BoomerangGame.Core.Domain.States.PlayerState;
 
-namespace BoomerangGame.Core.Domain.ScoringStrategies;
+namespace BoomerangGame.Core.Domain.ScoringStrategies.Strategies;
 
 /// <summary>
 /// Calculates the score for a player based on the number of tourist sites

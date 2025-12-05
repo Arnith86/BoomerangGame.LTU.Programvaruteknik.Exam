@@ -1,9 +1,8 @@
-﻿using BoomerangGame.Core.Application;
-using BoomerangGame.Core.Domain.ScoringStrategies;
+﻿using BoomerangGame.Core.Domain.ScoringStrategies;
+using BoomerangGame.Core.Domain.ScoringStrategies.Strategies;
 using BoomerangGame.Core.Domain.States.PlayerState;
 using BoomerangGame.Core.Tests.HelperClasses;
 using Moq;
-using System.Threading;
 
 namespace BoomerangGame.Core.Tests.Domain.ScoringStrategiesTests;
 

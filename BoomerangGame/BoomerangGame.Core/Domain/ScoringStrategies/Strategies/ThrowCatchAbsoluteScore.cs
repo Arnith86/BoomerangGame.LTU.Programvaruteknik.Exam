@@ -1,7 +1,8 @@
-﻿using BoomerangGame.Core.Domain.States.PlayerState;
+﻿using BoomerangGame.Core.Domain.ScoringStrategies.Utilities;
+using BoomerangGame.Core.Domain.States.PlayerState;
 using BoomerangGame.Core.Domain.States.RoundStates;
 
-namespace BoomerangGame.Core.Domain.ScoringStrategies;
+namespace BoomerangGame.Core.Domain.ScoringStrategies.Strategies;
 
 /// <summary>
 /// Represents a scoring category where a player's score is determined by the absolute <br/>

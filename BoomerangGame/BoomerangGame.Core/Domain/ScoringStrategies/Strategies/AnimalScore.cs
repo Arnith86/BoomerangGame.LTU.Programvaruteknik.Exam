@@ -1,7 +1,7 @@
 ﻿using BoomerangGame.Core.Domain.ScoringStrategies.Utilities;
 using BoomerangGame.Core.Domain.States.PlayerState;
 
-namespace BoomerangGame.Core.Domain.ScoringStrategies;
+namespace BoomerangGame.Core.Domain.ScoringStrategies.Strategies;
 
 /// <summary>
 /// Represents a scoring strategy that calculates points based on drafted animal cards. Points are <br/>

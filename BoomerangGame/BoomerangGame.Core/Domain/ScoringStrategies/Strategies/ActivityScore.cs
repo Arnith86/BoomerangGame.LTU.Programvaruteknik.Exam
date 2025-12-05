@@ -1,7 +1,7 @@
 ﻿using BoomerangGame.Core.Domain.ScoringStrategies.Utilities;
 using BoomerangGame.Core.Domain.States.PlayerState;
 
-namespace BoomerangGame.Core.Domain.ScoringStrategies;
+namespace BoomerangGame.Core.Domain.ScoringStrategies.Strategies;
 
 /// <summary>
 /// Represents a scoring strategy that awards points based on how many times a specific <br/>
