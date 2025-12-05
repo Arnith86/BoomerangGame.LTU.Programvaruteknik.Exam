@@ -66,7 +66,7 @@ public class CollectionScoreTests
 	}
 
 	[Fact]
-	public void CalculateScore_ValidDraftedCards_OnlyLeaves_ReturnsCorrectScore_RQ10c()
+	public void CalculateScore_ValidDraftedCards_OnlyLeaves_ReturnsCorrectScore_RQ10c_ii()
 	{
 		// Arrange
 		List<IBoomerangCard<string>> mockDraftedCards = 
@@ -90,7 +90,7 @@ public class CollectionScoreTests
 	}
 	
 	[Fact]
-	public void CalculateScore_ValidDraftedCards_OnlyShells_ReturnsCorrectScore_RQ10c()
+	public void CalculateScore_ValidDraftedCards_OnlyShells_ReturnsCorrectScore_RQ10c_i()
 	{
 		// Arrange
 		List<IBoomerangCard<string>> mockDraftedCards = 
@@ -114,7 +114,7 @@ public class CollectionScoreTests
 	}
 
 	[Fact]
-	public void CalculateScore_ValidDraftedCards_OnlyWildflowers_ReturnsCorrectScore_RQ10c()
+	public void CalculateScore_ValidDraftedCards_OnlyWildflowers_ReturnsCorrectScore_RQ10c_i()
 	{
 		// Arrange
 		List<IBoomerangCard<string>> mockDraftedCards = 
@@ -138,7 +138,7 @@ public class CollectionScoreTests
 	}
 	
 	[Fact]
-	public void CalculateScore_ValidDraftedCards_OnlySouvenirs_ReturnsCorrectScore_RQ10c()
+	public void CalculateScore_ValidDraftedCards_OnlySouvenirs_ReturnsCorrectScore_RQ10c_i()
 	{
 		// Arrange
 		List<IBoomerangCard<string>> mockDraftedCards = 
@@ -162,7 +162,7 @@ public class CollectionScoreTests
 	}
 
 	[Fact]
-	public void CalculateScore_ValidDraftedCards_8Mix_ReturnsCorrectScore_RQ10c()
+	public void CalculateScore_ValidDraftedCards_8Mix_ReturnsCorrectScore_RQ10c_i()
 	{
 		// Arrange
 		List<IBoomerangCard<string>> mockDraftedCards =
@@ -186,7 +186,7 @@ public class CollectionScoreTests
 	}
 
 	[Fact]
-	public void CalculateScore_ValidDraftedCards_Over8Mix_ReturnsCorrectScore_RQ10c()
+	public void CalculateScore_ValidDraftedCards_Over8Mix_ReturnsCorrectScore_RQ10c_i()
 	{
 		// Arrange
 		List<IBoomerangCard<string>> mockDraftedCards =

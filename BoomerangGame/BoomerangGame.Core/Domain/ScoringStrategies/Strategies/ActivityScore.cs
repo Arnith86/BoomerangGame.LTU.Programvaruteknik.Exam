@@ -1,5 +1,6 @@
 ﻿using BoomerangGame.Core.Domain.ScoringStrategies.Utilities;
 using BoomerangGame.Core.Domain.States.PlayerState;
+using BoomerangGame.Core.Domain.States.RoundStates;
 
 namespace BoomerangGame.Core.Domain.ScoringStrategies.Strategies;
 
@@ -10,22 +11,20 @@ namespace BoomerangGame.Core.Domain.ScoringStrategies.Strategies;
 /// <remarks>
 /// This scoring rule is used in Boomerang editions that include activity icons (blue icons).
 /// </remarks>
-public class ActivityScore : IScoreCategory
+public class ActivityScore : IBlueIconScoreCategory
 {
 	public string Name { get; init; }
 	
-	private string _category;
-
-
-	public ActivityScore(string category, string name)
+	public ActivityScore(string name)
 	{
-		_category = category ?? throw new ArgumentNullException(nameof(category));
 		Name = name ?? throw new ArgumentNullException(nameof(name));
 	}
 
 
-	public int CalculateScore(IBoomerangPlayerState playerState)
+	public int CalculateScore(IBoomerangPlayerState playerState, string? category)
 	{
+		if (category is null) return 0;
+
 		ScoringStrategyPreConditionNullCheck.Check(playerState);
 
 		if (playerState.DraftedCards is null)
@@ -35,7 +34,7 @@ public class ActivityScore : IScoreCategory
 		Dictionary<string, int> countedDictionerty =
 			SymbolInstanceCounter.CountInstances(playerState.DraftedCards, "blueIcon");
 
-		return MapPointsToActivityInstances(_category, countedDictionerty);
+		return MapPointsToActivityInstances(category, countedDictionerty);
 	}
 
 
@@ -72,4 +71,7 @@ public class ActivityScore : IScoreCategory
 		
 		return points;
 	}
+
+	public int CalculateScore(IBoomerangPlayerState playerState)
+		=> CalculateScore(playerState, null);
 }
