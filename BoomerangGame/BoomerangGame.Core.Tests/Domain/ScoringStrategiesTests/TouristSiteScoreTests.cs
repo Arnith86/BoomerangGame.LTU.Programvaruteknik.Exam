@@ -12,15 +12,31 @@ public class TouristSiteScoreTests
 
 	private MockBoomerangPlayerStateCreator _mockBoomerangPlayerStateCreator;
 	private Mock<IBoomerangPlayerState> _mockBPState;
+	private const string _c_STRATIGY_NAME = "TouringSiteScore";
 	private const string _c_PLAYER_NAME = "TestPlayer";
 
 	public TouristSiteScoreTests()
 	{
-		_sut = new TouristSiteScore();
+		_sut = new TouristSiteScore(_c_STRATIGY_NAME);
 
 		_mockBoomerangPlayerStateCreator = new MockBoomerangPlayerStateCreator();
 		_mockBPState = _mockBoomerangPlayerStateCreator.CreateMockBoomerangPlayerState(_c_PLAYER_NAME);	
 	}
+
+	[Fact]
+	public void Constructor_NameNull_ThrowsArgumentNullException()
+	{
+		Assert.Throws<ArgumentNullException>(() =>
+			new ThrowCatchAbsoluteScore(null!)
+		);
+	}
+
+	[Fact]
+	public void Name_ValidName_ShouldReturnName()
+	{
+		Assert.Equal(_c_STRATIGY_NAME, _sut.Name);
+	}
+
 
 	[Fact]
 	public void CalculateScore_PlayerStateNull_ThrowsArgumentNullException_RQ10b()

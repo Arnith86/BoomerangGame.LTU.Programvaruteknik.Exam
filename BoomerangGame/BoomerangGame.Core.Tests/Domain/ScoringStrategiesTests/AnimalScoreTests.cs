@@ -15,6 +15,7 @@ public class AnimalScoreTests
 	private MockCardCreator _mockCardCreator;
 	private Mock<IBoomerangPlayerState> _mockBPState;
 	private const string _c_PLAYER_NAME = "TestPlayer";
+	private const string _c_STRATIGY_NAME = "AnimalScore";
 	private Dictionary<string, int> _animals = new Dictionary<string, int>
 	{
 		{ "Kangaroos", 3 },
@@ -28,13 +29,28 @@ public class AnimalScoreTests
 
 	public AnimalScoreTests()
 	{
-		_sut = new AnimalScore(_animals);
+		_sut = new AnimalScore(_animals, _c_STRATIGY_NAME);
 
 		_mockBoomerangPlayerStateCreator = new MockBoomerangPlayerStateCreator();
 		_mockBPState = _mockBoomerangPlayerStateCreator.CreateMockBoomerangPlayerState(_c_PLAYER_NAME);
 
 		_mockCardCreator = new MockCardCreator();
 	}
+
+	[Fact]
+	public void Constructor_NameNull_ThrowsArgumentNullException()
+	{
+		Assert.Throws<ArgumentNullException>(() =>
+			new ThrowCatchAbsoluteScore(null!)
+		);
+	}
+
+	[Fact]
+	public void Name_ValidName_ShouldReturnName()
+	{
+		Assert.Equal(_c_STRATIGY_NAME, _sut.Name);
+	}
+
 
 	[Fact]
 	public void CalculateScore_PlayerStateNull_ThrowsArgumentNullException_RQ10d()

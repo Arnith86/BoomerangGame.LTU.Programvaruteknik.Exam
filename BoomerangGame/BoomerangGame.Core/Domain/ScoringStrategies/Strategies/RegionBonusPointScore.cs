@@ -2,6 +2,7 @@
 using BoomerangGame.Core.Domain.States.MapStates;
 using BoomerangGame.Core.Domain.States.PlayerState;
 using BoomerangGame.Core.Domain.States.RoundStates;
+using System.Xml.Linq;
 
 namespace BoomerangGame.Core.Domain.ScoringStrategies.Strategies;
 
@@ -16,16 +17,19 @@ namespace BoomerangGame.Core.Domain.ScoringStrategies.Strategies;
 /// </summary>
 public class RegionBonusPointScore : IRoundScoreCategory
 {
+	public string Name { get; init; }
+	
 	private readonly IRegionProgressTracker _regionProgressTracker;
 	private readonly Dictionary<string, int> _regionCompletionPoints;
 
-
 	public RegionBonusPointScore(
 		IRegionProgressTracker regionProgressTracker, 
-		Dictionary<string, int> regionCompletionPoints)
+		Dictionary<string, int> regionCompletionPoints,
+		string name)
 	{
 		_regionProgressTracker = regionProgressTracker;
 		_regionCompletionPoints = regionCompletionPoints;
+		Name = name ?? throw new ArgumentNullException(nameof(name));
 	}
 
 

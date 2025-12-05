@@ -11,10 +11,12 @@ namespace BoomerangGame.Core.Domain.ScoringStrategies.Strategies;
 public class AnimalScore : IScoreCategory
 {
 	private Dictionary<string, int> _pointsPerPair;
+	public string Name { get; init; }
 
-	public AnimalScore(Dictionary<string, int> pointsPerPair)
+	public AnimalScore(Dictionary<string, int> pointsPerPair, string name)
 	{
 		_pointsPerPair = pointsPerPair ?? throw new ArgumentNullException(nameof(pointsPerPair));
+		Name = name ?? throw new ArgumentNullException(nameof(name));
 	}
 
 

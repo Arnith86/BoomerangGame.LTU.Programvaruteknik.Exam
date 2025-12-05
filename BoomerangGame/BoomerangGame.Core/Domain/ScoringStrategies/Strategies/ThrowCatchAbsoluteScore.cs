@@ -10,6 +10,13 @@ namespace BoomerangGame.Core.Domain.ScoringStrategies.Strategies;
 /// </summary>
 public class ThrowCatchAbsoluteScore : IRoundScoreCategory
 {
+	public string Name { get; init; }
+
+	public ThrowCatchAbsoluteScore(string name)
+	{
+		Name = name ?? throw new ArgumentNullException(nameof(name));
+	}
+
 	/// <summary>
 	/// Calculates the player's score using the absolute difference between the value of their <br/>
 	/// thrown card and the card they caught.

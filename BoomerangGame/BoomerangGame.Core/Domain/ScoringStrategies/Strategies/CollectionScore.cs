@@ -9,6 +9,13 @@ namespace BoomerangGame.Core.Domain.ScoringStrategies.Strategies;
 /// </summary>
 public class CollectionScore : IScoreCategory
 {
+	public string Name { get; init; }
+
+	public CollectionScore(string name)
+	{
+		Name = name ?? throw new ArgumentNullException(nameof(name));
+	}
+
 	public int CalculateScore(IBoomerangPlayerState playerState)
 	{
 		ScoringStrategyPreConditionNullCheck.Check(playerState);

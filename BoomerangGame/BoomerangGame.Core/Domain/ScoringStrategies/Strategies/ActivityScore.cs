@@ -12,12 +12,17 @@ namespace BoomerangGame.Core.Domain.ScoringStrategies.Strategies;
 /// </remarks>
 public class ActivityScore : IScoreCategory
 {
-	private string _category;
+	public string Name { get; init; }
 	
-	public ActivityScore(string category)
+	private string _category;
+
+
+	public ActivityScore(string category, string name)
 	{
 		_category = category ?? throw new ArgumentNullException(nameof(category));
+		Name = name ?? throw new ArgumentNullException(nameof(name));
 	}
+
 
 	public int CalculateScore(IBoomerangPlayerState playerState)
 	{
@@ -32,6 +37,7 @@ public class ActivityScore : IScoreCategory
 
 		return MapPointsToActivityInstances(_category, countedDictionerty);
 	}
+
 
 	private int MapPointsToActivityInstances(
 		string category, 

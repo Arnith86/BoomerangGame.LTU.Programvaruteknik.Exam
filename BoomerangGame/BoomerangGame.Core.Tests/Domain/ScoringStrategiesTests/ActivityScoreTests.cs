@@ -14,9 +14,10 @@ public class ActivityScoreTests
 	private MockBoomerangPlayerStateCreator _mockBoomerangPlayerStateCreator;
 	private MockCardCreator _mockCardCreator;
 	private Mock<IBoomerangPlayerState> _mockBPState;
+	private string _category = "SomeCategory";
 	private const string _c_PLAYER_NAME = "TestPlayer";
+	private const string _c_STRATIGY_NAME = "ActivityScore";
 
-	
 	public ActivityScoreTests()
 	{
 		_mockBoomerangPlayerStateCreator = new MockBoomerangPlayerStateCreator();
@@ -25,12 +26,29 @@ public class ActivityScoreTests
 		_mockCardCreator = new MockCardCreator();
 	}
 
+
+	[Fact]
+	public void Constructor_NameNull_ThrowsArgumentNullException()
+	{
+		Assert.Throws<ArgumentNullException>(() =>
+			new ThrowCatchAbsoluteScore(null!)
+		);
+	}
+
+	[Fact]
+	public void Name_ValidName_ShouldReturnName()
+	{
+		var sut = new ActivityScore(_category, _c_STRATIGY_NAME);
+		Assert.Equal(_c_STRATIGY_NAME, sut.Name);
+	}
+
+
+
 	[Fact]
 	public void CalculateScore_PlayerStateNull_ThrowsArgumentNullException_RQ10e()
 	{
 		// Arrange 
-		string category = "SomeCategory";
-		_sut = new ActivityScore(category);
+		_sut = new ActivityScore(_category, _c_STRATIGY_NAME);
 
 		// Act & Assert
 		Assert.Throws<ArgumentNullException>(() =>
@@ -42,10 +60,10 @@ public class ActivityScoreTests
 	public void CalculateScore_DraftedCardsNull_ThrowsInvalidOperationException_RQ10e()
 	{
 		// Arrange
-		string category = "SomeCategory";
-		_sut = new ActivityScore(category);
+		_sut = new ActivityScore(_category, _c_STRATIGY_NAME);
 		
-		_mockBPState.SetupGet(bPS => bPS.DraftedCards).Returns((List<IBoomerangCard<string>>?)null!);
+		_mockBPState.SetupGet(bPS => bPS.DraftedCards)
+			.Returns((List<IBoomerangCard<string>>?)null!);
 		
 
 		// Act & Assert
@@ -58,8 +76,6 @@ public class ActivityScoreTests
 	public void CalculateScore_ValidDraftedCards_OneInstance_ReturnsCorrectScore_RQ10e()
 	{
 		// Arrange
-		string category = "SomeCategory";
-		
 		List<IBoomerangCard<string>> mockDraftedCards =
 			_mockCardCreator.CreateFullSetOfMockCardWithCollectionSymbol(
 			"blueIcon", "SomeCategory",
@@ -71,7 +87,7 @@ public class ActivityScoreTests
 			"blueIcon", "SomeDifferentCategory"
 		);
 		
-		_sut = new ActivityScore(category);
+		_sut = new ActivityScore(_category, _c_STRATIGY_NAME);
 		
 		_mockBPState.SetupGet(bPS => bPS.DraftedCards).Returns(mockDraftedCards);
 
@@ -86,8 +102,6 @@ public class ActivityScoreTests
 	public void CalculateScore_ValidDraftedCards_TwoInstance_ReturnsCorrectScore_RQ10e()
 	{
 		// Arrange
-		string category = "SomeCategory";
-
 		List<IBoomerangCard<string>> mockDraftedCards =
 			_mockCardCreator.CreateFullSetOfMockCardWithCollectionSymbol(
 			"blueIcon", "SomeCategory",
@@ -99,7 +113,7 @@ public class ActivityScoreTests
 			"blueIcon", "SomeCategory"
 		);
 
-		_sut = new ActivityScore(category);
+		_sut = new ActivityScore(_category, _c_STRATIGY_NAME);
 
 		_mockBPState.SetupGet(bPS => bPS.DraftedCards).Returns(mockDraftedCards);
 
@@ -114,8 +128,6 @@ public class ActivityScoreTests
 	public void CalculateScore_ValidDraftedCards_ThreeInstance_ReturnsCorrectScore_RQ10e()
 	{
 		// Arrange
-		string category = "SomeCategory";
-
 		List<IBoomerangCard<string>> mockDraftedCards =
 			_mockCardCreator.CreateFullSetOfMockCardWithCollectionSymbol(
 			"blueIcon", "SomeCategory",
@@ -127,7 +139,7 @@ public class ActivityScoreTests
 			"blueIcon", "SomeCategory"
 		);
 
-		_sut = new ActivityScore(category);
+		_sut = new ActivityScore(_category, _c_STRATIGY_NAME);
 
 		_mockBPState.SetupGet(bPS => bPS.DraftedCards).Returns(mockDraftedCards);
 
@@ -142,8 +154,6 @@ public class ActivityScoreTests
 	public void CalculateScore_ValidDraftedCards_FourInstance_ReturnsCorrectScore_RQ10e()
 	{
 		// Arrange
-		string category = "SomeCategory";
-
 		List<IBoomerangCard<string>> mockDraftedCards =
 			_mockCardCreator.CreateFullSetOfMockCardWithCollectionSymbol(
 			"blueIcon", "SomeCategory",
@@ -155,7 +165,7 @@ public class ActivityScoreTests
 			"blueIcon", "SomeCategory"
 		);
 
-		_sut = new ActivityScore(category);
+		_sut = new ActivityScore(_category, _c_STRATIGY_NAME);
 
 		_mockBPState.SetupGet(bPS => bPS.DraftedCards).Returns(mockDraftedCards);
 
@@ -170,8 +180,6 @@ public class ActivityScoreTests
 	public void CalculateScore_ValidDraftedCards_FiveInstance_ReturnsCorrectScore_RQ10e()
 	{
 		// Arrange
-		string category = "SomeCategory";
-
 		List<IBoomerangCard<string>> mockDraftedCards =
 			_mockCardCreator.CreateFullSetOfMockCardWithCollectionSymbol(
 			"blueIcon", "SomeCategory",
@@ -183,7 +191,7 @@ public class ActivityScoreTests
 			"blueIcon", "SomeCategory"
 		);
 
-		_sut = new ActivityScore(category);
+		_sut = new ActivityScore(_category, _c_STRATIGY_NAME);
 
 		_mockBPState.SetupGet(bPS => bPS.DraftedCards).Returns(mockDraftedCards);
 
@@ -198,8 +206,6 @@ public class ActivityScoreTests
 	public void CalculateScore_ValidDraftedCards_SixInstance_ReturnsCorrectScore_RQ10e()
 	{
 		// Arrange
-		string category = "SomeCategory";
-
 		List<IBoomerangCard<string>> mockDraftedCards =
 			_mockCardCreator.CreateFullSetOfMockCardWithCollectionSymbol(
 			"blueIcon", "SomeCategory",
@@ -211,7 +217,7 @@ public class ActivityScoreTests
 			"blueIcon", "SomeCategory"
 		);
 
-		_sut = new ActivityScore(category);
+		_sut = new ActivityScore(_category, _c_STRATIGY_NAME);
 
 		_mockBPState.SetupGet(bPS => bPS.DraftedCards).Returns(mockDraftedCards);
 
@@ -226,8 +232,6 @@ public class ActivityScoreTests
 	public void CalculateScore_ValidDraftedCards_SevenInstance_ReturnsCorrectScore_RQ10e()
 	{
 		// Arrange
-		string category = "SomeCategory";
-
 		List<IBoomerangCard<string>> mockDraftedCards =
 			_mockCardCreator.CreateFullSetOfMockCardWithCollectionSymbol(
 			"blueIcon", "SomeCategory",
@@ -239,7 +243,7 @@ public class ActivityScoreTests
 			"blueIcon", "SomeCategory"
 		);
 
-		_sut = new ActivityScore(category);
+		_sut = new ActivityScore(_category, _c_STRATIGY_NAME);
 
 		_mockBPState.SetupGet(bPS => bPS.DraftedCards).Returns(mockDraftedCards);
 

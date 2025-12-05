@@ -12,6 +12,8 @@ namespace BoomerangGame.Core.Domain.ScoringStrategies;
 /// </remarks>
 public interface IScoreCategory
 {
+	string Name { get; }
+
 	/// <summary>
 	/// Calculates the score for the specified player, using values from <see cref="IBoomerangPlayerState"/>.
 	/// </summary>

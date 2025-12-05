@@ -19,10 +19,11 @@ public class ThrowCatchAbsoluteScoreTests
 	private Mock<IPlayer> _mockPlayer;
 	private Mock<IRoundState> _mockRoundState;
 	private const string _c_PLAYER_NAME = "Player1";
+	private const string _c_STRATIGY_NAME = "ThrowCatchAbsolute";
 
 	public ThrowCatchAbsoluteScoreTests()
 	{
-		_sut = new ThrowCatchAbsoluteScore();
+		_sut = new ThrowCatchAbsoluteScore(_c_STRATIGY_NAME);
 		_mockPlayerCreator = new MockPlayerCreator();
 		_mockCardCreator = new MockCardCreator();
 		_mockRoundStateCreator = new MockRoundStateCreator();
@@ -33,6 +34,19 @@ public class ThrowCatchAbsoluteScoreTests
 		_mockRoundState = _mockRoundStateCreator.CreateMockRoundState(_mockPlayer.Object);
 	}
 
+	[Fact]
+	public void Constructor_NameNull_ThrowsArgumentNullException()
+	{
+		Assert.Throws<ArgumentNullException>(() =>
+			new ThrowCatchAbsoluteScore(null!)
+		);
+	}
+	
+	[Fact]
+	public void Name_ValidName_ShouldReturnName()
+	{
+		Assert.Equal(_c_STRATIGY_NAME, _sut.Name);
+	}
 
 	[Fact]
 	public void CalculateScore_PlayerStateNull_ThrowsArgumentNullException_RQ10a()

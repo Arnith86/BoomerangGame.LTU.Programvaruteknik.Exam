@@ -15,6 +15,7 @@ public class RegionBonusPointScoreTests
 	private readonly Mock<IBoomerangPlayerState> _playerState2;
 	private readonly Mock<IMapState> _mapStateMock;
 	private readonly Mock<IRegionsState> _regionStateMock;
+	private const string _c_STRATIGY_NAME = "RegionBonusPoints";
 
 	private readonly RegionBonusPointScore _sut;
 	
@@ -32,7 +33,11 @@ public class RegionBonusPointScoreTests
 		_mapStateMock = new Mock<IMapState>();
 		_regionStateMock = new Mock<IRegionsState>();
 
-		_sut = new RegionBonusPointScore(_mockRegionTracker.Object, _regionPoints);
+		_sut = new RegionBonusPointScore(
+			_mockRegionTracker.Object, 
+			_regionPoints,
+			_c_STRATIGY_NAME
+		);
 	}
 
 	private void SetupMapStateMock(string region, IRegionsState regionStateMock)
@@ -57,6 +62,19 @@ public class RegionBonusPointScoreTests
 	}
 
 
+	[Fact]
+	public void Constructor_NameNull_ThrowsArgumentNullException()
+	{
+		Assert.Throws<ArgumentNullException>(() =>
+			new ThrowCatchAbsoluteScore(null!)
+		);
+	}
+
+	[Fact]
+	public void Name_ValidName_ShouldReturnName()
+	{
+		Assert.Equal(_c_STRATIGY_NAME, _sut.Name);
+	}
 
 
 
