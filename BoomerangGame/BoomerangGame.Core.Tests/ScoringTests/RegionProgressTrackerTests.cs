@@ -1,4 +1,4 @@
-﻿using BoomerangGame.Core.Domain.ScoringStrategies;
+﻿using BoomerangGame.Core.Scoring;
 
 namespace BoomerangGame.Core.Tests.ScoringTests;
 

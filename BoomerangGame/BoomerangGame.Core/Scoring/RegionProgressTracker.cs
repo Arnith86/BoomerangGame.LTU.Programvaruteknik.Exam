@@ -1,4 +1,4 @@
-﻿namespace BoomerangGame.Core.Domain.ScoringStrategies;
+﻿namespace BoomerangGame.Core.Scoring;
 
 /// <summary>
 /// A singleton class that tracks region completion progress during the game and determines <br/>

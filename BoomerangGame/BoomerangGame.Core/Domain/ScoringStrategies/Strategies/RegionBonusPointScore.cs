@@ -2,6 +2,7 @@
 using BoomerangGame.Core.Domain.States.MapStates;
 using BoomerangGame.Core.Domain.States.PlayerState;
 using BoomerangGame.Core.Domain.States.RoundStates;
+using BoomerangGame.Core.Scoring;
 using System.Xml.Linq;
 
 namespace BoomerangGame.Core.Domain.ScoringStrategies.Strategies;
