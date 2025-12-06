@@ -52,7 +52,7 @@ public class PlayerStateTests
 			region: "Western Australia",
 			site: "A",
 			number: 1,
-			symbolSet: symbolSet.Object
+			symbols: symbolSet.Object
 		));
 		
 		// Assert 
@@ -140,7 +140,7 @@ public class PlayerStateTests
 			region: "Western Australia",
 			site: "A",
 			number: 1,
-			symbolSet: symbolSet.Object
+			symbols: symbolSet.Object
 		));
 
 		// Act

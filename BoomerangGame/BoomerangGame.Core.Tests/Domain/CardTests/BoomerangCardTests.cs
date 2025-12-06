@@ -1,4 +1,5 @@
-﻿using BoomerangGame.Core.Domain.Cards;
+﻿using BoomerangGame.Core.Config.Factories;
+using BoomerangGame.Core.Domain.Cards;
 using BoomerangGame.Core.Domain.Cards.Symbols;
 
 namespace BoomerangGame.Core.Tests.Domain.CardTests;
@@ -25,7 +26,7 @@ public class BoomerangCardTests
 			region: ValidRegion,
 			site: ValidSite,
 			number: ValidCardNumber,
-			symbolSet: _validSymbolSet
+			symbols: _validSymbolSet
 		);
 	}
 

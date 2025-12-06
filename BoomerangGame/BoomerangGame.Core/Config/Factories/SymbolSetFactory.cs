@@ -1,4 +1,6 @@
-namespace BoomerangGame.Core.Domain.Cards.Symbols;
+using BoomerangGame.Core.Domain.Cards.Symbols;
+
+namespace BoomerangGame.Core.Config.Factories;
 
 /// <summary>
 /// Constructs <see cref="SymbolSet"/> instances from a variety of source shapes.

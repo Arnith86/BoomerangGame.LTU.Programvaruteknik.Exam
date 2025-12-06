@@ -1,8 +1,8 @@
 {
     "game": {
-        "name": "Boomerang Australia",
         "version": "1.0"
     },
+    "name": "Boomerang Australia",
     "turnOrderIdentifier": "Left",
     "regionTrackingIdentifier": "Australia",
     "tieBreakerIdentifier": "HighestThrowCatchTotal",
@@ -340,7 +340,7 @@
 
     "scoringStrategies": [
         "ThrowCatchAbsolute",
-        "RegionBonus3points",
+        "RegionBonusPoints",
         "Collection",
         "Animal",
         "Activity"

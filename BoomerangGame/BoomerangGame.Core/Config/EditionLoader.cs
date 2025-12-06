@@ -1,4 +1,10 @@
-﻿using BoomerangGame.Core.Config.ConfigurationDTOs;
+﻿// Ignore Spelling: Dto
+
+using BoomerangGame.Core.Config.ConfigurationDTOs;
+using BoomerangGame.Core.Config.Factories.ScoreCategories;
+using BoomerangGame.Core.Domain.Cards;
+using BoomerangGame.Core.Domain.ScoringStrategies;
+using BoomerangGame.Core.Scoring;
 using System.Text.Json;
 
 namespace BoomerangGame.Core.Config;
@@ -10,14 +16,13 @@ namespace BoomerangGame.Core.Config;
 public sealed class EditionLoader : IEditionLoader
 {
 	
-	private static readonly Lazy<EditionLoader> _instance =
-		new Lazy<EditionLoader>(() => new EditionLoader());
+	private readonly IScoreCategoryFactory _scoreCategoryFactory;
+	private readonly IRegionProgressTracker _regionProgressTracker;
 
-	public static EditionLoader Instance => _instance.Value;
-
-	private EditionLoader() { }
-
-
+	public EditionLoader(IRegionProgressTracker regionProgressTracker)
+	{
+		_regionProgressTracker = regionProgressTracker;
+	}
 
 	/// <summary>
 	/// Loads an edition configuration from a JSON file.
@@ -52,6 +57,14 @@ public sealed class EditionLoader : IEditionLoader
 
 	public EditionConfig CreateDomain(EditionConfigDto config)
 	{
+		IScoreCategoryFactory scoreCategoryFactory 
+			= AbstractScoreCategoryFactoryProducer.GetFactory(config.Name);
+
+
+		IEnumerable<IScoreCategory> scoreCategories 
+			= scoreCategoryFactory.Create(config, _regionProgressTracker); 
+
+		
 		throw new NotImplementedException();
 	}
 }

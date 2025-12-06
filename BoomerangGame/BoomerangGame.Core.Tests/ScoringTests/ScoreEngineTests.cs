@@ -48,7 +48,6 @@ public class ScoreEngineTests
 
 		IScoreEngine sut = new ScoreEngine(
 			new[] { _roundCategory.Object, _blueIconCategory.Object, _basicCategory.Object },
-			Mock.Of<IRegionProgressTracker>(),
 			_ofTieBreaker,
 			"dummy"
 		);
@@ -72,7 +71,6 @@ public class ScoreEngineTests
 
 		var sut = new ScoreEngine(
 			new List<IScoreCategory>(),
-			Mock.Of<IRegionProgressTracker>(),
 			_ofTieBreaker,
 			"tb"
 		);
@@ -104,7 +102,6 @@ public class ScoreEngineTests
 
 		var sut = new ScoreEngine(
 			new List<IScoreCategory>(),
-			Mock.Of<IRegionProgressTracker>(),
 			_tieBreaker.Object,
 			"tb"
 		);
