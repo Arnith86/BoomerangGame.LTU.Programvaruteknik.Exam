@@ -22,4 +22,13 @@ public class MockPlayerCreator
 
 		return mockPlayer;
 	}
+
+	public IPlayerState CreateMockIPlayerStateNameScore(string name, int score = 0)
+	{
+		var mock = new Mock<IPlayerState>();
+		mock.Setup(p => p.Name).Returns(name);
+		mock.Setup(p => p.Score).Returns(score);
+		
+		return mock.Object;
+	}
 }
