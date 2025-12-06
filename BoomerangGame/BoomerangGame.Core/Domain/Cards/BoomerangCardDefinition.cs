@@ -3,7 +3,7 @@
 namespace BoomerangGame.Core.Domain.Cards;
 
 /// <summary>
-/// Represents a single card in the game with a site, region, number, and a set of symbols.
+/// Represents a single card in the game with a site, region, number, and a set of Symbols.
 /// </summary>
 public sealed class BoomerangCardDefinition<TValue>
 {
@@ -11,7 +11,7 @@ public sealed class BoomerangCardDefinition<TValue>
 	public string Region { get; }
 	public string Site { get; }
 	public int Number { get; }
-	public SymbolSet<TValue> Symbols { get; }
+	public ISymbolSet<TValue> Symbols { get; }
 
 	/// <summary>
 	/// Constructs a new CardDefinition instance.
@@ -20,7 +20,7 @@ public sealed class BoomerangCardDefinition<TValue>
 	/// <param name="Site">The letter identifier of the card (e.g., "A", "B").</param>
 	/// <param name="region">The region code (non-null, trimmed).</param>
 	/// <param name="number">The numeric value of the card (non-negative).</param>
-	/// <param name="symbols">The set of symbols associated with the card (non-null).</param>
+	/// <param name="symbols">The set of Symbols associated with the card (non-null).</param>
 	public BoomerangCardDefinition(
 		string name, 
 		string region, 

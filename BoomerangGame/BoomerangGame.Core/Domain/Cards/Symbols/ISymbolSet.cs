@@ -1,6 +1,6 @@
 ﻿namespace BoomerangGame.Core.Domain.Cards.Symbols;
 
-/// <summary>Represents a collection of up to three symbols printed on a Boomerang card.</summary>
+/// <summary>Represents a collection of up to three Symbols printed on a Boomerang card.</summary>
 /// <typeparam name="TValue">The type of the value associated with each symbol (e.g., string, int).</typeparam>
 /// <remarks>The third symbol is not used on the final card, only the definition.</remarks>
 public interface ISymbolSet<TValue>
@@ -10,7 +10,7 @@ public interface ISymbolSet<TValue>
 	Symbol<TValue>? Third { get; init; }
 	
 	/// <summary>
-	/// Gets all non-null symbols contained in the set, in the order they appear <br/>
+	/// Gets all non-null Symbols contained in the set, in the order they appear <br/>
 	/// (First → Second → Third).
 	/// </summary>
 	IReadOnlyList<Symbol<TValue>> Symbols { get; }

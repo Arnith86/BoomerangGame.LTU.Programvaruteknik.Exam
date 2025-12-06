@@ -23,7 +23,7 @@ namespace BoomerangGame.Core.Domain.Cards
 		string Region { get; }
 
 		/// <summary>
-		/// The symbols of the card.
+		/// The Symbols of the card.
 		/// </summary>
 		ISymbolSet<TValue> Symbols { get; }
 	}

@@ -1,7 +1,7 @@
 ﻿namespace BoomerangGame.Core.Domain.Cards.Symbols;
 
 /// <summary>
-/// Represents up to three symbols printed on a Boomerang card.
+/// Represents up to three Symbols printed on a Boomerang card.
 /// </summary>
 /// <param name="First">The first symbol, if any.</param>
 /// <param name="Second">The second symbol, if any.</param>

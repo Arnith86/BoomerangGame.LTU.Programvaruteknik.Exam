@@ -14,7 +14,7 @@ public static class SymbolInstanceCounter
 	/// </summary>
 	/// <param name="cards">The list of <see cref="IBoomerangCard{TValue}"/> instances to analyze.</param>
 	/// <param name="type">
-	/// The symbol category to search for. Only symbols whose category matches this value will be counted.
+	/// The symbol category to search for. Only Symbols whose category matches this value will be counted.
 	/// </param>
 	/// <returns>
 	/// A dictionary where each key represents a symbol value (e.g. <c>"Leaves"</c>), and the <br/>

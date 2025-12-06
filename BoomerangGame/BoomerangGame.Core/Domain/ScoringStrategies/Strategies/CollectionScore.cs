@@ -5,7 +5,7 @@ namespace BoomerangGame.Core.Domain.ScoringStrategies.Strategies;
 
 /// <summary>
 /// Represents the scoring strategy for the "collection" category in the Boomerang game. Scores drafted <br/>
-/// cards by counting collection symbols and applying fixed point values. Totals below eight are doubled.
+/// cards by counting collection Symbols and applying fixed point values. Totals below eight are doubled.
 /// </summary>
 public class CollectionScore : IScoreCategory
 {

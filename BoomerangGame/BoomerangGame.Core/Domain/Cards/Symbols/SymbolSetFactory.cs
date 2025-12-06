@@ -52,7 +52,7 @@ public static class SymbolSetFactory<TValue>
 	}
 
 	/// <summary>
-	/// Convenience factory for callers that have between zero and three symbols already constructed.
+	/// Convenience factory for callers that have between zero and three Symbols already constructed.
 	/// </summary>
 	public static SymbolSet<TValue> FromSymbols(params Symbol<TValue>[] symbols) 
 		=> FromSymbols((IEnumerable<Symbol<TValue>>)symbols);
