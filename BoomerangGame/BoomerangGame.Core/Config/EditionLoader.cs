@@ -1,12 +1,12 @@
 ﻿// Ignore Spelling: Dto
 
 using BoomerangGame.Core.Config.ConfigurationDTOs;
-using BoomerangGame.Core.Config.Factories;
 using BoomerangGame.Core.Config.Factories.Decks;
 using BoomerangGame.Core.Config.Factories.ScoreCategories;
 using BoomerangGame.Core.Config.Factories.Symbols;
 using BoomerangGame.Core.Domain.Cards;
 using BoomerangGame.Core.Domain.ScoringStrategies;
+using BoomerangGame.Core.Domain.States.MapStates.Builder;
 using BoomerangGame.Core.Scoring;
 using System.Text.Json;
 
@@ -22,15 +22,18 @@ public sealed class EditionLoader : IEditionLoader
 	private readonly IRegionProgressTracker _regionProgressTracker;
 	private readonly IDeckMapper _deckMapper;
 	private readonly IDeckMapFunctions _deckMapFunctions;
+	private readonly IMapStateBuilder _mapStateBuilder;
 
 	public EditionLoader(
 		IRegionProgressTracker regionProgressTracker, 
 		IDeckMapper deckMapper,
-		IDeckMapFunctions deckMapFunctions)
+		IDeckMapFunctions deckMapFunctions,
+		IMapStateBuilder mapStateBuilder)
 	{
 		_regionProgressTracker = regionProgressTracker;
 		_deckMapper = deckMapper;
 		_deckMapFunctions = deckMapFunctions;
+		_mapStateBuilder = mapStateBuilder;
 	}
 
 	/// <summary>
@@ -73,6 +76,7 @@ public sealed class EditionLoader : IEditionLoader
 		IEnumerable<IScoreCategory> scoreCategories 
 			= scoreCategoryFactory.Create(config, _regionProgressTracker);
 
+
 		ISymbolSetMapper symbolSetMapper = SymbolSetMapperFactory.GetMapper(config.Name);
 		var dtoToDefinition = _deckMapFunctions.CreateDtoToDefinitionMapper(symbolSetMapper);
 
@@ -84,9 +88,9 @@ public sealed class EditionLoader : IEditionLoader
 		return new EditionConfig(
 			Name: config.Name,
 			Deck: (IReadOnlyList<BoomerangCardDefinition<string>>)deck,
-			RegionMap: config.RegionMap,
+			RegionMap: _mapStateBuilder.CreateMapState(config.Name, config.RegionMap),
 			RegionProgressTracker: _regionProgressTracker,
-			ScoringStrategies: (IReadOnlyList<string>)scoreCategories,
+			ScoringStrategies: scoreCategories.ToList(),
 			TieBreakerIdentifier: config.TieBreakerIdentifier,
 			TurnOrderIdentifier: config.TurnOrderIdentifier,
 			RegionCompletionPoints: config.RegionCompletionPoints,

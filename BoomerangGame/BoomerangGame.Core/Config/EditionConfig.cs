@@ -1,4 +1,6 @@
 ﻿using BoomerangGame.Core.Domain.Cards;
+using BoomerangGame.Core.Domain.ScoringStrategies;
+using BoomerangGame.Core.Domain.States.MapStates;
 using BoomerangGame.Core.Scoring;
 
 namespace BoomerangGame.Core.Config;
@@ -9,9 +11,9 @@ namespace BoomerangGame.Core.Config;
 public sealed record EditionConfig(
 	string Name,
 	IReadOnlyList<BoomerangCardDefinition<string>> Deck,
-	IReadOnlyDictionary<string, List<string>> RegionMap,
+	IMapState RegionMap,
 	IRegionProgressTracker RegionProgressTracker,
-	IReadOnlyList<string> ScoringStrategies,
+	List<IScoreCategory> ScoringStrategies,
 	string TieBreakerIdentifier, 
 	string TurnOrderIdentifier,
 	IReadOnlyDictionary<string, int> RegionCompletionPoints,

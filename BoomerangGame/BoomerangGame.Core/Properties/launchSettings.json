@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "BoomerangGame.Core": {
+      "commandName": "Project",
+      "commandLineArgs": "4 2"
+    }
+  }
+}

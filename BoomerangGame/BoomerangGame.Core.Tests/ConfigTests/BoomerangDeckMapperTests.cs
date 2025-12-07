@@ -5,6 +5,7 @@ using BoomerangGame.Core.Config.ConfigurationDTOs;
 using BoomerangGame.Core.Config.Factories.Decks;
 using BoomerangGame.Core.Config.Factories.Symbols;
 using BoomerangGame.Core.Domain.Cards;
+using BoomerangGame.Core.Domain.States.MapStates.Builder;
 using BoomerangGame.Core.Scoring;
 using BoomerangGame.Core.Tests.HelperClasses;
 
@@ -19,6 +20,7 @@ public class BoomerangDeckMapperTests
 	private readonly ISymbolSetMapper _symbolSetMapper;
 	private readonly IDeckMapFunctions _deckMapFunctions;
 	private readonly IDeckMapper _deckMapper;
+	private readonly IMapStateBuilder _mapStateBuilde;
 
 	private readonly IEnumerable<BoomerangCardDefinition<string>> _deckDefinition;
 
@@ -27,8 +29,14 @@ public class BoomerangDeckMapperTests
 		_deckMapFunctions = new DeckMapFunctions();
 		_deckMapper = new BoomerangDeckMapper();
 		_regionProgressTracker = new RegionProgressTracker();
+		_mapStateBuilde = new MapStateBuilder();
 
-		_editionLoader = new EditionLoader(_regionProgressTracker, _deckMapper, _deckMapFunctions);
+		_editionLoader = new EditionLoader(
+			_regionProgressTracker, 
+			_deckMapper, 
+			_deckMapFunctions, 
+			_mapStateBuilde
+		);
 
 		_editionConfigDto =
 			_editionLoader.LoadEditionDto(GetEditionJSON.GetValidEditionConfigJSON());

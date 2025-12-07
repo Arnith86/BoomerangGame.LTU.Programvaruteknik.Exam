@@ -3,9 +3,7 @@ using BoomerangGame.Core.Port;
 
 namespace BoomerangGame.Core.Application;
 
-public interface IPlayer
-{
-
-	IBoomerangPlayerState PlayerState { get; }
-	IPlayerChannel PlayerChannel { get; }
-}
+public record Player(
+	IBoomerangPlayerState PlayerState,
+	IPlayerChannel PlayerChannel
+) : IPlayer;

@@ -6,7 +6,7 @@ public static class AbstractScoreCategoryFactoryProducer
 	{
 		return edition switch
 		{
-			"Australia" => new AustraliaScoreCategoryFactory(),
+			"Boomerang Australia" => new AustraliaScoreCategoryFactory(),
 			_ => throw new NotImplementedException($"Factory for {edition} not implemented")
 		};
 
