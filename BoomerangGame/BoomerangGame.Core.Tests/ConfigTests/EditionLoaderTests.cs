@@ -1,6 +1,7 @@
 ﻿// Ignore Spelling: Json Dto
 
 using BoomerangGame.Core.Config;
+using BoomerangGame.Core.Config.Factories.Decks;
 using BoomerangGame.Core.Config.Factories.ScoreCategories;
 using BoomerangGame.Core.Scoring;
 using BoomerangGame.Core.Tests.HelperClasses;
@@ -10,6 +11,8 @@ namespace BoomerangGame.Core.Tests.ConfigTests;
 
 public class EditionLoaderTests
 {
+	private readonly IDeckMapper _deckMapper;
+	private readonly IDeckMapFunctions _deckMapperFunctionss;
 	private IEditionLoader _editionLoader;
 	private readonly IScoreCategoryFactory _scoreCategoryFactory;
 	private readonly IRegionProgressTracker _regionProgressTracker;
@@ -18,7 +21,10 @@ public class EditionLoaderTests
 	{
 		_scoreCategoryFactory = Mock.Of<IScoreCategoryFactory>();
 		_regionProgressTracker = Mock.Of<RegionProgressTracker>();
-		_editionLoader = new EditionLoader(_regionProgressTracker);
+		_deckMapper = new BoomerangDeckMapper();
+		_deckMapperFunctionss = new DeckMapFunctions();
+
+		_editionLoader = new EditionLoader(_regionProgressTracker, _deckMapper, _deckMapperFunctionss);
 	}  
 
 	

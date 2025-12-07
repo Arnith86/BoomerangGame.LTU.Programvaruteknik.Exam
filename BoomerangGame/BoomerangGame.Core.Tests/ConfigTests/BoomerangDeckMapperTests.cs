@@ -17,25 +17,30 @@ public class BoomerangDeckMapperTests
 	private readonly IRegionProgressTracker _regionProgressTracker;
 	private readonly EditionConfigDto _editionConfigDto;
 	private readonly ISymbolSetMapper _symbolSetMapper;
+	private readonly IDeckMapFunctions _deckMapFunctions;
+	private readonly IDeckMapper _deckMapper;
 
 	private readonly IEnumerable<BoomerangCardDefinition<string>> _deckDefinition;
 
 	public BoomerangDeckMapperTests()
 	{
-		_editionConfigDto = 
+		_deckMapFunctions = new DeckMapFunctions();
+		_deckMapper = new BoomerangDeckMapper();
+		_regionProgressTracker = new RegionProgressTracker();
+
+		_editionLoader = new EditionLoader(_regionProgressTracker, _deckMapper, _deckMapFunctions);
+
+		_editionConfigDto =
 			_editionLoader.LoadEditionDto(GetEditionJSON.GetValidEditionConfigJSON());
+
 		_symbolSetMapper = SymbolSetMapperFactory.GetMapper(_editionConfigDto.Name);
-		
+
 		_sut = new BoomerangDeckMapper();
 
-		_regionProgressTracker = new RegionProgressTracker();
-		
 		_deckDefinition = _sut.MapDeck(
-			_editionConfigDto.Deck, 
-			_sut.CreateDtoToDefinitionMapper(_symbolSetMapper)
+			_editionConfigDto.Deck,
+			_deckMapFunctions.CreateDtoToDefinitionMapper(_symbolSetMapper)
 		);
-		
-		_editionLoader = new EditionLoader(_regionProgressTracker, _sut);
 	}
 
 	[Fact]
@@ -43,8 +48,8 @@ public class BoomerangDeckMapperTests
 	{
 		// Arrange & Act 
 		var result = _sut.MapDeck(
-			_editionConfigDto.Deck, 
-			_sut.CreateDtoToDefinitionMapper(_symbolSetMapper)
+			_editionConfigDto.Deck,
+			_deckMapFunctions.CreateDtoToDefinitionMapper(_symbolSetMapper)
 		);
 
 		// Assert
@@ -58,7 +63,7 @@ public class BoomerangDeckMapperTests
 		// Act
 		var result = _sut.MapDeck(
 			_deckDefinition.ToList(),
-			_sut.CreateDefinitionToBoomerangCardMapper(_symbolSetMapper)
+			_deckMapFunctions.CreateDefinitionToBoomerangCardMapper(_symbolSetMapper)
 		);
 
 		// Assert
@@ -71,7 +76,7 @@ public class BoomerangDeckMapperTests
 	{
 		var deck = _sut.MapDeck(
 			_deckDefinition.ToList(),
-			_sut.CreateDefinitionToBoomerangCardMapper(_symbolSetMapper)
+			_deckMapFunctions.CreateDefinitionToBoomerangCardMapper(_symbolSetMapper)
 		);
 
 		foreach (var card in deck)
@@ -90,7 +95,7 @@ public class BoomerangDeckMapperTests
 	{
 		var deck = _sut.MapDeck(
 			_deckDefinition.ToList(),
-			_sut.CreateDefinitionToBoomerangCardMapper(_symbolSetMapper)
+			_deckMapFunctions.CreateDefinitionToBoomerangCardMapper(_symbolSetMapper)
 		);
 
 		foreach (var card in deck)
@@ -110,7 +115,7 @@ public class BoomerangDeckMapperTests
 
 		var deck = _sut.MapDeck(
 			_deckDefinition.ToList(),
-			_sut.CreateDefinitionToBoomerangCardMapper(_symbolSetMapper));
+			_deckMapFunctions.CreateDefinitionToBoomerangCardMapper(_symbolSetMapper));
 
 		foreach (var card in deck)
 		{
