@@ -2,7 +2,7 @@
 
 using BoomerangGame.Core.Config;
 using BoomerangGame.Core.Config.ConfigurationDTOs;
-using BoomerangGame.Core.Config.Factories;
+using BoomerangGame.Core.Config.Factories.Decks;
 using BoomerangGame.Core.Config.Factories.Symbols;
 using BoomerangGame.Core.Domain.Cards;
 using BoomerangGame.Core.Scoring;
@@ -22,18 +22,20 @@ public class BoomerangDeckMapperTests
 
 	public BoomerangDeckMapperTests()
 	{
-		_regionProgressTracker = new RegionProgressTracker();
-		_editionLoader = new EditionLoader(_regionProgressTracker);
 		_editionConfigDto = 
 			_editionLoader.LoadEditionDto(GetEditionJSON.GetValidEditionConfigJSON());
 		_symbolSetMapper = SymbolSetMapperFactory.GetMapper(_editionConfigDto.Name);
 		
 		_sut = new BoomerangDeckMapper();
 
+		_regionProgressTracker = new RegionProgressTracker();
+		
 		_deckDefinition = _sut.MapDeck(
 			_editionConfigDto.Deck, 
 			_sut.CreateDtoToDefinitionMapper(_symbolSetMapper)
 		);
+		
+		_editionLoader = new EditionLoader(_regionProgressTracker, _sut);
 	}
 
 	[Fact]

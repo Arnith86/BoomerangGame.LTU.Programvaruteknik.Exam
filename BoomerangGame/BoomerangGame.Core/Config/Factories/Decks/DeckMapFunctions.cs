@@ -1,36 +1,13 @@
-﻿// Ignore Spelling: dto
+﻿// Ignore Spelling: Dto
 
 using BoomerangGame.Core.Config.ConfigurationDTOs;
 using BoomerangGame.Core.Config.Factories.Symbols;
 using BoomerangGame.Core.Domain.Cards;
 
-namespace BoomerangGame.Core.Config.Factories;
+namespace BoomerangGame.Core.Config.Factories.Decks;
 
-/// <summary>
-/// Mapper that maps deck from one type of card to another.
-/// </summary>
-public class BoomerangDeckMapper : IDeckMapper
+public class DeckMapFunctions : IDeckMapFunctions
 {
-	/// <inheritdoc/>
-	public IEnumerable<TOut> MapDeck<TIn, TOut>(
-		List<TIn> inputCards,
-		Func<TIn, TOut> converter)
-	{
-		if (inputCards is null)
-			throw new ArgumentNullException(nameof(inputCards), "cards cannot be null.");
-
-		var deck = new List<TOut>(inputCards.Count);
-
-		foreach (var card in inputCards)
-		{
-			if (card is null) continue;
-
-			deck.Add(converter(card));
-		}
-
-		return deck;
-	}
-
 
 	/// <summary>
 	/// Converts a DTO to a Boomerang card definition, keeping all symbols.

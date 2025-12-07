@@ -1,7 +1,10 @@
 ﻿// Ignore Spelling: Dto
 
 using BoomerangGame.Core.Config.ConfigurationDTOs;
+using BoomerangGame.Core.Config.Factories;
+using BoomerangGame.Core.Config.Factories.Decks;
 using BoomerangGame.Core.Config.Factories.ScoreCategories;
+using BoomerangGame.Core.Config.Factories.Symbols;
 using BoomerangGame.Core.Domain.Cards;
 using BoomerangGame.Core.Domain.ScoringStrategies;
 using BoomerangGame.Core.Scoring;
@@ -16,12 +19,18 @@ namespace BoomerangGame.Core.Config;
 public sealed class EditionLoader : IEditionLoader
 {
 	
-	private readonly IScoreCategoryFactory _scoreCategoryFactory;
 	private readonly IRegionProgressTracker _regionProgressTracker;
+	private readonly IDeckMapper _deckMapper;
+	private readonly IDeckMapFunctions _deckMapFunctions;
 
-	public EditionLoader(IRegionProgressTracker regionProgressTracker)
+	public EditionLoader(
+		IRegionProgressTracker regionProgressTracker, 
+		IDeckMapper deckMapper,
+		IDeckMapFunctions deckMapFunctions)
 	{
 		_regionProgressTracker = regionProgressTracker;
+		_deckMapper = deckMapper;
+		_deckMapFunctions = deckMapFunctions;
 	}
 
 	/// <summary>
@@ -62,10 +71,27 @@ public sealed class EditionLoader : IEditionLoader
 
 
 		IEnumerable<IScoreCategory> scoreCategories 
-			= scoreCategoryFactory.Create(config, _regionProgressTracker); 
+			= scoreCategoryFactory.Create(config, _regionProgressTracker);
 
-		
-		throw new NotImplementedException();
+		ISymbolSetMapper symbolSetMapper = SymbolSetMapperFactory.GetMapper(config.Name);
+		var dtoToDefinition = _deckMapFunctions.CreateDtoToDefinitionMapper(symbolSetMapper);
+
+		IEnumerable<BoomerangCardDefinition<string>> deck 
+			= _deckMapper.MapDeck(
+				config.Deck,
+				dtoToDefinition);
+
+		return new EditionConfig(
+			Name: config.Name,
+			Deck: (IReadOnlyList<BoomerangCardDefinition<string>>)deck,
+			RegionMap: config.RegionMap,
+			RegionProgressTracker: _regionProgressTracker,
+			ScoringStrategies: (IReadOnlyList<string>)scoreCategories,
+			TieBreakerIdentifier: config.TieBreakerIdentifier,
+			TurnOrderIdentifier: config.TurnOrderIdentifier,
+			RegionCompletionPoints: config.RegionCompletionPoints,
+			AnimalPointsPerPair: config.AnimalPointsPerPair
+		);	
 	}
 }
 

@@ -1,4 +1,4 @@
-﻿namespace BoomerangGame.Core.Config.Factories;
+﻿namespace BoomerangGame.Core.Config.Factories.Decks;
 
 /// <summary>
 /// Provides functionality to map a list of input card data to a deck of output cards.
