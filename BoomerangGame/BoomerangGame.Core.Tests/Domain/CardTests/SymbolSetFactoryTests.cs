@@ -1,4 +1,4 @@
-using BoomerangGame.Core.Config.Factories;
+using BoomerangGame.Core.Config.Factories.Symbols;
 using BoomerangGame.Core.Domain.Cards.Symbols;
 
 namespace BoomerangGame.Core.Tests.Domain.CardTests;

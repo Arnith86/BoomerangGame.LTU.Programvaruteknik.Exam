@@ -3,7 +3,7 @@
 using BoomerangGame.Core.Domain.Cards.Symbols;
 using System.Text.Json;
 
-namespace BoomerangGame.Core.Config.Factories;
+namespace BoomerangGame.Core.Config.Factories.Symbols;
 /// <summary>
 /// Maps raw JSON-deserialized symbol data into a <see cref="SymbolSet{TValue}"/> for the <br/>
 /// Australia edition of the Boomerang game.
@@ -28,9 +28,9 @@ public class AustraliaSymbolSetMapper : ISymbolSetMapper
 	/// <exception cref="ArgumentException">Thrown when the DTO cannot be converted into a valid dictionary structure.</exception>
 	public SymbolSet<string> MapSymbols(object symbolDto)
 	{
-		// Normalize the input by re-serializing it to known JSON
+		// First normalize the input by re-serializing it to known JSON
+		// Than deserialize the JSON into the canonical dictionary format
 		var json = JsonSerializer.Serialize(symbolDto);
-		// Deserialize the JSON into the canonical dictionary format
 		var dict = JsonSerializer.Deserialize<Dictionary<string, string?>>(json);
 
 		if (dict is null) 

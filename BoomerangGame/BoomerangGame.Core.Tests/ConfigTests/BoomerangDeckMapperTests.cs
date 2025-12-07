@@ -3,8 +3,8 @@
 using BoomerangGame.Core.Config;
 using BoomerangGame.Core.Config.ConfigurationDTOs;
 using BoomerangGame.Core.Config.Factories;
+using BoomerangGame.Core.Config.Factories.Symbols;
 using BoomerangGame.Core.Domain.Cards;
-using BoomerangGame.Core.Domain.Cards.Symbols;
 using BoomerangGame.Core.Scoring;
 using BoomerangGame.Core.Tests.HelperClasses;
 

@@ -1,4 +1,6 @@
-﻿namespace BoomerangGame.Core.Domain.Cards.Symbols;
+﻿using BoomerangGame.Core.Domain.Cards.Symbols;
+
+namespace BoomerangGame.Core.Config.Factories.Symbols;
 
 /// <summary>
 /// Defines a strategy for converting a loosely typed symbol payload into a

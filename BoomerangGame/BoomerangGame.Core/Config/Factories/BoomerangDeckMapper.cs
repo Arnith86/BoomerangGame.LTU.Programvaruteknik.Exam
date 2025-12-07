@@ -1,8 +1,8 @@
 ﻿// Ignore Spelling: dto
 
 using BoomerangGame.Core.Config.ConfigurationDTOs;
+using BoomerangGame.Core.Config.Factories.Symbols;
 using BoomerangGame.Core.Domain.Cards;
-using BoomerangGame.Core.Domain.Cards.Symbols;
 
 namespace BoomerangGame.Core.Config.Factories;
 

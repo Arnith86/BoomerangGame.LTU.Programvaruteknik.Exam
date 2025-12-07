@@ -1,7 +1,6 @@
-﻿
-using BoomerangGame.Core.Domain.Cards.Symbols;
+﻿using BoomerangGame.Core.Domain.Cards.Symbols;
 
-namespace BoomerangGame.Core.Config.Factories;
+namespace BoomerangGame.Core.Config.Factories.Symbols;
 
 /// <summary>
 /// Provides factory methods for selecting an <see cref="ISymbolSetMapper"/> implementation <br/>

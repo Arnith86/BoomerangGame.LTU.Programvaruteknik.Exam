@@ -1,6 +1,6 @@
 using BoomerangGame.Core.Domain.Cards.Symbols;
 
-namespace BoomerangGame.Core.Config.Factories;
+namespace BoomerangGame.Core.Config.Factories.Symbols;
 
 /// <summary>
 /// Constructs <see cref="SymbolSet"/> instances from a variety of source shapes.
