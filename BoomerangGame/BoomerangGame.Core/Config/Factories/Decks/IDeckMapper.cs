@@ -1,13 +1,13 @@
 ﻿namespace BoomerangGame.Core.Config.Factories.Decks;
 
 /// <summary>
-/// Provides functionality to map a list of input card data to a deck of output cards.
+/// Provides functionality to map a list of input card data to a _deck of output cards.
 /// This interface focuses on converting data from one card representation to another.
 /// </summary>
 public interface IDeckMapper
 {
 	/// <summary>
-	/// Maps a list of input cards to a deck of output cards using the specified converter function.
+	/// Maps a list of input cards to a _deck of output cards using the specified converter function.
 	/// </summary>
 	/// <typeparam name="TIn">The type of the input card data.</typeparam>
 	/// <typeparam name="TOut">The type of the output card.</typeparam>

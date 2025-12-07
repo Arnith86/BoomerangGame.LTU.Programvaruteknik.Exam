@@ -3,7 +3,7 @@
 namespace BoomerangGame.Core.Config.Factories.Decks;
 
 /// <summary>
-/// Mapper that maps deck from one type of card to another.
+/// Mapper that maps _deck from one type of card to another.
 /// </summary>
 public class BoomerangDeckMapper : IDeckMapper
 {

@@ -9,48 +9,28 @@ namespace BoomerangGame.Core.Port;
 public class ConsolePlayerChannel : IPlayerChannel
 {
 	private readonly Queue<string> _inputQueue = new Queue<string>();
+	private IUI _ui;
 
-	public ConsolePlayerChannel(IUI uI)
+	public ConsolePlayerChannel(IUI ui)
 	{
-		
+		_ui = ui;
 	}
 
 	/// <summary>Prompts the human player to select a card from their hand.</summary>
 	/// <param name="hand">The list of cards available to pick from.</param>
 	/// <returns>The selected card.</returns>
-	public IBoomerangCard<string> PromptForCard(List<IBoomerangCard<string>> hand)
+	public Task<IBoomerangCard<string>> PromptForCard(List<IBoomerangCard<string>> hand)
 	{
-		if (hand == null || hand.Count == 0)
-			throw new InvalidOperationException("Hand is empty. Cannot prompt for card.");
-
-		Console.WriteLine("\nYour current hand:");
-		for (int i = 0; i < hand.Count; i++)
-		{
-			var card = hand[i];
-			Console.WriteLine($"{i + 1}: {card.Name} [{card.Site}] ({card.Number}) - {card.Region}");
-		}
-
-		int selection = -1;
-		while (selection < 1 || selection > hand.Count)
-		{
-			Console.Write("Select a card by number: ");
-			string input = Console.ReadLine();
-			if (!int.TryParse(input, out selection) || selection < 1 || selection > hand.Count)
-			{
-				Console.WriteLine("Invalid selection, try again.");
-			}
-		}
-
-		return hand[selection - 1];
+		throw new NotImplementedException();
 	}
 
 	/// <summary>
 	/// Sends a message to the console player.
 	/// </summary>
 	/// <param name="msg">Message text</param>
-	public void SendMessage(string msg)
+	public async Task SendMessageAsync(string msg)
 	{
-		Console.WriteLine(msg);
+		 _ui.DisplayMessage(msg);
 	}
 
 	/// <summary>
@@ -59,18 +39,16 @@ public class ConsolePlayerChannel : IPlayerChannel
 	/// <returns>The input string.</returns>
 	public string ReceiveMessage()
 	{
-		if (_inputQueue.Count > 0)
-			return _inputQueue.Dequeue();
-
-		string input = Console.ReadLine() ?? string.Empty;
-		return input.Trim();
+		throw new NotImplementedException();
 	}
 
-	/// <summary>
-	/// Optional helper to enqueue input programmatically (useful for testing).
-	/// </summary>
-	public void EnqueueInput(string input)
+	Task IPlayerChannel.SendMessageAsync(string msg)
 	{
-		_inputQueue.Enqueue(input);
+		throw new NotImplementedException();
+	}
+
+	public Task<string?> ReceiveMessageAsync()
+	{
+		throw new NotImplementedException();
 	}
 }

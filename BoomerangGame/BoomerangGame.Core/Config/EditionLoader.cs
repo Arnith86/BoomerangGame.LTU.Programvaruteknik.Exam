@@ -66,19 +66,16 @@ public sealed class EditionLoader : IEditionLoader
 		}
 	}
 
-
+	/// <inheritdoc/>
 	public EditionConfig CreateDomain(EditionConfigDto config)
 	{
 		IScoreCategoryFactory scoreCategoryFactory 
 			= AbstractScoreCategoryFactoryProducer.GetFactory(config.Name);
-
-
 		IEnumerable<IScoreCategory> scoreCategories 
 			= scoreCategoryFactory.Create(config, _regionProgressTracker);
-
-
 		ISymbolSetMapper symbolSetMapper = SymbolSetMapperFactory.GetMapper(config.Name);
 		var dtoToDefinition = _deckMapFunctions.CreateDtoToDefinitionMapper(symbolSetMapper);
+
 
 		IEnumerable<BoomerangCardDefinition<string>> deck 
 			= _deckMapper.MapDeck(

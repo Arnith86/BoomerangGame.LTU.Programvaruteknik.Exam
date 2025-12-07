@@ -4,6 +4,7 @@ using BoomerangGame.Core.Config.Factories.Decks;
 using BoomerangGame.Core.Domain.States.MapStates.Builder;
 using BoomerangGame.Core.Network;
 using BoomerangGame.Core.Scoring;
+using BoomerangGame.Core.Scoring.Builder;
 using BoomerangGame.Core.UIs;
 using BoomerangGame.Core.UIs.Builders;
 using BoomerangGame.Core.UIs.CWritePrint;
@@ -113,6 +114,10 @@ public class Program
 		services.AddSingleton<IConsoleWritePrint, ConsoleWritePrint>();
 		services.AddSingleton<IChannelBuilder, ChannelBuilder>();
 		services.AddSingleton<IUiBuilder, UiBuilder>();
+
+		// Application
+		services.AddSingleton<IScoreEngineBuilder, ScoreEngineBuilder>();
+		services.AddSingleton<IRoundControllerBuilder, RoundControllerBuilder>();
 
 		// Domain
 		services.AddScoped<IMapStateBuilder, MapStateBuilder>();

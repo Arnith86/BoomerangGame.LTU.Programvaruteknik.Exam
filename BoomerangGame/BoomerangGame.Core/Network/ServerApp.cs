@@ -1,6 +1,7 @@
-﻿using BoomerangGame.Core.Application.Builders;
+﻿using BoomerangGame.Core.Application;
+using BoomerangGame.Core.Application.Builders;
 using BoomerangGame.Core.Config;
-using BoomerangGame.Core.Port;
+using BoomerangGame.Core.Scoring.Builder;
 using BoomerangGame.Core.UIs;
 using BoomerangGame.Core.UIs.Builders;
 using System.Net;
@@ -10,27 +11,39 @@ namespace BoomerangGame.Core.Network;
 
 public class ServerApp
 {
-	//private readonly IGameService _gameService;
+	private IGameServices _gameServices;
+	private readonly IGameServiceBuilder _gameServiceBuilder;
 	private readonly ILobbyServiceBuilder _lobbyServiceBuilder;
+	private readonly IScoreEngineBuilder _scoreEngineBuilder;
+	private readonly IRoundControllerBuilder _roundControllerBuilder;
+	private readonly ITieBreakerBuilder _tieBreakerBuilder;
 	private ILobbyService _lobbyService;
 	private readonly IEditionLoader _editionLoader;
 	private readonly IChannelBuilder _channelBuilder;
+	private readonly IUiBuilder _uiBuilder;
 	private readonly IUI _ui;
 	private int _totalPlayers;
 	private int _humanPlayers;
 
 	public ServerApp(
-		//IGameService gameService,
+		IGameServiceBuilder gameServiceBuilder,
 		ILobbyServiceBuilder lobbyServiceBuilder,
+		IScoreEngineBuilder scoreEngineBuilder,
+		IRoundControllerBuilder roundControllerBuilder,
+		ITieBreakerBuilder tieBreakerBuilder,
 		IEditionLoader editionLoader,
 		IChannelBuilder channelBuilder,
 		IUiBuilder uiBuilder
 	)
 	{
-		//_gameService = gameService ?? throw new ArgumentNullException(nameof(gameService));
 		_editionLoader = editionLoader ?? throw new ArgumentNullException(nameof(editionLoader));
+		_gameServiceBuilder = gameServiceBuilder;
 		_lobbyServiceBuilder = lobbyServiceBuilder ?? throw new ArgumentNullException(nameof(lobbyServiceBuilder));
+		_scoreEngineBuilder = scoreEngineBuilder;
+		_roundControllerBuilder = roundControllerBuilder;
+		_tieBreakerBuilder = tieBreakerBuilder;
 		_channelBuilder = channelBuilder;
+		_uiBuilder = uiBuilder;
 		_totalPlayers = 0;
 		_humanPlayers = 0;
 
@@ -57,6 +70,15 @@ public class ServerApp
 		var jsonData = _editionLoader.LoadEditionDto(path);
 		
 		var edition = _editionLoader.CreateDomain(jsonData);
+
+		_gameServices = _gameServiceBuilder.CreateGameServices(
+			edition,
+			new ScoreBoardService(),
+			_scoreEngineBuilder,
+			_roundControllerBuilder,
+			_tieBreakerBuilder
+		);
+
 
 		_lobbyService = _lobbyServiceBuilder.CreateLobbyService(edition.RegionMap);
 		//_gameService.Initialize(edition);
