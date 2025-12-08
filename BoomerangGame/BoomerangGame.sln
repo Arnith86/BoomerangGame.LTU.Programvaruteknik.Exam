@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BoomerangGame.Core", "Boome
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BoomerangGame.Core.Tests", "BoomerangGame.Core.Tests\BoomerangGame.Core.Tests.csproj", "{1BD338D0-0224-409D-A971-37797D6DD6E3}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BoomerangGame.ClientApp", "BoomerangGame.ClientApp\BoomerangGame.ClientApp.csproj", "{1AFE1E17-D65F-4C61-84AD-5C8698E160C7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{1BD338D0-0224-409D-A971-37797D6DD6E3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1BD338D0-0224-409D-A971-37797D6DD6E3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1BD338D0-0224-409D-A971-37797D6DD6E3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1AFE1E17-D65F-4C61-84AD-5C8698E160C7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1AFE1E17-D65F-4C61-84AD-5C8698E160C7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1AFE1E17-D65F-4C61-84AD-5C8698E160C7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1AFE1E17-D65F-4C61-84AD-5C8698E160C7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

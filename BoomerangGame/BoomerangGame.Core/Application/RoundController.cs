@@ -9,14 +9,17 @@ public class RoundController : IRoundController
 {
 	private IScoreEngine _scoreEngine;
 	private readonly ITurnOrder _turnOrder;
+	private readonly IDeckServices _deckServices;
 
 	public RoundController(
 		IScoreEngine scoreEngine,
-		ITurnOrder turnOrder
+		ITurnOrder turnOrder,
+		IDeckServices deckServices
 	)
 	{
 		_scoreEngine = scoreEngine;
 		_turnOrder = turnOrder;
+		_deckServices = deckServices;
 	}
 
 	public void RunRound(List<IPlayer> players, List<IBoomerangCard<string>> deck)

@@ -23,12 +23,16 @@ public class RoundControllerBuilder : IRoundControllerBuilder
 		_editionConfig = editionConfig;
 	}
 
-	public IRoundController CreateRoundController(IScoreEngineBuilder scoreEngineBuilder, EditionConfig editionConfig)
+	public IRoundController CreateRoundController(
+		IScoreEngineBuilder scoreEngineBuilder,
+		EditionConfig editionConfig,
+		IDeckServiceBuilder deckServiceBuilder)
 		=> new RoundController(
 			scoreEngineBuilder.CreateScoreEngine(
 				editionConfig.ScoringStrategies,
 				_tieBreaker,
 				editionConfig.TieBreakerIdentifier),
-			_turnOrderBuilder.CreateTurnOrder(_editionConfig.TurnOrderIdentifier)	
+			_turnOrderBuilder.CreateTurnOrder(_editionConfig.TurnOrderIdentifier),
+			deckServiceBuilder.CreateDeckServices()
 		);
 }

@@ -7,7 +7,8 @@ public interface IRoundControllerBuilder
 {
 	IRoundController CreateRoundController(
 		IScoreEngineBuilder scoreEngineBuilder,
-		EditionConfig editionConfig
+		EditionConfig editionConfig,
+		IDeckServiceBuilder deckServiceBuilder
 	);
 
 

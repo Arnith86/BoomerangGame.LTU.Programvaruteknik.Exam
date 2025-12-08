@@ -5,6 +5,12 @@ namespace BoomerangGame.Core.Application.Builders
 {
 	public interface IGameServiceBuilder
 	{
-		IGameServices CreateGameServices(EditionConfig editionConfig, IScoreBoardService scoreBoardService, IScoreEngineBuilder scoreEngineBuilder, IRoundControllerBuilder roundControllerBuilder, ITieBreakerBuilder tieBreakerBuilder);
+		IGameServices CreateGameServices(
+			EditionConfig editionConfig, 
+			IScoreBoardService scoreBoardService, 
+			IScoreEngineBuilder scoreEngineBuilder, 
+			IRoundControllerBuilder roundControllerBuilder, 
+			ITieBreakerBuilder tieBreakerBuilder
+		);
 	}
 }
